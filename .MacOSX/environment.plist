@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PATH</key>
+	<string>opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:</string>
+</dict>
+</plist>

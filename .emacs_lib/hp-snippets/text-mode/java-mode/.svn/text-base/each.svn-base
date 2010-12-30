@@ -1,0 +1,5 @@
+#name : for ( each ... : ... ) { ... }
+# --
+for ( ${1:type} ${2:var} : ${3:collection}) {
+    $0
+}

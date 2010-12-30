@@ -1,0 +1,11 @@
+#name: bean ... { ... }
+# --
+private ${2:String} ${1:varname};
+
+public void set${1:$(upcase-initials text)}(${2:String} ${1:fieldName)}) {
+this.${1:fieldName} = ${1:fieldName};
+}
+
+public ${2:String} get${1:$(upcase-initials text)}() {
+return ${1:fieldName};
+}
