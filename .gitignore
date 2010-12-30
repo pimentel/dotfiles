@@ -1,7 +1,20 @@
+*/
+*
+
+!.*/
+!.*
+*.*.bak
 TODO
 slides
-!.*/
 
+.newsrc*
+.cvspass
+.ido.last
+.serverauth*
+.anyconnect
+.authinfo
+.profile
+.xdvirc
 .CFUserTextEncoding
 .DS_Store
 .Trash/
