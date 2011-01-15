@@ -2,17 +2,14 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export TERM=xterm-color
-# export PS1="\[\033[01;32m\]\u@hp-mbp\[\033[01;34m\] \w \$\[\033[00m\] "
-# export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w \[\033[01;34m\] \n\$\[\033[00m\] "
-NO_COLOR="\[\033[00m\]"
+
 export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[01;34m\]\$\[\033[00m\] "
 
 export PATH=$HOME/scripts:$HOME/bin:$PATH
-
 export MATLABPATH=$HOME/scripts/matlab
-
 export EDITOR=emacs
-# MacPorts Begin
+
+# MacPorts begin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # this will break your MANPATH
@@ -28,11 +25,13 @@ export CPLUS_INCLUDE_PATH=$CPATH
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-
+source ~/.git-completion.bash
 # Finished adapting your PATH environment variable for use with MacPorts.
+# MacPorts end
 
+alias ll="ls -l"
+alias lh="ls -lh"
+alias grep="grep --color=auto"
 alias pu="pushd"
 alias po="popd"
-alias grep="grep --color=auto"
 alias ec="emacsclient -nw"
-source ~/.git-completion.bash

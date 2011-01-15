@@ -7,20 +7,18 @@
 ;;                                   (nnimap-server-port 993)
 ;;                                   (nnimap-stream ssl)) )
 
-;; local dovecot server
-(setq gnus-select-method
-      '(nnimap "Mail"
-	       (nnimap-address "localhost")
-	       (nnimap-stream network)
-	       (nnimap-authenticator login)))
-(setq imap-shell-program "/usr/sbin/dovecot --exec-mail imap")
-;; CalMail
-;; (setq gnus-secondary-select-methods '((nnimap "CalMail"
-;;                                       (nnimap-address "calmail.berkeley.edu")
-;;                                       (nnimap-server-port 993)
-;;                                       (nnimap-stream ssl)
-;;                                        )))
+(setq gnus-select-method 
+      '(nnmaildir "GMailTest" 
+                  (directory "~/.mail/gmail")
+                  (directory-files nnheader-directory-files-safe)
+                  (get-new-mail nil)))
 
+(setq gnus-message-archive-group "sent")
+
+(define-key gnus-group-mode-map (kbd "vo")
+  '(lambda ()
+     (interactive)
+     (shell-command "offlineimap&" "*offlineimap*" nil)))
 
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
