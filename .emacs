@@ -1,9 +1,9 @@
 ;; Harold Pimentel's Emacs configuration
 ;; 
-;; Last update: Sun Dec 19 01:25:56 2010
+;; Last update: Sat Jan 15 17:17:34 2011
 ;;
 ;; Latest version can be found at:
-;; http://www.cs.berkeley.edu/~pimentel
+;; http://www.github.com/pimentel
 
 (add-to-list 'load-path "~/.emacs_lib/")        ; load packages from this dir
 (add-hook 'LaTeX-mode-hook
@@ -14,26 +14,14 @@
             ))
 (abbrev-mode nil)
 
-;; Enable these modes
-;; Conditional statements are below
-(defvar *linum-enabled* t)
-(defvar *maxframe-enabled* t)
-(defvar *ido-enabled* t)
-
-;; language specific configurations
-(defvar *java-cfg* t)
-(defvar *c-cfg* t)
-(defvar *c++-cfg* t)
-(defvar *py-cfg* t)
-
 ;; Startup behavior
 (setq inhibit-startup-message t)		; don't display the message at start
 (setq make-backup-files nil)      		; prevent backup file creation
 (setq-default transient-mark-mode t)	; turns highlighting on when selecting text
 (setq-default indent-tabs-mode nil)     ; spaces instead of tabs
-(menu-bar-mode t)                       ; small menu on top
+;;(menu-bar-mode t)                       ; small menu on top
 (setq-default tab-width 4)      		; set the width of tabs
-; change where you stop when pressing M-i
+;; change where you stop when pressing M-i
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56))	
 (setq require-final-newline t)			; make the last line a new line
 (fset 'yes-or-no-p 'y-or-n-p)			; type "y" instead of "yes"
@@ -61,15 +49,12 @@
 (setq backup-directory-alist '(("." . "~/.emacs_backups")))
 
 ;; Enable global line numbers in the left hand column
-(when *linum-enabled*
-  (require 'linum)
-  (global-linum-mode t)
-  )
+(require 'linum)
+(global-linum-mode t)
 
 
 ;; display the column number in the status bar
 (column-number-mode t)
-
 (setq-default fill-column 80)
 
 ;; maximize the window when in XEmacs
@@ -80,8 +65,6 @@
 ;; move between windows with the meta+arrow keys
 (if window-system
     (windmove-default-keybindings 'meta)
-    ;;(tooltip-mode -1)
-    ;;(setq tooltip-use-echo-area t)
   (progn
     (global-set-key [M-left]  'windmove-left)
     (global-set-key [(alt up)]    'windmove-up)
@@ -93,7 +76,9 @@
       (append
        ;; text-mode if a README or COMMIT_EDITMSG
        '(("README" . text-mode)
-         ("COMMIT_EDITMSG" . text-mode))
+         ("COMMIT_EDITMSG" . text-mode)
+         ("AUTHORS" . text-mode)
+         ("CHANGELOG" . text-mode))
        auto-mode-alist))
 
 ; load Emacs Speaks Statistics (ESS)
@@ -117,8 +102,6 @@
         "\\`\\./"))
 (setq ido-use-filename-at-point nil)
 (setq ido-confirm-unique-completion t)
-; save previous session
-; (require 'desktop)
 
 ; swap buffers in different windows
 (require 'buffer-move)
@@ -136,11 +119,10 @@
 (yas/load-directory "~/.emacs_lib/yasnippet-0.6.1c/snippets")
 (setq yas/root-directory "~/.emacs_lib/hp-snippets")
 (yas/load-directory yas/root-directory)
-(setq yas/prompt-functions '(yas/dropdown-prompt yas/ido-prompt))
+(setq yas/prompt-functions '(yas/ido-prompt yas/dropdown-prompt))
 (setq abbrev-mode nil)
 
 ;; turn yas on these modes
-
 (add-hook 'java-mode-hook 'yas/minor-mode-on)
 (add-hook 'matlab-mode-hook 'yas/minor-mode-on)
 (add-hook 'org-mode-hook 'yas/minor-mode-on)
@@ -440,6 +422,9 @@ o  (interactive)
 ;;; - Fix color theme
 ;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
 
+(if window-system
+    (menu-bar-mode t)
+  (menu-bar-mode nil))
 
 ;;; testing
 (require 'misc)
@@ -460,7 +445,12 @@ spaced"
         (setq it (+ 1 it))
         ))))
 
-;;; This was installed by package-install.el.
+(defun hp-delete-line-back ()
+  "Delete from current point to the beginning of the line"
+  (interactive)
+  (kill-line 0))
+
+;;; This was installled by package-install.el.
 ;;; This provides support for the package system and
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
