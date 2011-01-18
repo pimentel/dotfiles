@@ -1,18 +1,11 @@
 ;; Harold Pimentel's Emacs configuration
 ;; 
-;; Last update: Sat Jan 15 17:17:34 2011
+;; Last update: 
 ;;
 ;; Latest version can be found at:
 ;; http://www.github.com/pimentel
 
 (add-to-list 'load-path "~/.emacs_lib/")        ; load packages from this dir
-(add-hook 'LaTeX-mode-hook
-          '(lambda ()
-            (yas/minor-mode-off)
-            (auto-fill-mode t)
-            (whitespace-mode)
-            ))
-(abbrev-mode nil)
 
 ;; Startup behavior
 (setq inhibit-startup-message t)		; don't display the message at start
@@ -27,31 +20,37 @@
 (fset 'yes-or-no-p 'y-or-n-p)			; type "y" instead of "yes"
 (setq scroll-step 1)                    ; only scroll one line at a time
 (show-paren-mode t)
+(abbrev-mode nil)
 
 ;; global bindings
 (global-set-key (kbd "C-. e") 'eval-region)
-(global-set-key (kbd "C-. c") 'comment-region)
-(global-set-key (kbd "C-. u") 'uncomment-region)
+(global-set-key (kbd "C-. c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-. r") 'revert-buffer)
+(global-set-key (kbd "C-. n") 'rename-file-and-buffer)
 (global-set-key (kbd "C-. i") 'overwrite-mode)
 (global-set-key (kbd "C-. k") 'delete-this-buffer-and-file)
-(global-set-key (kbd "C-; l") 'hp-downcase-char)
-(global-set-key (kbd "C-; u") 'hp-upcase-char)
+(global-set-key (kbd "C-. l") 'hp-downcase-char)
+(global-set-key (kbd "C-. u") 'hp-upcase-char)
 (global-set-key (kbd "M-p") 'scroll-down)
 (global-set-key (kbd "M-n") 'scroll-up)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-^") 'enlarge-window)
 (global-set-key (kbd "C-}") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-SPC") 'auto-complete)
+
 (setq confirm-nonexistent-file-or-buffer nil)
 
 ;; put backups in this folder
 (setq backup-directory-alist '(("." . "~/.emacs_backups")))
 
+;; column editing stuff
+(cua-mode t)
+(cua-selection-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+
 ;; Enable global line numbers in the left hand column
 (require 'linum)
 (global-linum-mode t)
-
 
 ;; display the column number in the status bar
 (column-number-mode t)
@@ -81,11 +80,9 @@
          ("CHANGELOG" . text-mode))
        auto-mode-alist))
 
-; load Emacs Speaks Statistics (ESS)
+;; load Emacs Speaks Statistics (ESS)
 (load "~/.emacs_lib/ess-5.12/lisp/ess-site")
 (require 'ess-site)
-
-;; (setq inferior-R-program-name "/opt/local/bin/R")
 
 ;; ido for significantly better file/buffer switching
 (require 'ido)
@@ -102,6 +99,17 @@
         "\\`\\./"))
 (setq ido-use-filename-at-point nil)
 (setq ido-confirm-unique-completion t)
+
+;; FIXME
+;; Currently:
+;; disable auto searching for files unless called explicitly
+;; What I want:
+;; Automatically searches... if I press a key, then disables
+(setq ido-auto-merge-delay-time 99999)
+(define-key ido-file-dir-completion-map (kbd "C-. s") 
+  (lambda() 
+    (interactive)
+    (ido-initiate-auto-merge (current-buffer))))
 
 ; swap buffers in different windows
 (require 'buffer-move)
@@ -131,10 +139,10 @@
 ;;; Hippie expand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-; set the hippie-expand function list
-; press M-/ to expand any text
-; it will search the funciton list and expand it (if it can)
-; credit: http://trey-jackson.blogspot.com/2007/12/emacs-tip-5-hippie-expand.html
+;; set the hippie-expand function list
+;; press M-/ to expand any text
+;; it will search the funciton list and expand it (if it can)
+;; credit: http://trey-jackson.blogspot.com/2007/12/emacs-tip-5-hippie-expand.html
 (setq hippie-expand-try-functions-list '(yas/hippie-try-expand
                                          try-expand-dabbrev
                                          try-expand-dabbrev-all-buffers
@@ -178,7 +186,6 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
-
 ;;; put customizations in this file
 ;;  a hack to get rid of all the GUI configuration crap
 (setq custom-file "~/.emacs.d/custom.el")
@@ -189,7 +196,6 @@
 (setq c-default-style '((java-mode . "java")
                         (awk-mode . "awk")
                         (other . "linux")))
-
 
 (setq c-mode-hook
     (function (lambda ()
@@ -227,7 +233,6 @@ o  (interactive)
 (setq-default ac-auto-show-start nil)
 (setq-default ac-auto-start nil)
 (setq-default ac-auto-show-menu nil)
-;; (setq-default ac-delay 0.5)
 (setq-default ac-use-menu-map t)
 
 ;; Reference:
@@ -293,10 +298,19 @@ o  (interactive)
 (global-set-key (kbd "C-. b") 'org-iswitchb)
 ;; AucTex mode  
 (require 'tex-site)
-;; use pdflatex
-(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+            (yas/minor-mode-off)
+            (auto-fill-mode t)
+            (whitespace-mode)
+            (TeX-PDF-mode)
+            (turn-on-reftex)
+            (LaTeX-math-mode)
+            ))
+
+;; (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 ;; (add-hook 'LaTeX-mode-hook
 ;;           (add-to-list 'TeX-output-view-style
 ;;              '("^pdf$" "." "open %o")))
@@ -444,6 +458,24 @@ spaced"
         (other-window 1)
         (setq it (+ 1 it))
         ))))
+
+;; Courtesy Steve Yegge
+;; http://sites.google.com/site/steveyegge2/my-dot-emacs-file
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+ (filename (buffer-file-name)))
+    (if (not filename)
+ (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+   (message "A buffer named '%s' already exists!" new-name)
+ (progn
+   (rename-file name new-name 1)
+   (rename-buffer new-name)
+   (set-visited-file-name new-name)
+   (set-buffer-modified-p nil))))))
+
 
 (defun hp-delete-line-back ()
   "Delete from current point to the beginning of the line"
