@@ -12,7 +12,6 @@
 (setq make-backup-files nil)      		; prevent backup file creation
 (setq-default transient-mark-mode t)	; turns highlighting on when selecting text
 (setq-default indent-tabs-mode nil)     ; spaces instead of tabs
-;;(menu-bar-mode t)                       ; small menu on top
 (setq-default tab-width 4)      		; set the width of tabs
 ;; change where you stop when pressing M-i
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56))	
@@ -21,6 +20,12 @@
 (setq scroll-step 1)                    ; only scroll one line at a time
 (show-paren-mode t)
 (abbrev-mode nil)
+
+;; Cursor stuff
+(set-cursor-color "cyan")
+(setq-default cursor-type 'box)
+(set-face-background 'show-paren-match-face "red")
+(set-face-foreground 'show-paren-match-face "white")
 
 ;; global bindings
 (global-set-key (kbd "C-. e") 'eval-region)
