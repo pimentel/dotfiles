@@ -1,6 +1,6 @@
 ;; Harold Pimentel's Emacs configuration
-;; 
-;; Last update: 
+;;
+;; Last update:
 ;;
 ;; Latest version can be found at:
 ;; http://www.github.com/pimentel
@@ -14,7 +14,7 @@
 (setq-default indent-tabs-mode nil)     ; spaces instead of tabs
 (setq-default tab-width 4)      		; set the width of tabs
 ;; change where you stop when pressing M-i
-(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56))	
+(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56))
 (setq require-final-newline t)			; make the last line a new line
 (fset 'yes-or-no-p 'y-or-n-p)			; type "y" instead of "yes"
 (setq scroll-step 1)                    ; only scroll one line at a time
@@ -22,7 +22,7 @@
 (abbrev-mode nil)
 
 ;; Cursor stuff
-(set-cursor-color "cyan")
+(set-cursor-color "turquoise")
 (setq-default cursor-type 'box)
 (set-face-background 'show-paren-match-face "red")
 (set-face-foreground 'show-paren-match-face "white")
@@ -36,12 +36,15 @@
 (global-set-key (kbd "C-. k") 'delete-this-buffer-and-file)
 (global-set-key (kbd "C-. l") 'hp-downcase-char)
 (global-set-key (kbd "C-. u") 'hp-upcase-char)
+(global-set-key (kbd "M-SPC") 'auto-complete)
 (global-set-key (kbd "M-p") 'scroll-down)
 (global-set-key (kbd "M-n") 'scroll-up)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-^") 'enlarge-window)
 (global-set-key (kbd "C-}") 'enlarge-window-horizontally)
-(global-set-key (kbd "M-SPC") 'auto-complete)
+;; (global-set-key (kbd "C-. l") 'org-store-link)
+;; (global-set-key (kbd "C-. a") 'org-agenda)
+;; (global-set-key (kbd "C-. b") 'org-iswitchb)
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
@@ -111,8 +114,8 @@
 ;; What I want:
 ;; Automatically searches... if I press a key, then disables
 (setq ido-auto-merge-delay-time 99999)
-(define-key ido-file-dir-completion-map (kbd "C-. s") 
-  (lambda() 
+(define-key ido-file-dir-completion-map (kbd "C-. s")
+  (lambda()
     (interactive)
     (ido-initiate-auto-merge (current-buffer))))
 
@@ -139,7 +142,6 @@
 (add-hook 'java-mode-hook 'yas/minor-mode-on)
 (add-hook 'matlab-mode-hook 'yas/minor-mode-on)
 (add-hook 'org-mode-hook 'yas/minor-mode-on)
-
 
 ;;; Hippie expand
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -273,12 +275,12 @@ o  (interactive)
 (setq whitespace-line-column fill-column)
 
 ;;; Java-mode stuff
-;; 
+;;
 (add-hook 'java-mode-hook
           '(lambda()
              (yas/minor-mode-on)
              (setq whitespace-line-column fill-column)
-             (whitespace-mode)
+             ;;(whitespace-mode)
              ))
 
 ;;; Emacs-Speaks Statistics
@@ -298,10 +300,7 @@ o  (interactive)
 ;;         (last thing)
 ;;         ))
 
-(global-set-key (kbd "C-. l") 'org-store-link)
-(global-set-key (kbd "C-. a") 'org-agenda)
-(global-set-key (kbd "C-. b") 'org-iswitchb)
-;; AucTex mode  
+;; AucTex mode
 (require 'tex-site)
 (add-hook 'LaTeX-mode-hook
           '(lambda ()
@@ -332,8 +331,8 @@ o  (interactive)
 ;; (setq-default TeX-master nil)
 
 ;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-;; 
-;; 
+;;
+;;
 ;; (setq reftex-plug-into-AUCTeX t)
 
 ;; Colors
@@ -486,6 +485,28 @@ spaced"
   "Delete from current point to the beginning of the line"
   (interactive)
   (kill-line 0))
+
+(defun whack-whitespace (arg)
+  "Delete all white space from point to the next word.  With prefix ARG
+    delete across newlines as well.  The only danger in this is that you
+    don't have to actually be at the end of a word to make it work.  It
+    skips over to the next whitespace and then whacks it all to the next
+    word."
+  (interactive "p")
+  (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
+    (re-search-forward regexp nil t)
+    (replace-match "" nil nil)))
+
+(defun whack-whitespace-back (arg)
+  "Delete all white space from point to the next word.  With prefix ARG
+    delete across newlines as well.  The only danger in this is that you
+    don't have to actually be at the end of a word to make it work.  It
+    skips over to the next whitespace and then whacks it all to the next
+    word."
+  (interactive "p")
+  (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
+    (re-search-backward regexp nil t)
+    (replace-match "" nil nil)))
 
 ;;; This was installled by package-install.el.
 ;;; This provides support for the package system and
