@@ -329,8 +329,13 @@ header"
             (turn-on-reftex)
             (LaTeX-math-mode)
             ))
-(setq TeX-view-program-list '(("Preview" "open %o")))
-(setq TeX-view-program-selection '((output-pdf "Preview")))
+(setq TeX-view-program-list '(("Preview" "open %o")
+                              ("Evince" "evince %o")))
+(if (string-equal system-type "darwin")
+    (setq TeX-view-program-selection '((output-pdf "Preview"))))
+(if (string-equal system-type "gnu/linux")
+    (setq TeX-view-program-selection '((output-pdf "Evince"))))
+
 (autoload 'gtags-mode "gtags" "" t)
 
 ;; Reference: emacs-fu blog
