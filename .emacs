@@ -1,7 +1,5 @@
 ;; Harold Pimentel's Emacs configuration
 ;;
-;; Last update:
-;;
 ;; Latest version can be found at:
 ;; http://www.github.com/pimentel
 
@@ -26,6 +24,9 @@
 (setq-default cursor-type 'box)
 (set-face-background 'show-paren-match-face "red")
 (set-face-foreground 'show-paren-match-face "white")
+(setq default-frame-alist
+      '((set-cursor-color "turquoise")))
+;; (global-hl-line-mode)
 
 ;; global bindings
 (global-set-key (kbd "C-. e") 'eval-region)
@@ -42,9 +43,13 @@
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-^") 'enlarge-window)
 (global-set-key (kbd "C-}") 'enlarge-window-horizontally)
-;; (global-set-key (kbd "C-. l") 'org-store-link)
-;; (global-set-key (kbd "C-. a") 'org-agenda)
-;; (global-set-key (kbd "C-. b") 'org-iswitchb)
+
+;; FIXME
+;; Make these local
+(global-set-key (kbd "C-. o") 'gtags-find-tag-other-window)
+(global-set-key (kbd "C-. .") 'gtags-find-tag)
+(global-set-key (kbd "C-. ,") 'gtags-find-rtag)
+(global-set-key (kbd "C-. g") 'djcb-gtags-create-or-update)
 
 (setq confirm-nonexistent-file-or-buffer nil)
 
@@ -207,17 +212,28 @@
 (setq c-mode-hook
     (function (lambda ()
                 (setq indent-tabs-mode nil)
+                (setq ac-sources (append ac-sources '(ac-source-gtags)))
+                (gtags-mode t)
+                (local-set-key (kdb "C-. .") 'gtags-find-tag)
+                (local-set-key (kbd "C-. ,") 'gtags-find-rtag)
                 (setq c-indent-level 4))))
+
 (setq objc-mode-hook
     (function (lambda ()
                 (setq indent-tabs-mode nil)
                 (setq c-indent-level 4))))
+
 (setq c++-mode-hook
     (function (lambda ()
                 (setq whitespace-line-column fill-column)
                 (setq indent-tabs-mode nil)
+                (setq ac-sources (append ac-sources '(ac-source-gtags)))
+                (gtags-mode t)
+                (djcb-gtags-create-or-update)
+                ;; (define-key c++-mode-map "\C-co" 'gtags-find-tag-other-window)
+                ;; (define-key c++-mode-map "\C-.." 'gtags-find-tag)
+                ;; (define-key c++-mode-map "\C-.," 'gtags-find-rtag)
                 (setq c-indent-level 4))))
-
 
 ;; function decides whether .h file is C or C++ header, sets C++ by
 ;; default because there's more chance of there being a .h without a
@@ -225,7 +241,7 @@
 (defun c-c++-header ()
   "sets either c-mode or c++-mode, whichever is appropriate for
 header"
-o  (interactive)
+  (interactive)
   (let ((c-file (concat (substring (buffer-file-name) 0 -1) "c")))
     (if (file-exists-p c-file)
         (c-mode)
@@ -275,12 +291,10 @@ o  (interactive)
 (setq whitespace-line-column fill-column)
 
 ;;; Java-mode stuff
-;;
 (add-hook 'java-mode-hook
           '(lambda()
              (yas/minor-mode-on)
              (setq whitespace-line-column fill-column)
-             ;;(whitespace-mode)
              ))
 
 ;;; Emacs-Speaks Statistics
@@ -300,6 +314,10 @@ o  (interactive)
 ;;         (last thing)
 ;;         ))
 
+;;; CEDET stuff
+;; (load-file "~/.elisp/rc-cedet.el")
+;; (setq ac-sources (append ac-sources '(ac-source-semantic)))
+
 ;; AucTex mode
 (require 'tex-site)
 (add-hook 'LaTeX-mode-hook
@@ -311,6 +329,24 @@ o  (interactive)
             (turn-on-reftex)
             (LaTeX-math-mode)
             ))
+(setq TeX-view-program-list '(("Preview" "open %o")))
+(setq TeX-view-program-selection '((output-pdf "Preview")))
+(autoload 'gtags-mode "gtags" "" t)
+
+;; Reference: emacs-fu blog
+(defun djcb-gtags-create-or-update ()
+  "create or update the gnu global tag file"
+  (interactive)
+  (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
+    (let ((olddir default-directory)
+          (topdir (read-directory-name  
+                    "gtags: top of source tree:" default-directory)))
+      (cd topdir)
+      (shell-command "gtags && echo 'created tagfile'")
+      (cd olddir)) ; restore   
+    ;;  tagfile already exists; update it
+    (shell-command "global -u && echo 'updated tagfile'")))
+
 
 ;; (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 ;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
@@ -432,13 +468,10 @@ o  (interactive)
 ;;; TODO:
 ;;; - Fix column width thing in different modes (Whitespace)
 ;;; - Set whitespace on different modes
-;;; - Set all different modes correctly (ie. (if *mode-var* (do stuff)))
 ;;; - Look into "Midnight" package
-;;; - Look into overwrite mode
-;;; - Fix the () highlighting issue
-;;; - Setup Gnus
 ;;; - Fix color theme
 ;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
+;;; - Add JavaDoc shortcut and snippet
 
 (if window-system
     (menu-bar-mode t)
