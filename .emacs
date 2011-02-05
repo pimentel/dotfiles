@@ -19,6 +19,9 @@
 (show-paren-mode t)
 (abbrev-mode nil)
 
+(prefer-coding-system 'utf-8)
+
+
 ;; Cursor stuff
 (set-cursor-color "turquoise")
 (setq-default cursor-type 'box)
@@ -147,6 +150,14 @@
 (add-hook 'java-mode-hook 'yas/minor-mode-on)
 (add-hook 'matlab-mode-hook 'yas/minor-mode-on)
 (add-hook 'org-mode-hook 'yas/minor-mode-on)
+
+;;; MobileOrg
+(setq org-directory "~/org")
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-agenda-files (quote ("~/org/shopping_list.org")))
+(setq org-mobile-inbox-for-pull "~/Dropbox/MobileOrg/inbox.org")
+
+
 
 ;;; Hippie expand
 (global-set-key (kbd "M-/") 'hippie-expand)
