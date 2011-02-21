@@ -7,7 +7,7 @@ export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[0
 
 export PATH=$HOME/scripts:$HOME/bin:$PATH
 export MATLABPATH=$HOME/scripts/matlab
-export EDITOR=emacs
+export EDITOR=emacsclient
 
 # MacPorts begin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -34,4 +34,5 @@ alias lh="ls -lh"
 alias grep="grep --color=auto"
 alias pu="pushd"
 alias po="popd"
-alias ec="emacsclient -nw"
+alias em="emacsclient -nw"
+~/scripts/emacs_daemon.sh

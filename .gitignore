@@ -4,6 +4,8 @@
 !.*/
 !.*
 !.elisp/
+!scripts/*
+
 *.*.bak
 TODO
 slides
