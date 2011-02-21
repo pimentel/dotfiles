@@ -21,3 +21,6 @@
 (global-set-key (kbd "C-. g") 'djcb-gtags-create-or-update)
 
 (global-set-key (kbd "C-M-i") 'aj-toggle-fold)
+
+;; unbind annoying stuff
+(global-unset-key (kbd "C-x ."))
