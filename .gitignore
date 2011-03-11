@@ -4,6 +4,7 @@
 !.*/
 !.*
 !.elisp/
+!scripts/
 !scripts/*
 
 *.*.bak

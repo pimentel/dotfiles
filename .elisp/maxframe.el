@@ -9,9 +9,10 @@
     (global-set-key [(alt right)] 'windmove-right)
     (global-set-key [(alt down)]  'windmove-down)))
 
-;; this mode is REALLY obnoxious is Aquamacs
+;; this mode is REALLY obnoxious in Aquamacs
 ;; (don't turn it on there)
 (if (not (boundp 'aquamacs-version))
-    ((require 'maxframe)
-     (add-hook 'window-setup-hook 'maximize-frame t)
-     (set-frame-parameter nil 'fullscreen 'fullboth)))
+    (progn
+      (require 'maxframe)
+      (add-hook 'window-setup-hook 'maximize-frame t)
+      (set-frame-parameter nil 'fullscreen 'fullboth)))
