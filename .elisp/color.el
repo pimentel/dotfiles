@@ -24,11 +24,12 @@
         (left . 60)
         (width . 95)
         (height . 60)
+        (cursor-color . "turquoise")
         ))
 
 (defun hp-set-font (frame)
   "Interval function"
-  (set-frame-parameter frame 'font "Menlo-12")  
+  (set-frame-parameter frame 'font "Menlo-12")
   )
 
 (if (>= emacs-major-version 23)
