@@ -5,19 +5,6 @@
 (set-face-attribute 'default nil :height 120)
 
 
-;; (setq default-frame-alist
-;;       '((top . 200) (left . 400)
-;;         (width . 80) (height . 40)
-;;         (cursor-color . "white")
-;;         (cursor-type . box)
-;;         (foreground-color . "yellow")
-;;         (background-color . "black")
-;;         (font . "-*-Courier-normal-r-*-*-13-*-*-*-c-*-iso8859-1")))
-
-;; (setq default-frame-alist
-;;       '((cursor-type . bar)
-;;         ))
-
 (setq default-frame-alist
       '(
         (top . 0)
@@ -36,10 +23,42 @@
     (hp-set-font frame-initial-frame)
 )
 
+(font-lock-add-keywords
+ 'python-mode
+ '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
+
+(add-hook 'c-mode-common-hook
+               (lambda ()
+                (font-lock-add-keywords nil
+                 '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+
+;; (add-hook 'python-mode-common-hook
+;;           (lambda ()
+;;             (font-lock-add-keywords nil
+;;             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face prepend)))))
+
 
 (add-hook 'after-make-frame-functions
           'hp-set-font
           )
+
+;; FIXME: Need to fix font-lock-number
+(make-face 'font-lock-number-face)
+(set-face-foreground 'font-lock-number-face "#ff9632")
+(setq font-lock-number-face 'font-lock-number-face)
+(defvar font-lock-number "[0-9]+\\([eE][+-]?[0-9]*\\)?")
+(defvar font-lock-hexnumber "0[xX][0-9a-fA-F]+")
+
+(add-hook 'font-lock-mode-hook
+  (function (lambda ()
+    (setq font-lock-keywords
+      (append font-lock-keywords
+        (list
+          (list (concat "\\<\\(" font-lock-number "\\)\\>" )
+                (list 0 font-lock-number-face))
+          (list (concat "\\<\\(" font-lock-hexnumber "\\)\\>" )
+                (list 0 font-lock-number-face))))))))
+
 
 (defun hp-color()
   (interactive)
@@ -60,9 +79,11 @@
      (font-lock-type-face ((t(:foreground "#22bb22"))))
      (font-lock-function-name-face ((t (:foreground "#000000" :weight bold))))
      (font-lock-keyword-face ((t (:foreground "#690593" :weight bold))))
+     ;; (font-lock-warning-face ((t (:foreground "#0d6c00" :background "#9cff8c" :weight bold))))
+     (font-lock-warning-face ((t (:foreground "#FF0000" :background "#9cff8c" :weight bold))))
      ;; (font-lock-keyword-face ((t (:foreground "#8B19BD" :weight bold))))
      (font-lock-doc-string-face ((t (:foreground "#FF234E"))))
-     
+     (font-lock-number-face ((t (:forground "#ff9632"))))
      (font-lock-variable-name-face ((t (:foreground "#7e7d10"))))
      (font-lock-constant-face ((t (:foreground "#21857f"))))
      ))
