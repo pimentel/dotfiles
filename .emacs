@@ -47,7 +47,7 @@
       (append
        ;; text-mode if a README or COMMIT_EDITMSG
        '(("README" . text-mode)
-         ("COMMIT_EDITMSG" . text-mode)
+         ("COMMIT_EDITMSG" . shell-script-mode)
          ("AUTHORS" . text-mode)
          ("CHANGELOG" . text-mode))
        auto-mode-alist))

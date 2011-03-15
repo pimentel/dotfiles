@@ -7,7 +7,7 @@ export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[0
 
 export PATH=$HOME/scripts:$HOME/bin:$PATH
 export MATLABPATH=$HOME/scripts/matlab
-export EDITOR="emacsclient"
+export EDITOR="emacsclient -nw"
 
 # MacPorts begin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -36,7 +36,7 @@ alias lh="ls -lh"
 alias grep="grep --color=auto"
 alias pu="pushd"
 alias po="popd"
-alias em="emacsclient"
+alias em="emacsclient -nw"
 
 # check if Emacs daemon is running. If not, start it.
 if [ -f ~/scripts/emacs_daemon.sh ]; then
