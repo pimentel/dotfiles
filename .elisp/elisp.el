@@ -38,6 +38,14 @@ header"
       (set-selective-display
        (if selective-display nil (or col 1))))))
 
+;; TODO: Write this function
+(defun hp-two-window-frame ()
+  "Resize the current frame to the maximum length, but width
+enough for two (comfortable) windows"
+  (interactive)
+  ;; TODO
+  )
+
 (defun hp-downcase-char ()
   "Change current character to lowercase"
   (interactive)

@@ -3,6 +3,9 @@ syntax on
 " turn on line numbers
 set number
 
+" font
+set gfn=Menlo:h12
+
 set textwidth=79
 " show cursor position at all the time
 set ruler

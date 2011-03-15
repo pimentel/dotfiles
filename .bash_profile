@@ -7,14 +7,14 @@ export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[0
 
 export PATH=$HOME/scripts:$HOME/bin:$PATH
 export MATLABPATH=$HOME/scripts/matlab
-export EDITOR=emacsclient
+export EDITOR="emacsclient"
 
 # MacPorts begin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # this will break your MANPATH
 # use /etc/man.conf
-#export MANPATH=/opt/local/share/man:$MANPATH
+# export MANPATH=/opt/local/share/man:$MANPATH
 
 # this will add the libraries in CPATH to the -I line in gcc/g++
 export CPATH=/opt/local/include
@@ -25,7 +25,9 @@ export CPLUS_INCLUDE_PATH=$CPATH
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-source ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi 
 # Finished adapting your PATH environment variable for use with MacPorts.
 # MacPorts end
 
@@ -34,5 +36,9 @@ alias lh="ls -lh"
 alias grep="grep --color=auto"
 alias pu="pushd"
 alias po="popd"
-alias em="emacsclient -nw"
-~/scripts/emacs_daemon.sh
+alias em="emacsclient"
+
+# check if Emacs daemon is running. If not, start it.
+if [ -f ~/scripts/emacs_daemon.sh ]; then
+    . ~/scripts/emacs_daemon.sh
+fi

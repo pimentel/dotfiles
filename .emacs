@@ -22,8 +22,13 @@
 
 (column-number-mode t)
 (setq-default fill-column 80)
+
 ;; Column stuff
 (put 'set-goal-column 'disabled nil)
+
+;; split vertically, not horizontally
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 0)
 
 (prefer-coding-system 'utf-8)
 
@@ -70,8 +75,6 @@
 ;; Column editing mode
 (load "~/.elisp/cua")
 (load "~/.elisp/linum")
-;; Maxframe app to make XEmacs maximum
-(load "~/.elisp/maxframe")
 ;; Emacs Speaks Statistics
 (load "~/.elisp/ess")
 
@@ -91,57 +94,62 @@
 (load "~/.elisp/cpp")
 (load "~/.elisp/objc")
 (load "~/.elisp/autocomplete")
-(load "~/.elisp/auctex")
+;; (load "~/.elisp/auctex")
 (load "~/.elisp/color")
 (load "~/.elisp/matlab")
 (load "~/.elisp/whitespace")
 (load "~/.elisp/gtags")
 
-;;; Java-mode stuff
-(add-hook 'java-mode-hook
-          '(lambda()
-             (yas/minor-mode-on)
-             (setq whitespace-line-column fill-column)
-             ))
+;; ;;; Java-mode stuff
+;; (add-hook 'java-mode-hook
+;;           '(lambda()
+;;              (yas/minor-mode-on)
+;;              (setq whitespace-line-column fill-column)
+;;              ))
 
 
-;;; Example of how to set modes
-;; (setq hp-c-style
-;;       '((do-stuff)
-;;         (do-more-stuff)
-;;         (...)
-;;         (last thing)
-;;         ))
+;; ;;; Example of how to set modes
+;; ;; (setq hp-c-style
+;; ;;       '((do-stuff)
+;; ;;         (do-more-stuff)
+;; ;;         (...)
+;; ;;         (last thing)
+;; ;;         ))
 
-;;; CEDET stuff
-;; (load "~/.elisp/cedet")
-
-
-;; Scala stuff
-(add-to-list 'load-path "~/.emacs_lib/scala-mode/")
-(require 'scala-mode-auto)
+;; ;;; CEDET stuff
+;; ;; (load "~/.elisp/cedet")
 
 
-;; (require 'multi-term)
-;; (setq multi-term-program "/bin/bash")
-
-;;; TODO:
-;;; - Fix column width thing in different modes (Whitespace)
-;;; - Set whitespace on different modes
-;;; - Look into "Midnight" package
-;;; - Fix color theme
-;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
-;;; - Add JavaDoc shortcut and snippet
+;; ;; Scala stuff
+;; (add-to-list 'load-path "~/.emacs_lib/scala-mode/")
+;; (require 'scala-mode-auto)
 
 
-;;; This was installled by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+;; ;; TODO: Need to setup window switching correctly
+;; ;; Here is what I want:
+;; ;; - When opening a help dialog, open it in the other
+;; ;;      - maintain focus on this window
+;; ;; - Add a keybinding to close help buffer from this window
+
+;; ;; This variable specifies whether display-buffer should make new frames. If it
+;; ;; is non-nil, display-buffer looks for a window already displaying
+;; ;; buffer-or-name on any visible or iconified frame. If it finds such a window,
+;; ;; it makes that window's frame visible and raises it if necessary, and returns
+;; ;; the window. Otherwise it makes a new frame, unless the variable's value is
+;; ;; graphic-only and the selected frame is not on a graphic display.
+;; (setq pop-up-frames nil)
+
+;; Maxframe app to make XEmacs maximum
+(load "~/.elisp/maxframe")
+
+
+;; ;; (require 'multi-term)
+;; ;; (setq multi-term-program "/bin/bash")
+
+;; ;;; TODO:
+;; ;;; - Fix column width thing in different modes (Whitespace)
+;; ;;; - Set whitespace on different modes
+;; ;;; - Look into "Midnight" package
+;; ;;; - Fix color theme
+;; ;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
+;; ;;; - Add JavaDoc shortcut and snippet
