@@ -38,7 +38,19 @@ alias pu="pushd"
 alias po="popd"
 alias em="emacsclient -nw"
 
+alias Rns="R --no-save"
+alias Rv="R --vanilla"
+
 # check if Emacs daemon is running. If not, start it.
 if [ -f ~/scripts/emacs_daemon.sh ]; then
     . ~/scripts/emacs_daemon.sh
 fi
+
+##
+# Your previous /Users/pimentel/.bash_profile file was backed up as /Users/pimentel/.bash_profile.macports-saved_2011-07-23_at_12:25:48
+##
+
+# MacPorts Installer addition on 2011-07-23_at_12:25:48: adding an appropriate PATH variable for use with MacPorts.
+# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

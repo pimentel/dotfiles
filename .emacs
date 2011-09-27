@@ -94,7 +94,7 @@
 (load "~/.elisp/cpp")
 (load "~/.elisp/objc")
 (load "~/.elisp/autocomplete")
-;; (load "~/.elisp/auctex")
+(load "~/.elisp/auctex")
 (load "~/.elisp/color")
 (load "~/.elisp/matlab")
 (load "~/.elisp/whitespace")
@@ -153,3 +153,4 @@
 ;; ;;; - Fix color theme
 ;; ;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
 ;; ;;; - Add JavaDoc shortcut and snippet
+(put 'upcase-region 'disabled nil)
