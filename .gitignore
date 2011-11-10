@@ -44,8 +44,6 @@ slides
 .svk/
 .sw?
 .unison/*
-.vim/spell*
-.viminfo
 .zcompdump
 .*history
 .zsh/cache/

@@ -1,0 +1,7 @@
+msgwait 0
+vbell off
+startup_message off
+bind a resize +1
+bind z resize -1
+termcapinfo xterm* 'ti@:te@'
+

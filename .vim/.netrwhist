@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/pimentel/.vim/after'
+let g:netrw_dirhist_2='/Users/pimentel/.vim/after/plugin'
+let g:netrw_dirhist_3='/Users/pimentel/.vim/after'
+let g:netrw_dirhist_4='/Users/pimentel/.vim'
+let g:netrw_dirhist_5='/Users/pimentel/.vim/colors'
+let g:netrw_dirhist_6='/Users/pimentel/.vim'
+let g:netrw_dirhist_7='/Users/pimentel/.vim/r-plugin'

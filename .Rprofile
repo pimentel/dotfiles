@@ -1,3 +1,4 @@
+options(help_type = "html", width = 100)
 
 # Print a stack trace in R
 # Pulled from:

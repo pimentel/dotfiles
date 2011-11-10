@@ -5,7 +5,7 @@ export TERM=xterm-color
 
 export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[01;34m\]\$\[\033[00m\] "
 
-export PATH=$HOME/scripts:$HOME/bin:$PATH
+# export PATH=$HOME/scripts:$HOME/bin:$PATH
 export MATLABPATH=$HOME/scripts/matlab
 export EDITOR="emacsclient -nw"
 
@@ -14,7 +14,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # this will break your MANPATH
 # use /etc/man.conf
-# export MANPATH=/opt/local/share/man:$MANPATH
+export MANPATH=/opt/local/share/man:$MANPATH
 
 # this will add the libraries in CPATH to the -I line in gcc/g++
 export CPATH=/opt/local/include
@@ -39,18 +39,9 @@ alias po="popd"
 alias em="emacsclient -nw"
 
 alias Rns="R --no-save"
-alias Rv="R --vanilla"
+# alias Rv="R --vanilla"
 
 # check if Emacs daemon is running. If not, start it.
 if [ -f ~/scripts/emacs_daemon.sh ]; then
     . ~/scripts/emacs_daemon.sh
 fi
-
-##
-# Your previous /Users/pimentel/.bash_profile file was backed up as /Users/pimentel/.bash_profile.macports-saved_2011-07-23_at_12:25:48
-##
-
-# MacPorts Installer addition on 2011-07-23_at_12:25:48: adding an appropriate PATH variable for use with MacPorts.
-# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-

@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>PATH</key>
-	<string>opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:</string>
+        <string>/opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/opt/local/bin:/opt/local/sbin:/Users/pimentel/scripts:/Users/pimentel/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X10/bin:</string>
 </dict>
 </plist>
