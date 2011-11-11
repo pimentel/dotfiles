@@ -159,6 +159,13 @@
      )))
 (provide 'sweyla889165)
 
+
+;; https://github.com/sellout/emacs-color-theme-solarized
+(load "~/.elisp/emacs-color-theme-solarized/solarized-definitions.el")
+(load "~/.elisp/emacs-color-theme-solarized/color-theme-solarized.el")
+(load "~/.elisp/color-theme-tangotango.el")
+
+
 (if window-system
     (progn
        (add-to-list 'load-path "/opt/local/share/emacs/site-lisp/color-theme-6.6.0")
@@ -166,8 +173,10 @@
        ;; (color-theme-initialize)
        (setq color-theme-is-global t)
        ;; (hp-color)
-       (sweyla889165)
+       ;; (sweyla889165)
        ;; (hp-dark)
+       ;; (color-theme-solarized-dark)
+       (color-theme-tangotango)
       ))
 
 

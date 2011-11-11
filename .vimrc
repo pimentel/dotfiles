@@ -11,7 +11,6 @@ set noswapfile
 " Hide buffers instead of closing them
 set hidden
 
-" Required by Vim-R-plugin
 set nocompatible
 
 " turn on line numbers
@@ -54,7 +53,6 @@ set smarttab      " insert tabs on the start of a line according to
 set hlsearch
 set incsearch ignorecase 
 
-let g:LatexBox_viewer = 'open'
 
 " Color scheme
 " colorscheme slate
@@ -66,17 +64,22 @@ colorscheme kellys
 inoremap <C-space> <C-x><C-o>
 nnoremap ; :
 
+" After a search, press ESC to clear the highlight
+nnoremap <esc> :noh<return>
+
 " Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
-" Clears highlighted search easily
-nmap <silent> ,/ :nohlsearch<CR>
-
+" Default leader is '\'
 let mapleader=','
 let maplocalleader=','
 
+" ============================================================================
+" File specific settings
 autocmd Filetype tex setl sw=2 sts=2
 
+" On Mac this is 'open' TODO: need to find analogous on Linux
+let g:LatexBox_viewer = 'open'

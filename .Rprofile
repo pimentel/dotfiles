@@ -3,8 +3,9 @@ options(help_type = "html", width = 100)
 # Print a stack trace in R
 # Pulled from:
 # http://stackoverflow.com/questions/1975110/printing-stack-trace-and-continuing-after-error-occurs-in-r
+
 options(warn = 2, keep.source = TRUE, error =
-          quote({
+        function() {
               cat("Environment:\n", file=stderr());
 
               # TODO: setup option for dumping to a file (?)
@@ -34,6 +35,7 @@ options(warn = 2, keep.source = TRUE, error =
               cat("\n", file=stderr())
 
               if (!interactive()) {
-                        q()
-                    }
-          }))
+                  q()
+              }
+              
+          })

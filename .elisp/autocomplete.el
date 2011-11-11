@@ -7,3 +7,6 @@
 (setq-default ac-auto-start nil)
 (setq-default ac-auto-show-menu nil)
 (setq-default ac-use-menu-map t)
+
+;; Add the R config
+(require 'ac-R)
