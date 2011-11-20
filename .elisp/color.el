@@ -44,9 +44,9 @@
 ;;             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face prepend)))))
 
 
-;; (add-hook 'after-make-frame-functions
-;;           'hp-set-font
-;;           )
+(add-hook 'after-make-frame-functions
+          'hp-set-font
+          )
 
 ;; FIXME: Need to fix font-lock-number
 ;; (make-face 'font-lock-number-face)
@@ -72,9 +72,15 @@
    '(hp-color
      (
       (cursor-color . "turquoise")
+      (background-color . "#FFFFFF")
+      (background-mode . bright)
+      (foreground-color . "#000000")
+      (border-color . "#c0c0c0")
       )
+     (border ((t (:background "#FFFFFF"))))
      (mode-line ((t (:background "turquoise" :foreground "black"))))
      (mode-line-inactive ((t (:background "white" :foreground "gray20"))))
+     ;; (mode-line-buffer-id )
      (region ((t (:background "#aaeeee"))))
      (font-lock-comment-face ((t (:slant italic :foreground "#0000FF"))))
      (font-lock-type-face ((t(:foreground "#22bb22"))))

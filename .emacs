@@ -20,6 +20,9 @@
 (abbrev-mode nil)
 (setq confirm-nonexistent-file-or-buffer nil)
 
+;; Allow for most more responsive (and demanding) redrawing of the display
+(setq redisplay-dont-pause t)
+
 (column-number-mode t)
 (setq-default fill-column 80)
 
@@ -49,7 +52,8 @@
        '(("README" . text-mode)
          ("COMMIT_EDITMSG" . shell-script-mode)
          ("AUTHORS" . text-mode)
-         ("CHANGELOG" . text-mode))
+         ("CHANGELOG" . text-mode)
+         ("CMakeLists.txt" . cmake-mode))
        auto-mode-alist))
 
 
@@ -99,6 +103,7 @@
 (load "~/.elisp/matlab")
 (load "~/.elisp/whitespace")
 (load "~/.elisp/gtags")
+(load "~/.elisp/rainbow.el")
 
 ;; ;;; Java-mode stuff
 ;; (add-hook 'java-mode-hook
