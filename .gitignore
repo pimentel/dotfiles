@@ -3,9 +3,12 @@
 
 !.*/
 !.*
-!.elisp/
 !scripts/
 !scripts/*
+!.elisp/
+!.elisp/*
+!.emacs_lib/
+!.emacs_lib/*
 
 *.*.bak
 TODO

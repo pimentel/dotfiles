@@ -31,7 +31,7 @@
 
 (font-lock-add-keywords
  'python-mode
- '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
+ '(("\\<\\(FIXME\\|TODO\\|BUG\\|XXX\\):" 1 font-lock-warning-face t)))
 
 (add-hook 'c-mode-common-hook
                (lambda ()
@@ -183,6 +183,7 @@
        ;; (hp-dark)
        ;; (color-theme-solarized-dark)
        (color-theme-tangotango)
+       ;; (color-theme-andreas)
       ))
 
 

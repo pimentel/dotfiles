@@ -105,6 +105,8 @@
 (load "~/.elisp/gtags")
 (load "~/.elisp/rainbow.el")
 
+(load "~/.elisp/json.el")
+
 ;; ;;; Java-mode stuff
 ;; (add-hook 'java-mode-hook
 ;;           '(lambda()
