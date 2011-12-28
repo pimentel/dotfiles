@@ -25,7 +25,7 @@
              (ess-set-style 'C++ 'quiet)
              (setq ess-eval-visibly-p nil)
              (setq inferior-R-args "--no-save")
-             (define-key ess-help-mode-map "w" 'ess-display-help-in-browser) 
+             ;; (define-key ess-help-mode-map "w" 'ess-display-help-in-browser) 
              ;; (setq ess-help-own-frame 'one)
              ;; (setq ess-help-own-frame nil)
              ;; (setq inferior-ess-r-help-command "help(\"%s\", help_type=\"html\")\n")

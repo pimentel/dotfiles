@@ -161,3 +161,9 @@
 ;; ;;; - Fix autocomplete (i.e. in C/C++ mode and figure out how to use with libraries)
 ;; ;;; - Add JavaDoc shortcut and snippet
 (put 'upcase-region 'disabled nil)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "/")
+(setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
+(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
