@@ -13,13 +13,11 @@
         (cursor-color . "turquoise")
         ))
 
-;; With Fringe-mode disabled, this gives you space between the line number and
-;; code
-(setq linum-format "%d ")
-
 (defun hp-set-font (frame)
   "Interval function"
   (set-frame-parameter frame 'font "Menlo-12")
+  (set-frame-parameter frame 'left-fringe 0)
+  (set-frame-parameter frame 'right-fringe 0)
   )
 
 ;; a hack to make sure that opening the help dialog goes to the other window,

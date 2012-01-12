@@ -22,8 +22,7 @@
 
 (global-set-key (kbd "C-M-i") 'aj-toggle-fold)
 
-(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
-
+(global-set-key (kbd "<C-M-return>") 'ns-toggle-fullscreen)
 
 ;; unbind annoying stuff
 (global-unset-key (kbd "C-x ."))
