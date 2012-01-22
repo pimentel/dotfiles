@@ -13,7 +13,8 @@
         "\\`\\./"))
 (setq ido-use-filename-at-point nil)
 (setq ido-confirm-unique-completion t)
-
+(setq ido-default-file-method "selected-window")
+(setq ido-default-buffer-method "selected-window")
 ;; FIXME
 ;; Currently:
 ;; disable auto searching for files unless called explicitly

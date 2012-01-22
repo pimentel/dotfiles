@@ -53,9 +53,9 @@
          ("COMMIT_EDITMSG" . shell-script-mode)
          ("AUTHORS" . text-mode)
          ("CHANGELOG" . text-mode)
-         ("CMakeLists.txt" . cmake-mode))
+         ("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode))
        auto-mode-alist))
-
 
 ;; Kill a buffer with an attached process
 (setq kill-buffer-query-functions
@@ -86,9 +86,13 @@
 ;; FIXME
 (load "~/.elisp/ido")
 (load "~/.elisp/buffer-move")
+
+;; https://github.com/capitaomorte/yasnippet
 (load "~/.elisp/yas")
+
 (load "~/.elisp/org")
 (load "~/.elisp/hippie-expand")
+
 (load "~/.elisp/autopair")
 
 ;; M-x htmlize-buffer OR htmlize-region OR htmlize-file
@@ -106,6 +110,9 @@
 (load "~/.elisp/rainbow.el")
 
 (load "~/.elisp/json.el")
+
+;; CMake mode
+(require 'cmake-mode)
 
 ;; ;;; Java-mode stuff
 ;; (add-hook 'java-mode-hook
@@ -162,6 +169,7 @@
 ;; ;;; - Add JavaDoc shortcut and snippet
 (put 'upcase-region 'disabled nil)
 
+;; Make repeated buffers unique
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "/")
