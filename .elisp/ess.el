@@ -1,5 +1,5 @@
 ;; load Emacs Speaks Statistics (ESS)
-(load "~/.emacs_lib/ess-5.12/lisp/ess-site")
+(load "~/.emacs_lib/ess-5.14/lisp/ess-site")
 (require 'ess-site)
 
 (defun ess-display-help-in-browser () 

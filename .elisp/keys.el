@@ -1,5 +1,4 @@
 (global-set-key (kbd "C-. e") 'eval-region)
-(global-set-key (kbd "C-. c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-. r") 'revert-buffer)
 (global-set-key (kbd "C-. n") 'rename-file-and-buffer)
 (global-set-key (kbd "C-. i") 'overwrite-mode)
