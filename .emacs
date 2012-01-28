@@ -175,3 +175,9 @@
 (setq uniquify-separator "/")
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
+
+;; expand-region
+(add-to-list 'load-path "~/.emacs_lib/expand-region.el/")
+(require 'expand-region)
+(global-set-key (kbd "C-S-e") 'er/expand-region)
