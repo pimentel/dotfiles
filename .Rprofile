@@ -1,4 +1,4 @@
-options(help_type = "html", width = 100)
+options(help_type = "html", width = 100, device = "quartz")
 
 # Print a stack trace in R
 # Pulled from:

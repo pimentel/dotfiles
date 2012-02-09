@@ -1,6 +1,10 @@
 " Pathogen allows you to install things in ~/.vim/bundle/plugin_name.
 " Anything in those directories will be automatically added to the runtime
 " path.
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 call pathogen#infect()     
 
 syntax on
@@ -19,7 +23,9 @@ set number
 " font
 set gfn=Menlo:h12
 
+set wrap
 set textwidth=79
+set formatoptions=qrn1
 " show cursor position at all the time
 set ruler
 
@@ -27,6 +33,9 @@ set ruler
 " contents.  Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
+
+" Turn on omnicomplete in all modes
+set ofu=syntaxcomplete#Complete
 
 " command line completion
 set wildmenu
@@ -43,6 +52,7 @@ set smartindent
 set nofoldenable 
 
 " set tabsize to 4 spaces
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -51,8 +61,7 @@ set smarttab      " insert tabs on the start of a line according to
                   
 " turn on highlighting during search 
 set hlsearch
-set incsearch ignorecase 
-
+set incsearch ignorecase smartcase
 
 " Color scheme
 " colorscheme slate
@@ -61,6 +70,7 @@ colorscheme kellys
 
 " Keybindings
 " Remap omnicomplete 
+" imap ii <Esc>
 inoremap <C-space> <C-x><C-o>
 nnoremap ; :
 
@@ -73,6 +83,12 @@ nnoremap <esc> :noh<return>
 " map <C-k> <C-w>k
 " map <C-l> <C-w>l
 
+" Wean off of using arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " Default leader is '\'
 let mapleader=','
 let maplocalleader=','
@@ -83,3 +99,7 @@ autocmd Filetype tex setl sw=2 sts=2
 
 " On Mac this is 'open' TODO: need to find analogous on Linux
 let g:LatexBox_viewer = 'open'
+
+
+" Save on losing focus
+au FocusLost * :wa
