@@ -6,6 +6,7 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 call pathogen#infect()     
+call pathogen#helptags()
 
 syntax on
 
@@ -39,8 +40,18 @@ set ofu=syntaxcomplete#Complete
 
 " command line completion
 set wildmenu
-set wildmode=longest:full,full
-set wildignore=*.swp,*.bak,*.pyc,*.class
+" set wildmode=longest:full,full
+set wildmode=list:longest,full
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
+
+" supposedly useful for vim-fuzzee
+set switchbuf=usetab
+
+" add a '$' to the end of a change motion 
+set cpoptions+=$
+
+" " edit invalid areas of the file 
+" set virtualedit=all
 
 set term=ansi
 
@@ -100,6 +111,17 @@ autocmd Filetype tex setl sw=2 sts=2
 " On Mac this is 'open' TODO: need to find analogous on Linux
 let g:LatexBox_viewer = 'open'
 
+" " Save on losing focus
+" au FocusLost * :wa
 
-" Save on losing focus
-au FocusLost * :wa
+" Configuration for vim-r-plugin"
+let vimrplugin_applescript=0
+let vimrplugin_screenplugin=0
+let vimrplugin_conqueplugin=1
+" let vimrplugin_tmux=0
+" let vimrplugin_screenplugin=1
+" let vimrplugin_term_cmd="Terminal.app"
+" let vimrplugin_vimpager = "no"
+
+" Conque Term"
+let g:ConqueTerm_TERM = 'xterm'

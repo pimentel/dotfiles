@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/tComment"]
 	path = .vim/bundle/tComment
 	url = https://github.com/vim-scripts/tComment.git
+[submodule "/Users/pimentel/.vim/bundle/screen"]
+	path = /Users/pimentel/.vim/bundle/screen
+	url = https://github.com/ervandew/screen.git

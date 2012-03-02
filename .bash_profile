@@ -7,7 +7,7 @@ export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[0
 
 # export PATH=$HOME/scripts:$HOME/bin:$PATH
 export MATLABPATH=$HOME/scripts/matlab
-export EDITOR="emacsclient -nw"
+export EDITOR="vim"
 
 # MacPorts begin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -36,17 +36,16 @@ alias lh="ls -lh"
 alias grep="grep --color=auto"
 alias pu="pushd"
 alias po="popd"
-alias em="emacsclient -nw"
 
 alias Rns="R --no-save"
 # alias Rv="R --vanilla"
 
-# check if Emacs daemon is running. If not, start it.
-if [ -f ~/scripts/emacs_daemon.sh ]; then
-    . ~/scripts/emacs_daemon.sh
-fi
+# # check if Emacs daemon is running. If not, start it.
+# if [ -f ~/scripts/emacs_daemon.sh ]; then
+#     . ~/scripts/emacs_daemon.sh
+# fi
 
- # Amazon AWS
+# Amazon AWS
 export EC2_HOME=~/.ec2
 export PATH=$PATH:$EC2_HOME/bin
 export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
