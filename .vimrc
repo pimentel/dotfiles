@@ -6,7 +6,7 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 call pathogen#infect()     
-call pathogen#helptags()
+" call pathogen#helptags()
 
 syntax on
 
@@ -115,13 +115,36 @@ let g:LatexBox_viewer = 'open'
 " au FocusLost * :wa
 
 " Configuration for vim-r-plugin"
-let vimrplugin_applescript=0
-let vimrplugin_screenplugin=0
-let vimrplugin_conqueplugin=1
+" let vimrplugin_applescript=0
+" let vimrplugin_screenplugin=0
+" let vimrplugin_conqueplugin=1
+
 " let vimrplugin_tmux=0
 " let vimrplugin_screenplugin=1
-" let vimrplugin_term_cmd="Terminal.app"
 " let vimrplugin_vimpager = "no"
 
 " Conque Term"
 let g:ConqueTerm_TERM = 'xterm'
+
+" Use w!! to write file with root permissions
+cmap w!! %!sudo tee > /dev/null %
+
+" Easier increment/decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Status line
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+
+" Show the status line all of the time
+set laststatus=2
+
+" Set FufFile and FufBuffer to work similar to Emacs
+nnoremap <Leader>xf :FufFile<return>
+nnoremap <Leader>xb :FufBuffer<return>
+
+" set iskeyword+=.
+
+" set iskeyword+=.
+" autocmd FileType R setlocal iskeyword+=.
