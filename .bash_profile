@@ -38,6 +38,8 @@ alias pu="pushd"
 alias po="popd"
 
 alias Rns="R --no-save"
+alias pup="sudo port selfupdate; sudo port upgrade outdated"
+
 # alias Rv="R --vanilla"
 
 # # check if Emacs daemon is running. If not, start it.
@@ -53,3 +55,43 @@ export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
 export EC2_URL=https://ec2.us-west-1.amazonaws.com
+
+export PATH=~/Downloads/sratoolkit.2.1.10-mac64/bin:$PATH
+
+tree () {
+    # Modified version of:
+    # http://murphymac.com/tree-command-for-mac/
+    if [ $# -eq 0 ]
+    then
+        find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+        return
+    elif [ $# -eq 1 ]
+    then
+        find $1 -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+        return
+    fi
+
+    echo "Sorry, 'tree' can only take one argument."
+}
+
+# http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+## pass options to free ##
+alias meminfo='free -m -l -t'
+ 
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+ 
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+ 
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+ 
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+ 
+## get GPU ram on desktop / laptop##
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+

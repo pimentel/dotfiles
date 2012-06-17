@@ -77,7 +77,33 @@ set incsearch ignorecase smartcase
 " Color scheme
 " colorscheme slate
 " colorscheme torte
-colorscheme kellys
+" colorscheme kellys
+" colorscheme lettuce 
+" colorscheme inkpot
+" colorscheme sift
+" colorscheme elise
+" colorscheme jellybeans
+colorscheme sonofobsidian
+syntax enable
+
+" set background=light
+set background=dark
+
+set guioptions-=T   " remove toolbar
+
+" if has('gui_running')
+"     set background=light
+" else
+"     set background=dark
+" endif
+
+" colorscheme solarized
+
+let g:solarized_contrast = 'high'
+let g:solarized_menu = 0
+let g:solarized_termtrans = 1
+let g:solarized_hitrail = 1
+let g:solarized_termcolors=256
 
 " Keybindings
 " Remap omnicomplete 
@@ -110,9 +136,6 @@ autocmd Filetype tex setl sw=2 sts=2
 
 " On Mac this is 'open' TODO: need to find analogous on Linux
 let g:LatexBox_viewer = 'open'
-
-" " Save on losing focus
-" au FocusLost * :wa
 
 " Configuration for vim-r-plugin"
 " let vimrplugin_applescript=0
@@ -148,3 +171,18 @@ nnoremap <Leader>xb :FufBuffer<return>
 
 " set iskeyword+=.
 " autocmd FileType R setlocal iskeyword+=.
+
+" LaTeX box stuff
+autocmd Filetype tex imap <buffer> [[ 		\begin{
+autocmd Filetype tex imap <buffer> ]]		<Plug>LatexCloseCurEnv
+autocmd Filetype tex nmap <buffer> <F5>		<Plug>LatexChangeEnv
+autocmd Filetype tex vmap <buffer> <F7>		<Plug>LatexWrapSelection
+autocmd Filetype tex vmap <buffer> <S-F7>		<Plug>LatexEnvWrapSelection
+autocmd Filetype tex imap <buffer> (( 		\eqref{
+
+" Reformat the entire paragraph
+noremap Q gqip
+
+" Make hjkl act like you would expect on wrapped lines
+noremap j gj
+noremap k gk
