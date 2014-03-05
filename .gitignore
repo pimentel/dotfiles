@@ -9,8 +9,10 @@
 !.elisp/*
 !.emacs_lib/
 !.emacs_lib/*
-!.vim/bundle/
-!.vim/bundle/*
+!.vim/
+!.vim/*
+# FIXME: Doesn't allow to add directories in .vim/bundle
+# !.vim/bundle/*
 
 *.*.bak
 TODO

@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-fuzzee"]
 	path = .vim/bundle/vim-fuzzee
 	url = https://github.com/mattsacks/vim-fuzzee.git
+[submodule ".vim/bundle/vim-addon-mw-utils"]
+	path = .vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
