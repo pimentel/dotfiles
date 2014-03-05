@@ -2,10 +2,12 @@
 " Anything in those directories will be automatically added to the runtime
 " path.
 filetype off
-call pathogen#runtime_append_all_bundles()
+let g:pathogen_disabled = []
 filetype plugin indent on
 
+call pathogen#incubate()
 call pathogen#infect()     
+
 " call pathogen#helptags()
 
 syntax on
@@ -17,6 +19,7 @@ set noswapfile
 set hidden
 
 set nocompatible
+
 
 " turn on line numbers
 set number
@@ -115,10 +118,15 @@ nnoremap ; :
 nnoremap <esc> :noh<return>
 
 " Easy window navigation
-" map <C-h> <C-w>h
+" map <A-h> <C-w>h
 " map <C-j> <C-w>j
 " map <C-k> <C-w>k
 " map <C-l> <C-w>l
+" TODO: Make this the mappings only on Mac 
+nmap <silent> ˚ :wincmd k<CR>
+nmap <silent> ∆ :wincmd j<CR>
+nmap <silent> ˙ :wincmd h<CR>
+nmap <silent> ¬ :wincmd l<CR>
 
 " Wean off of using arrow keys
 noremap <Up> <nop>
@@ -158,7 +166,7 @@ nnoremap - <C-x>
 
 " Status line
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [%p%%]\ [LEN=%L]\ [POS=%04l,%04v]
 
 " Show the status line all of the time
 set laststatus=2
@@ -173,6 +181,7 @@ nnoremap <Leader>xb :FufBuffer<return>
 " autocmd FileType R setlocal iskeyword+=.
 
 " LaTeX box stuff
+" let g:LatexBox_viewer
 autocmd Filetype tex imap <buffer> [[ 		\begin{
 autocmd Filetype tex imap <buffer> ]]		<Plug>LatexCloseCurEnv
 autocmd Filetype tex nmap <buffer> <F5>		<Plug>LatexChangeEnv
@@ -186,3 +195,11 @@ noremap Q gqip
 " Make hjkl act like you would expect on wrapped lines
 noremap j gj
 noremap k gk
+
+
+" if has("gui_running"):
+"     call add(g:pathogen_disabled, 'YouCompleteMe')
+" endif
+
+" Automatically cd into the directory that the file is in
+autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
