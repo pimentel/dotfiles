@@ -7,3 +7,9 @@
 [submodule ".vim/bundle/vim-autoclose"]
 	path = .vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+[submodule ".vim/bundle/LaTeX-Box"]
+	path = .vim/bundle/LaTeX-Box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+[submodule ".vim/bundle/Vim-R-plugin"]
+	path = .vim/bundle/Vim-R-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git

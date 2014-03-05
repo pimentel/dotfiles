@@ -9,6 +9,8 @@
 !.elisp/*
 !.emacs_lib/
 !.emacs_lib/*
+!.vim/bundle/
+!.vim/bundle/*
 
 *.*.bak
 TODO
