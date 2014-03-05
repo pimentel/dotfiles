@@ -28,3 +28,9 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/vim-l9"]
+	path = .vim/bundle/vim-l9
+	url = https://github.com/git-mirror/vim-l9.git

@@ -8,4 +8,5 @@ To clone:
 
     git clone https://github.com/pimentel/dotfiles.git
     git submodule init
-    git submodule update
+    # This is for YouCompleteMe. Note: might be able to remove line above
+    git submodule update --init --recursive
