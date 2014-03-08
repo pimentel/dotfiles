@@ -6,9 +6,8 @@ To add a submodule:
 
 To clone:
 
-    git clone https://github.com/pimentel/dotfiles.git
-    git submodule init
-    # This is for YouCompleteMe. Note: might be able to remove line above
+    git init
+    git remote add origin https://github.com/pimentel/dotfiles.git
+    git fetch origin
+    git checkout -t origin/master
     git submodule update --init --recursive
-
-testing something
