@@ -19,6 +19,7 @@ options(prompt = "R> ")
     library(gplots)
     library(MASS)
     library(Rcpp)
+    library(reshape2)
 }
 
 # if (is.element("colorout", installed.packages()[,1]))

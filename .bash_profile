@@ -105,3 +105,6 @@ BASH_COMPLETION=/usr/local/etc/bash_completion.d
 if [ -f $BASH_COMPLETION ]; then
     . $BASH_COMPLETION
 fi
+
+# python
+alias ipy='ipython'

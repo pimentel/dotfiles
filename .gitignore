@@ -18,12 +18,12 @@
 TODO
 slides
 
-.newsrc*
-.cvspass
 .ido.last
-.serverauth*
 .anyconnect
+.awsrc
+.awssecret
 .authinfo
+.cvspass
 .profile
 .xdvirc
 .CFUserTextEncoding
@@ -35,17 +35,21 @@ slides
 .elinks
 .font*
 .gnupg
+.htoprc
 .keychain
 .lesshst
 .ncftp
 .mairix
 .msf3
 .macports
+.newsrc*
 .mutt/aliases
 .mutt/certificates
 .mutt/lists
 .offlineimap/
+.pkglist
 .qt
+.serverauth*
 .ssh/
 .subversion
 .svk/
