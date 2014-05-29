@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-l9"]
 	path = .vim/bundle/vim-l9
 	url = https://github.com/git-mirror/vim-l9.git
+[submodule ".vim/bundle/VimRepress"]
+	path = .vim/bundle/VimRepress
+	url = https://github.com/vim-scripts/VimRepress.git

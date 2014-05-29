@@ -203,3 +203,5 @@ noremap k gk
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+
+highlight ErrorMsg ctermfg=White guifg=White
