@@ -25,7 +25,7 @@ set nocompatible
 set number
 
 " font
-set gfn=Menlo:h12
+set gfn=Menlo:h14
 
 set wrap
 set textwidth=79
