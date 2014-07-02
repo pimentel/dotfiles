@@ -1,5 +1,0 @@
-#name : do { ... } while (...)
-# --
-while (${1:condition}){
-  $0
-};

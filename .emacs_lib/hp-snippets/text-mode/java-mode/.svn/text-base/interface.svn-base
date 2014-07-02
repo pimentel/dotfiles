@@ -1,4 +1,0 @@
-#name : interface ... { ... }
-# --
-public interface ${1:Name} {
-}
