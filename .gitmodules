@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/Vim-R-plugin"]
 	path = .vim/bundle/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
-[submodule ".vim/bundle/vim-snipmate"]
-	path = .vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
