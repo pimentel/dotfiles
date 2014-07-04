@@ -54,3 +54,7 @@
 	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
     ignore = dirty
+[submodule ".vim/bundle/VimCom"]
+	path = .vim/bundle/VimCom
+	url = https://github.com/jalvesaq/VimCom.git
+    ignore = dirty
