@@ -34,3 +34,9 @@
 [submodule ".vim/bundle/VimRepress"]
 	path = .vim/bundle/VimRepress
 	url = https://github.com/vim-scripts/VimRepress.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
