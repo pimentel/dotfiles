@@ -209,12 +209,6 @@ highlight ErrorMsg ctermfg=White guifg=White
 " YouCompleteMe configuration
 let g:ycm_use_ultisnips_completer = 1
 
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
-" 
-" " Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"

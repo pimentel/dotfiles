@@ -1,42 +1,56 @@
 [submodule ".vim/bundle/tComment"]
 	path = .vim/bundle/tComment
 	url = https://github.com/vim-scripts/tComment.git
+    ignore = dirty
 [submodule ".vim/bundle/colorschemes"]
 	path = .vim/bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-autoclose"]
 	path = .vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+    ignore = dirty
 [submodule ".vim/bundle/LaTeX-Box"]
 	path = .vim/bundle/LaTeX-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+    ignore = dirty
 [submodule ".vim/bundle/Vim-R-plugin"]
 	path = .vim/bundle/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-fuzzee"]
 	path = .vim/bundle/vim-fuzzee
 	url = https://github.com/mattsacks/vim-fuzzee.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+    ignore = dirty
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-l9"]
 	path = .vim/bundle/vim-l9
 	url = https://github.com/git-mirror/vim-l9.git
+    ignore = dirty
 [submodule ".vim/bundle/VimRepress"]
 	path = .vim/bundle/VimRepress
 	url = https://github.com/vim-scripts/VimRepress.git
+    ignore = dirty
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+    ignore = dirty
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+    ignore = dirty
