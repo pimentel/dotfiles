@@ -39,9 +39,8 @@ tree () {
 
 export LD_LIBRARY_PATH=/usr/X11/lib
 
-BASH_COMPLETION=/usr/local/etc/bash_completion.d
-if [ -f $BASH_COMPLETION ]; then
-    . $BASH_COMPLETION
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
 fi
 
 # python
