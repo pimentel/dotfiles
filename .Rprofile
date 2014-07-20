@@ -39,5 +39,17 @@ object.sizes <- function()
         object.size(get(object.name))))))
 }
 
+# less annoying behavior for head on a list
+head.list <- function(obj, n = 6L, ...)
+{
+        stopifnot(length(n) == 1L)
+    origN <- n
+        n <- if (n < 0L)
+                    max(length(obj) + n, 0L)
+        else min(n, length(obj))
+            lapply(obj[seq_len(n)], head, origN, ...)
+}
+environment(head.list) <- asNamespace('utils')
+
 # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette 
 cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
