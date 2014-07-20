@@ -213,3 +213,7 @@ let g:ycm_use_ultisnips_completer = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+let g:pymode = 1
+let g:pymode_virtualenv = 1
+let g:pymode_virtualenv_path = '/Users/hjp/.virtualenvs/gpy'

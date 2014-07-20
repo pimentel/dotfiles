@@ -45,3 +45,6 @@ fi
 
 # python
 alias ipy='ipython'
+
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
