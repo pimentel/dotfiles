@@ -216,4 +216,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 let g:pymode = 1
 let g:pymode_virtualenv = 1
-let g:pymode_virtualenv_path = '/Users/hjp/.virtualenvs/gpy'
+let g:pymode_virtualenv_path = $HOME.'/.virtualenvs/gpy'

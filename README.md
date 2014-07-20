@@ -30,12 +30,9 @@ The basic virtualenv I'm using is called 'gpy' for general python.
 I'm also (obviously) using virtualenvwrapper to manage virtualenvs in
 ~/.virtualenv
 
-# Vim
+## Vim
 
 Make sure to install python before MacVim:
 
     brew install macvim --override-system-vim
 
-# Mac system specific
-
-It's nice to symlink /Users to /home
