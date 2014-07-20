@@ -7,5 +7,6 @@
 .msf3
 .macports
 .*history
+.htoprc
 
 *.pyc

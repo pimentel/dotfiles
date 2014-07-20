@@ -1,4 +1,4 @@
-options(repos=structure(c(CRAN="http://cran.cnr.berkeley.edu")))
+options(repos = structure(c(CRAN="http://cran.cnr.berkeley.edu")))
 
 options(chmhelp=TRUE) 
 
@@ -22,7 +22,7 @@ options(prompt = "R> ")
     {
         reqNotInstalled <- requiredPkgs[!reqInstalled]
         warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
-                reqNotInstalled)
+                paste(reqNotInstalled, collapse = " "))
         utils::install.packages(reqNotInstalled)
     }
 
