@@ -36,3 +36,7 @@ Make sure to install python before MacVim:
 
     brew install macvim --override-system-vim
 
+
+## TODOs
+- Add KeyRemap4MacBook config
+- Add PCKeyboardHack config
