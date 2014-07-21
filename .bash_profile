@@ -16,10 +16,7 @@ alias po="popd"
 
 alias Rns="R --no-save"
 alias Rv="R --vanilla"
-alias pup="sudo port selfupdate; sudo port upgrade outdated"
 alias bup="brew update; brew upgrade"
-
-export PATH=~/Downloads/sratoolkit.2.1.10-mac64/bin:$PATH
 
 tree () {
     # Modified version of:
@@ -50,3 +47,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 source `which virtualenvwrapper.sh`
 
 workon gpy
+
+# this is a temporary hack until i figure out the best thing to do
+export PYTHONPATH=.

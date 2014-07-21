@@ -3,10 +3,10 @@ options(repos = structure(c(CRAN="http://cran.cnr.berkeley.edu")))
 options(chmhelp=TRUE) 
 
 # options(help_type = "html")
+options(max.print = 500)
 options(width = 100)
 options(device = "quartz") 
 options(prompt = "R> ") 
-
 
 .First <- function() 
 {
@@ -15,7 +15,8 @@ options(prompt = "R> ")
                       "ggplot2",
                       "plyr",
                       "reshape2",
-                      "roxygen2")
+                      "roxygen2",
+                      "haRold")
     installed <- utils::installed.packages()[,1]
     reqInstalled <- requiredPkgs %in% installed
     if (any(!reqInstalled))
@@ -42,12 +43,19 @@ object.sizes <- function()
 # less annoying behavior for head on a list
 head.list <- function(obj, n = 6L, ...)
 {
-        stopifnot(length(n) == 1L)
+    stopifnot(length(n) == 1L)
     origN <- n
-        n <- if (n < 0L)
-                    max(length(obj) + n, 0L)
-        else min(n, length(obj))
-            lapply(obj[seq_len(n)], head, origN, ...)
+    n <- if (n < 0L)
+        max(length(obj) + n, 0L)
+    else min(n, length(obj))
+    lapply(obj[seq <- len(n)], function(x)
+           {
+               tryCatch({
+                   head(x, origN, ...)
+               }, error = function(e) {
+                   x
+               })
+           })
 }
 environment(head.list) <- asNamespace('utils')
 
