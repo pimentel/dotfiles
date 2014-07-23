@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>My Command_R to Option_R (effective only in Emacs)</name>
+        <appendix>retain Command_R+Tab</appendix>
+        <identifier>private.commandR2optionR</identifier>
+        <only>EMACS, TERMINAL</only>
+        <autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::OPTION_R, KeyCode::TAB, ModifierFlag::COMMAND_R</autogen>
+        <autogen>--KeyToKey-- KeyCode::BACKQUOTE, ModifierFlag::OPTION_R, KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R</autogen>
+        <autogen>--KeyToKey-- KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
+        <!-- We need to change Shift keys for Command+Shift+Tab -->
+        <autogen>--KeyToKey-- KeyCode::SHIFT_L, KeyCode::VK_LAZY_SHIFT_L</autogen>
+        <autogen>--KeyToKey-- KeyCode::SHIFT_R, KeyCode::VK_LAZY_SHIFT_R</autogen>
+    </item>
+    <item>
+        <name>Page down to backspace</name>
+        <identifier>private.pgdown_to_backspace</identifier>
+        <autogen>__KeyToKey__ KeyCode::PAGEDOWN, KeyCode::DELETE</autogen>
+    </item>
+    <item>
+        <name>Page up to left</name>
+        <identifier>private.pgup_to_left</identifier>
+        <autogen>__KeyToKey__ KeyCode::PAGEUP, KeyCode::CURSOR_LEFT</autogen>
+    </item>
+</root>
