@@ -17,7 +17,8 @@ options(prompt = "R> ")
                       "pryr",
                       "reshape2",
                       "roxygen2",
-                      "haRold")
+                      "haRold",
+                      "vimcom")
     installed <- utils::installed.packages()[,1]
     reqInstalled <- requiredPkgs %in% installed
     if (any(!reqInstalled))
@@ -29,6 +30,8 @@ options(prompt = "R> ")
     }
 
     options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
+
+    utils::rc.settings(ipck = TRUE)
 }
 
 
