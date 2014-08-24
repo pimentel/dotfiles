@@ -222,7 +222,7 @@ let g:pymode_lint = 0
 let g:pymode_lint_write = 0
 let g:pymode_rope = 0
 
-" R
+" Less annoying R indentation
 let r_indent_align_args = 0
 
 " Rainbow parens always on
