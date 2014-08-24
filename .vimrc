@@ -221,3 +221,12 @@ let g:pymode_virtualenv_path = $HOME.'/.virtualenvs/gpy'
 let g:pymode_lint = 0
 let g:pymode_lint_write = 0
 let g:pymode_rope = 0
+
+" R
+let r_indent_align_args = 0
+
+" Rainbow parens always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
