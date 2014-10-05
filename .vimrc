@@ -10,6 +10,9 @@ call pathogen#infect()
 
 " call pathogen#helptags()
 
+" view debug messages
+set debug=msg
+
 syntax on
 
 set nobackup
@@ -25,7 +28,7 @@ set nocompatible
 set number
 
 " font
-set gfn=Menlo:h14
+set gfn=Menlo:h13.5
 
 set wrap
 set textwidth=79
@@ -150,6 +153,8 @@ let g:LatexBox_viewer = 'open'
 " let vimrplugin_screenplugin=0
 " let vimrplugin_conqueplugin=1
 
+let vimrplugin_assign = 2
+
 " let vimrplugin_tmux=0
 " let vimrplugin_screenplugin=1
 " let vimrplugin_vimpager = "no"
@@ -230,3 +235,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Enable Markdown support
+au BufNewFile,BufRead *.md set filetype=markdown

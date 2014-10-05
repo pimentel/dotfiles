@@ -5,7 +5,7 @@ options(chmhelp=TRUE)
 # options(help_type = "html")
 options(max.print = 500)
 options(width = 100)
-options(device = "quartz") 
+# options(device = "quartz")
 options(prompt = "R> ") 
 
 .First <- function() 
@@ -15,6 +15,7 @@ options(prompt = "R> ")
                       "ggplot2",
                       "plyr",
                       "pryr",
+                      "Rcpp",
                       "reshape2",
                       "roxygen2",
                       "haRold",
