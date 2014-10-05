@@ -50,3 +50,7 @@ workon gpy
 
 # this is a temporary hack until i figure out the best thing to do
 export PYTHONPATH=.
+
+# TODO: configure ruby and the rest of rbenv
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
