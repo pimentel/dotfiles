@@ -8,6 +8,9 @@ export PS1="\[\033[01;38m\]\u@hp-mbp \[\033[01;32m\]\w\n\[\033[0m\][\t] \[\033[0
 export PATH=$HOME/scripts:$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="vim"
 
+# ccache
+export PATH=/usr/local/opt/ccache/libexec:$PATH
+
 alias ll="ls -l"
 alias lh="ls -lh"
 alias grep="grep --color=auto"
