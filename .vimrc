@@ -11,7 +11,7 @@ call pathogen#infect()
 " call pathogen#helptags()
 
 " view debug messages
-set debug=msg
+" set debug=msg
 
 syntax on
 
