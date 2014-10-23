@@ -7,6 +7,7 @@ filetype plugin indent on
 
 call pathogen#incubate()
 call pathogen#infect()     
+Helptags
 
 " call pathogen#helptags()
 
