@@ -246,7 +246,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Show trailing whitespace
-let g:airline#extensions#whitespace#enabled = 1
+" let g:airline#extensions#whitespace#enabled = 1
 
 " airline
 "let g:airline_theme='luna'
