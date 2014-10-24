@@ -5,8 +5,7 @@ filetype off
 let g:pathogen_disabled = []
 filetype plugin indent on
 
-call pathogen#incubate()
-call pathogen#infect()     
+call pathogen#infect('bundle/{}')
 Helptags
 
 " call pathogen#helptags()
@@ -54,10 +53,10 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
 " supposedly useful for vim-fuzzee
 set switchbuf=usetab
 
-" add a '$' to the end of a change motion 
+" add a '$' to the end of a change motion
 set cpoptions+=$
 
-" " edit invalid areas of the file 
+" " edit invalid areas of the file
 " set virtualedit=all
 
 set term=ansi
@@ -67,7 +66,7 @@ set copyindent " copy the previous line's indentation
 set smartindent
 
 " Disable automatic folding
-set nofoldenable 
+set nofoldenable
 
 " set tabsize to 4 spaces
 set tabstop=4
@@ -76,8 +75,8 @@ set softtabstop=4
 set expandtab
 set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
-                  
-" turn on highlighting during search 
+
+" turn on highlighting during search
 set hlsearch
 set incsearch ignorecase smartcase
 
@@ -85,7 +84,7 @@ set incsearch ignorecase smartcase
 " colorscheme slate
 " colorscheme torte
 " colorscheme kellys
-" colorscheme lettuce 
+" colorscheme lettuce
 " colorscheme inkpot
 " colorscheme sift
 " colorscheme elise
@@ -113,7 +112,7 @@ let g:solarized_hitrail = 1
 let g:solarized_termcolors=256
 
 " Keybindings
-" Remap omnicomplete 
+" Remap omnicomplete
 " imap ii <Esc>
 inoremap <C-space> <C-x><C-o>
 nnoremap ; :
@@ -126,7 +125,7 @@ nnoremap <esc> :noh<return>
 " map <C-j> <C-w>j
 " map <C-k> <C-w>k
 " map <C-l> <C-w>l
-" TODO: Make this the mappings only on Mac 
+" TODO: Make this the mappings only on Mac
 nmap <silent> ˚ :wincmd k<CR>
 nmap <silent> ∆ :wincmd j<CR>
 nmap <silent> ˙ :wincmd h<CR>
@@ -239,3 +238,17 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Enable Markdown support
 au BufNewFile,BufRead *.md set filetype=markdown
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Show trailing whitespace
+let g:airline#extensions#whitespace#enabled = 1
+
+" airline
+"let g:airline_theme='luna'
+let g:airline_theme='raven'
+" let g:airline_theme='tomorrow'
