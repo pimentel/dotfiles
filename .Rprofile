@@ -1,17 +1,16 @@
 options(repos = structure(c(CRAN="http://cran.cnr.berkeley.edu")))
 
-options(chmhelp=TRUE) 
+options(chmhelp=TRUE)
 
 # options(help_type = "html")
 options(max.print = 500)
 options(width = 100)
 # options(device = "quartz")
-options(prompt = "R> ") 
+options(prompt = "R> ")
 
-.First <- function() 
+.First <- function()
 {
-    requiredPkgs <- c("data.table",
-                      "devtools",
+    requiredPkgs <- c("devtools",
                       "ggplot2",
                       "plyr",
                       "pryr",

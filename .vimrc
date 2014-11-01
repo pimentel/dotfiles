@@ -180,6 +180,9 @@ set laststatus=2
 nnoremap <Leader>xf :FufFile<return>
 nnoremap <Leader>xb :FufBuffer<return>
 
+" kill a buffer without closing the split
+nnoremap <Leader>xk :bp\|bd #<return>
+
 " set iskeyword+=.
 
 " set iskeyword+=.
@@ -246,7 +249,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Show trailing whitespace
-" let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " airline
 "let g:airline_theme='luna'
