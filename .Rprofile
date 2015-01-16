@@ -3,7 +3,7 @@ options(repos = structure(c(CRAN="http://cran.cnr.berkeley.edu")))
 options(chmhelp=TRUE)
 
 # options(help_type = "html")
-options(max.print = 500)
+options(max.print = 1000)
 options(width = 100)
 # options(device = "quartz")
 options(prompt = "R> ")
@@ -12,7 +12,9 @@ options(prompt = "R> ")
 {
     requiredPkgs <- c("devtools",
                       "ggplot2",
+                      "data.table",
                       "plyr",
+                      "dplyr",
                       "pryr",
                       "Rcpp",
                       "reshape2",
@@ -106,3 +108,18 @@ lsos <- function(..., n=10) {
 
 # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette 
 cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+# Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
+if(interactive()){
+    if(nchar(Sys.getenv("DISPLAY")) > 1)
+        options(editor = 'gvim -f -c "set ft=r"')
+    else
+        options(editor = 'vim -c "set ft=r"')
+    # See ?setOutputColors256 to know how to customize R output colors
+    # library(colorout)
+    # library(setwidth)
+    library(vimcom)
+    # See R documentation on Vim buffer even if asking for help in R Console:
+    if(Sys.getenv("VIM_PANE") != "")
+        options(pager = vim.pager)
+}

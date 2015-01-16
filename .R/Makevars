@@ -1,1 +1,2 @@
 CXX=ccache clang++
+CXXFLAGS=-DARMA_64BIT_WORD

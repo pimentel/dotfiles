@@ -78,7 +78,8 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 ################################################################################
 
-export PS1=" \[$BGreen\]\w\n\[$Color_Off\]\A\[$Black\] \[$Yellow\]\$(__git_ps1 '%s')$Color_Off\[$Black\] \[$BBlue\]\$\[$Color_Off\] "
+# export PS1=" \[$BGreen\]\w\n\[$Color_Off\]\A\[$Black\] \[$Yellow\]\$(__git_ps1 '%s')$Color_Off\[$Black\] \[$BBlue\]\$\[$Color_Off\] "
+export PS1=" \[$BGreen\]\w\[$Color_Off\]\n\A\[$Black\] \[$Black\]\[$BBlue\]\$\[$Color_Off\] "
 
 export PATH=$HOME/scripts:$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="vim"

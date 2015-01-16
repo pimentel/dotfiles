@@ -23,7 +23,6 @@ set hidden
 
 set nocompatible
 
-
 " turn on line numbers
 set number
 
@@ -212,8 +211,6 @@ noremap k gk
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
-highlight ErrorMsg ctermfg=White guifg=White
-
 " YouCompleteMe configuration
 let g:ycm_use_ultisnips_completer = 1
 
@@ -255,3 +252,13 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_theme='luna'
 let g:airline_theme='raven'
 " let g:airline_theme='tomorrow'
+
+" Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
+
+" Force Vim to use 256 colors if running in a capable terminal emulator:
+if &term =~ "xterm" || &term =~ "256" || $DISPLAY != "" || $HAS_256_COLORS == "yes"
+    set t_Co=256
+endif
+
+" highlight ErrorMsg ctermfg=White guifg=White
+highlight ErrorMsg term=standout ctermfg=15 ctermbg=1 guifg=#FFFFFF guibg=Red
