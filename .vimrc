@@ -220,6 +220,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 let g:pymode = 1
+let g:pymode_options = 0
 let g:pymode_virtualenv = 1
 let g:pymode_virtualenv_path = $HOME.'/.virtualenvs/gpy'
 
@@ -259,6 +260,12 @@ let g:airline_theme='raven'
 if &term =~ "xterm" || &term =~ "256" || $DISPLAY != "" || $HAS_256_COLORS == "yes"
     set t_Co=256
 endif
+
+" Vim-R-Plugin
+"    ROpenPDF
+" nmap ROpenPDF
+
+autocmd Filetype rmd nmap <LocalLeader>zp <Plug>ROpenPDF
 
 " highlight ErrorMsg ctermfg=White guifg=White
 highlight ErrorMsg term=standout ctermfg=15 ctermbg=1 guifg=#FFFFFF guibg=Red
