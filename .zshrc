@@ -47,7 +47,7 @@ ZSH_THEME="candy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode brew osx)
+plugins=(git vi-mode brew osx virtualenvwrapper)
 
 # TODO: tmux virtualenvwrapper python git-extras
 
@@ -86,5 +86,8 @@ source $HOME/.aliases
 
 export KEYTIMEOUT=1
 
-export PROMPT=$'%{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
+export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
+
+# export WORKON_HOME=$HOME/.virtualenvs
+workon gpy

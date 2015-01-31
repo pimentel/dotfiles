@@ -12,6 +12,7 @@ alias bup="brew update; brew upgrade"
 alias tn="tmux new -s"
 alias ta="tmux attach -t"
 alias tl="tmux ls"
+alias tk="tmux kill-session -t"
 
 alias ipy="ipython"
 
