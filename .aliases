@@ -13,4 +13,6 @@ alias tn="tmux new -s"
 alias ta="tmux attach -t"
 alias tl="tmux ls"
 
-alias ipy='ipython'
+alias ipy="ipython"
+
+alias gcam="git commit -a -m"
