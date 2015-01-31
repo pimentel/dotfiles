@@ -86,7 +86,7 @@ source $HOME/.aliases
 
 export KEYTIMEOUT=1
 
-export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
+export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg_bold[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 
 # export WORKON_HOME=$HOME/.virtualenvs
