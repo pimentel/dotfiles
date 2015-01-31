@@ -1,0 +1,16 @@
+alias ll="ls -l"
+alias lh="ls -lh"
+alias grep="grep --color=auto"
+alias pu="pushd"
+alias po="popd"
+
+alias Rns="R --no-save"
+alias Rv="R --vanilla"
+
+alias bup="brew update; brew upgrade"
+
+alias tn="tmux new -s"
+alias ta="tmux attach -t"
+alias tl="tmux ls"
+
+alias ipy='ipython'

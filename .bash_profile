@@ -87,17 +87,6 @@ export EDITOR="vim"
 # ccache
 export PATH=/usr/local/opt/ccache/libexec:$PATH
 
-alias ll="ls -l"
-alias lh="ls -lh"
-alias grep="grep --color=auto"
-alias pu="pushd"
-alias po="popd"
-
-alias Rns="R --no-save"
-alias Rv="R --vanilla"
-
-alias bup="brew update; brew upgrade"
-
 tree () {
     # Modified version of:
     # http://murphymac.com/tree-command-for-mac/
@@ -120,9 +109,6 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# python
-alias ipy='ipython'
-
 export WORKON_HOME=$HOME/.virtualenvs
 source `which virtualenvwrapper.sh`
 
@@ -134,3 +120,7 @@ export PYTHONPATH=.
 # TODO: configure ruby and the rest of rbenv
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
