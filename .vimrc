@@ -146,6 +146,7 @@ autocmd Filetype tex setl sw=2 sts=2
 
 " On Mac this is 'open' TODO: need to find analogous on Linux
 let g:LatexBox_viewer = 'open'
+let g:LatexBox_show_warnings = 0
 
 " Configuration for vim-r-plugin"
 " let vimrplugin_applescript=0
