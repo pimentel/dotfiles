@@ -84,6 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
 
+bindkey -M vicmd '/' history-incremental-search-backward
+
 export KEYTIMEOUT=1
 
 export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg_bold[white]%}[%~]%{$reset_color%} $(git_prompt_info)\

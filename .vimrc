@@ -149,7 +149,7 @@ let g:LatexBox_viewer = 'open'
 let g:LatexBox_show_warnings = 0
 
 " Configuration for vim-r-plugin"
-" let vimrplugin_applescript=0
+let g:vimrplugin_applescript=1
 " let vimrplugin_screenplugin=0
 " let vimrplugin_conqueplugin=1
 
