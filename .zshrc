@@ -91,5 +91,8 @@ export KEYTIMEOUT=1
 export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg_bold[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 
+# this allows for cool expansions on sequences. e.g. mkdir hi{1-3} => hi1 hi2 hi3
+setopt brace_ccl
+
 # export WORKON_HOME=$HOME/.virtualenvs
 workon gpy

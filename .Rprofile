@@ -21,15 +21,15 @@ options(prompt = "R> ")
                       "roxygen2",
                       "haRold",
                       "vimcom")
-    installed <- utils::installed.packages()[,1]
-    reqInstalled <- requiredPkgs %in% installed
-    if (any(!reqInstalled))
-    {
-        reqNotInstalled <- requiredPkgs[!reqInstalled]
-        warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
-                paste(reqNotInstalled, collapse = " "))
-        utils::install.packages(reqNotInstalled)
-    }
+    # installed <- utils::installed.packages()[,1]
+    # reqInstalled <- requiredPkgs %in% installed
+    # if (any(!reqInstalled))
+    # {
+    #     reqNotInstalled <- requiredPkgs[!reqInstalled]
+    #     warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
+    #             paste(reqNotInstalled, collapse = " "))
+    #     utils::install.packages(reqNotInstalled)
+    # }
 
     options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
 

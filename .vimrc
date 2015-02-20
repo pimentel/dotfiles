@@ -144,6 +144,10 @@ let maplocalleader=','
 " File specific settings
 autocmd Filetype tex setl sw=2 sts=2
 
+autocmd Filetype r setl tabstop=2 sw=2 sts=2
+autocmd Filetype cpp setl tabstop=2 sw=2 sts=2
+autocmd Filetype c setl tabstop=2 sw=2 sts=2
+
 " On Mac this is 'open' TODO: need to find analogous on Linux
 let g:LatexBox_viewer = 'open'
 let g:LatexBox_show_warnings = 0
