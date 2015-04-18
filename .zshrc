@@ -8,6 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="bureau"
 ZSH_THEME="candy"
+# ZSH_THEME="sporty_256"
+# ZSH_THEME="ys"
+# ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -33,7 +36,7 @@ ZSH_THEME="candy"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -88,8 +91,8 @@ bindkey -M vicmd '/' history-incremental-search-backward
 
 export KEYTIMEOUT=1
 
-export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg_bold[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
-%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
+# export PROMPT=$' %{$fg_bold[green]%}%n %{$fg[blue]%}%D{[%I:%M:%S]} %{$reset_color%}%{$fg_bold[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
+# %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 
 # this allows for cool expansions on sequences. e.g. mkdir hi{1-3} => hi1 hi2 hi3
 setopt brace_ccl

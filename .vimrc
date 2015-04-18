@@ -145,6 +145,7 @@ let maplocalleader=','
 autocmd Filetype tex setl sw=2 sts=2
 
 autocmd Filetype r setl tabstop=2 sw=2 sts=2
+autocmd Filetype rmd setl tabstop=2 sw=2 sts=2
 autocmd Filetype cpp setl tabstop=2 sw=2 sts=2
 autocmd Filetype c setl tabstop=2 sw=2 sts=2
 
@@ -154,10 +155,11 @@ let g:LatexBox_show_warnings = 0
 
 " Configuration for vim-r-plugin"
 let g:vimrplugin_applescript=1
+let vimrplugin_applescript=1
 " let vimrplugin_screenplugin=0
 " let vimrplugin_conqueplugin=1
 
-let vimrplugin_assign = 2
+let vimrplugin_assign=2
 
 " let vimrplugin_tmux=0
 " let vimrplugin_screenplugin=1
@@ -274,3 +276,15 @@ autocmd Filetype rmd nmap <LocalLeader>zp <Plug>ROpenPDF
 
 " highlight ErrorMsg ctermfg=White guifg=White
 highlight ErrorMsg term=standout ctermfg=15 ctermbg=1 guifg=#FFFFFF guibg=Red
+
+" Jump between sections if '{' is not in first column
+" see ':help [[' and search for 'map'
+map [[ ?{<CR>w99[{:noh
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
+
+let vimrplugin_source_args = "max.deparse.length = 300, echo = TRUE"
+
+" start a command with a single !
+nnoremap ! :!

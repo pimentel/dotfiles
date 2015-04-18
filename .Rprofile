@@ -8,6 +8,14 @@ options(width = 100)
 # options(device = "quartz")
 options(prompt = "R> ")
 
+# From Vim-R-Plugin
+if(interactive()){
+  # library(colorout)
+  # library(setwidth)
+  options(vimcom.verbose = 1) # optional
+  library(vimcom)
+}
+
 .First <- function()
 {
     requiredPkgs <- c("devtools",
@@ -21,15 +29,15 @@ options(prompt = "R> ")
                       "roxygen2",
                       "haRold",
                       "vimcom")
-    # installed <- utils::installed.packages()[,1]
-    # reqInstalled <- requiredPkgs %in% installed
-    # if (any(!reqInstalled))
-    # {
-    #     reqNotInstalled <- requiredPkgs[!reqInstalled]
-    #     warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
-    #             paste(reqNotInstalled, collapse = " "))
-    #     utils::install.packages(reqNotInstalled)
-    # }
+    installed <- utils::installed.packages()[,1]
+    reqInstalled <- requiredPkgs %in% installed
+    if (any(!reqInstalled))
+    {
+        reqNotInstalled <- requiredPkgs[!reqInstalled]
+        warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
+                paste(reqNotInstalled, collapse = " "))
+        utils::install.packages(reqNotInstalled)
+    }
 
     options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
 
@@ -106,8 +114,9 @@ lsos <- function(..., n=10) {
     .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
 }
 
-# http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette 
-cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+# http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette
+cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
+  "#D55E00", "#CC79A7", "#000000")
 
 # Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
 if(interactive()){
