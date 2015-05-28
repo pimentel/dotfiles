@@ -279,7 +279,7 @@ highlight ErrorMsg term=standout ctermfg=15 ctermbg=1 guifg=#FFFFFF guibg=Red
 
 " Jump between sections if '{' is not in first column
 " see ':help [[' and search for 'map'
-map [[ ?{<CR>w99[{:noh
+map [[ ?{<CR>w99[{:noh<CR>
 map ][ /}<CR>b99]}
 map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>

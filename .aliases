@@ -7,7 +7,7 @@ alias po="popd"
 alias Rns="R --no-save"
 alias Rv="R --vanilla"
 
-alias bup="brew update; brew upgrade"
+alias bup="brew update; brew upgrade --all"
 
 alias tn="tmux new -s"
 alias ta="tmux attach -t"
