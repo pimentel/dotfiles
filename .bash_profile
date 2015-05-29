@@ -109,17 +109,17 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-export WORKON_HOME=$HOME/.virtualenvs
-source `which virtualenvwrapper.sh`
+#export WORKON_HOME=$HOME/.virtualenvs
+#source `which virtualenvwrapper.sh`
 
-workon gpy
+#workon gpy
 
 # this is a temporary hack until i figure out the best thing to do
 export PYTHONPATH=.
 
 # TODO: configure ruby and the rest of rbenv
 # rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases
