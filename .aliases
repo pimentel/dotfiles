@@ -17,3 +17,5 @@ alias tk="tmux kill-session -t"
 alias ipy="ipython"
 
 alias gcam="git commit -a -m"
+
+alias dev_kallisto="~/dev/kallisto/build/src/kallisto"

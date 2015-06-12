@@ -247,6 +247,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " Enable Markdown support
 au BufNewFile,BufRead *.md set filetype=markdown
 
+" Snakefile
+au BufNewFile,BufRead Snakefile set filetype=python
+
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
