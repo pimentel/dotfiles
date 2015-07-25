@@ -229,7 +229,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:pymode = 1
 let g:pymode_options = 0
 let g:pymode_virtualenv = 1
-let g:pymode_virtualenv_path = $HOME.'/.virtualenvs/gpy'
+let g:pymode_virtualenv_path = $HOME.'/.virtualenvs/py2'
 
 let g:pymode_lint = 0
 let g:pymode_lint_write = 0
