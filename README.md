@@ -36,6 +36,13 @@ Make sure to install python before MacVim:
 
     brew install macvim --override-system-vim
 
+## R
+
+After you've installed R, run:
+
+    Rscript --vanilla .default_packages.R
+
+to install packages that I use regularly.
 
 ## TODOs
 - Add KeyRemap4MacBook config
