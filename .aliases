@@ -19,3 +19,6 @@ alias ipy="ipython"
 alias gcam="git commit -a -m"
 
 alias dev_kallisto="~/dev/kallisto/build/src/kallisto"
+
+export EDITOR=vim
+export VISUAL=mvim
