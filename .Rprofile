@@ -18,30 +18,35 @@ if(interactive()){
 
 .First <- function()
 {
-    requiredPkgs <- c("devtools",
-                      "ggplot2",
-                      "data.table",
-                      "plyr",
-                      "dplyr",
-                      "pryr",
-                      "Rcpp",
-                      "reshape2",
-                      "roxygen2",
-                      "haRold",
-                      "vimcom")
-    installed <- utils::installed.packages()[,1]
-    reqInstalled <- requiredPkgs %in% installed
-    if (any(!reqInstalled))
-    {
-        reqNotInstalled <- requiredPkgs[!reqInstalled]
-        warning("\n\tThe following required packages were unavailable and installed:\n\t\t",
-                paste(reqNotInstalled, collapse = " "))
-        utils::install.packages(reqNotInstalled)
-    }
 
-    options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
+  requiredPkgs <- c(
+    "AnnotationDbi", # load this first so it doesn't screw up dplyr select
+    "devtools",
+    "ggplot2",
+    "data.table",
+    "plyr",
+    "dplyr",
+    "pryr",
+    "Rcpp",
+    "reshape2",
+    "roxygen2",
+    "haRold",
+    "vimcom"
+    )
 
-    utils::rc.settings(ipck = TRUE)
+  installed <- utils::installed.packages()[,1]
+  reqInstalled <- requiredPkgs %in% installed
+  if (any(!reqInstalled))
+  {
+    reqNotInstalled <- requiredPkgs[!reqInstalled]
+    warning("\n\tThe following required packages were unavailable:\n\t\t",
+      paste(reqNotInstalled, collapse = " "))
+    utils::install.packages(reqNotInstalled)
+  }
+
+  options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
+
+  utils::rc.settings(ipck = TRUE)
 }
 
 
@@ -50,8 +55,8 @@ cleanMem <- function(n=10) { for (i in 1:n) gc() }
 
 object.sizes <- function()
 {
-    return(rev(sort(sapply(ls(envir=.GlobalEnv), function (object.name) 
-        object.size(get(object.name))))))
+  return(rev(sort(sapply(ls(envir=.GlobalEnv), function (object.name) 
+          object.size(get(object.name))))))
 }
 
 
@@ -70,48 +75,48 @@ object.sizes <- function()
 #' @return a list of length n, with items in the list of length n
 head.list <- function(obj, n = 6L, ...)
 {
-    stopifnot(length(n) == 1L)
-    origN <- n
-    n <- if (n < 0L)
-        max(length(obj) + n, 0L)
-    else min(n, length(obj))
-    lapply(obj[seq_len(n)], function(x)
-           {
-               tryCatch({
-                   head(x, origN, ...)
-               }, error = function(e) {
-                   x
-               })
-           })
+  stopifnot(length(n) == 1L)
+  origN <- n
+  n <- if (n < 0L)
+    max(length(obj) + n, 0L)
+  else min(n, length(obj))
+  lapply(obj[seq_len(n)], function(x)
+    {
+      tryCatch({
+        head(x, origN, ...)
+      }, error = function(e) {
+        x
+      })
+    })
 }
 environment(head.list) <- asNamespace('utils')
 
 # http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
 # improved list of objects
 .ls.objects <- function (pos = 1, pattern, order.by,
-                        decreasing=FALSE, head=FALSE, n=5) {
-    napply <- function(names, fn) sapply(names, function(x)
-                                         fn(get(x, pos = pos)))
-    names <- ls(pos = pos, pattern = pattern)
-    obj.class <- napply(names, function(x) as.character(class(x))[1])
-    obj.mode <- napply(names, mode)
-    obj.type <- ifelse(is.na(obj.class), obj.mode, obj.class)
-    obj.size <- napply(names, object.size)
-    obj.dim <- t(napply(names, function(x)
-                        as.numeric(dim(x))[1:2]))
-    vec <- is.na(obj.dim)[, 1] & (obj.type != "function")
-    obj.dim[vec, 1] <- napply(names, length)[vec]
-    out <- data.frame(obj.type, obj.size, obj.dim)
-    names(out) <- c("Type", "Size", "Rows", "Columns")
-    if (!missing(order.by))
-        out <- out[order(out[[order.by]], decreasing=decreasing), ]
-    if (head)
-        out <- head(out, n)
-    out
+  decreasing=FALSE, head=FALSE, n=5) {
+  napply <- function(names, fn) sapply(names, function(x)
+    fn(get(x, pos = pos)))
+  names <- ls(pos = pos, pattern = pattern)
+  obj.class <- napply(names, function(x) as.character(class(x))[1])
+  obj.mode <- napply(names, mode)
+  obj.type <- ifelse(is.na(obj.class), obj.mode, obj.class)
+  obj.size <- napply(names, object.size)
+  obj.dim <- t(napply(names, function(x)
+      as.numeric(dim(x))[1:2]))
+  vec <- is.na(obj.dim)[, 1] & (obj.type != "function")
+  obj.dim[vec, 1] <- napply(names, length)[vec]
+  out <- data.frame(obj.type, obj.size, obj.dim)
+  names(out) <- c("Type", "Size", "Rows", "Columns")
+  if (!missing(order.by))
+    out <- out[order(out[[order.by]], decreasing=decreasing), ]
+  if (head)
+    out <- head(out, n)
+  out
 }
 # shorthand
 lsos <- function(..., n=10) {
-    .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
+  .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
 }
 
 # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette
@@ -120,15 +125,15 @@ cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
 
 # Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
 if(interactive()){
-    if(nchar(Sys.getenv("DISPLAY")) > 1)
-        options(editor = 'gvim -f -c "set ft=r"')
-    else
-        options(editor = 'vim -c "set ft=r"')
-    # See ?setOutputColors256 to know how to customize R output colors
-    # library(colorout)
-    # library(setwidth)
-    library(vimcom)
-    # See R documentation on Vim buffer even if asking for help in R Console:
-    if(Sys.getenv("VIM_PANE") != "")
-        options(pager = vim.pager)
+  if(nchar(Sys.getenv("DISPLAY")) > 1)
+    options(editor = 'gvim -f -c "set ft=r"')
+  else
+    options(editor = 'vim -c "set ft=r"')
+  # See ?setOutputColors256 to know how to customize R output colors
+  # library(colorout)
+  # library(setwidth)
+  library(vimcom)
+  # See R documentation on Vim buffer even if asking for help in R Console:
+  if(Sys.getenv("VIM_PANE") != "")
+    options(pager = vim.pager)
 }
