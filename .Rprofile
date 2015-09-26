@@ -20,7 +20,8 @@ if(interactive()){
 {
 
   requiredPkgs <- c(
-    "AnnotationDbi", # load this first so it doesn't screw up dplyr select
+    #"AnnotationDbi", # load this first so it doesn't screw up dplyr select
+    "modules",
     "devtools",
     "ggplot2",
     "data.table",
@@ -30,6 +31,7 @@ if(interactive()){
     "Rcpp",
     "reshape2",
     "roxygen2",
+    "readr",
     "haRold",
     "vimcom"
     )
@@ -46,6 +48,8 @@ if(interactive()){
 
   options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
 
+  #adbi <- modules::import_package("AnnotationDbi")
+
   utils::rc.settings(ipck = TRUE)
 }
 
@@ -55,7 +59,7 @@ cleanMem <- function(n=10) { for (i in 1:n) gc() }
 
 object.sizes <- function()
 {
-  return(rev(sort(sapply(ls(envir=.GlobalEnv), function (object.name) 
+  return(rev(sort(sapply(ls(envir=.GlobalEnv), function (object.name)
           object.size(get(object.name))))))
 }
 
@@ -137,3 +141,15 @@ if(interactive()){
   if(Sys.getenv("VIM_PANE") != "")
     options(pager = vim.pager)
 }
+
+# don't ask to save upon quit:
+# http://stackoverflow.com/questions/4996090/how-to-disable-save-workspace-image-prompt-in-r
+utils::assignInNamespace(
+  "q",
+  function(save = "no", status = 0, runLast = TRUE)
+  {
+    .Internal(quit(save, status, runLast))
+  },
+  "base"
+  )
+

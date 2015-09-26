@@ -1,9 +1,12 @@
 # To execute this script:
 # Rscript --vanilla init.R
 
+options(repos = structure(c(CRAN="http://cran.cnr.berkeley.edu")))
+
 cran_pkgs <- c(
   "devtools",
   "ggplot2",
+  "cowplot",
   "data.table",
   "plyr",
   "dplyr",
@@ -11,7 +14,9 @@ cran_pkgs <- c(
   "Rcpp",
   "RcppArmadillo",
   "reshape2",
-  "roxygen2"
+  "readr",
+  "roxygen2",
+  "tidyr"
   )
 
 # GitHub is a bit weird since the package name can be different than the GitHub
@@ -33,7 +38,8 @@ bioc_pkgs <- c(
   "edgeR",
   "limma",
   "biomaRt",
-  "GEOquery"
+  "GEOquery",
+  "rhdf5"
   )
 
 get_missing <- function(required, get_index = FALSE) {

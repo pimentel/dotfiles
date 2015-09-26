@@ -27,7 +27,7 @@ set nocompatible
 set number
 
 " font
-set gfn=Menlo:h13.5
+set gfn=Hack:h13.5
 
 set wrap
 set textwidth=79
@@ -131,10 +131,10 @@ nmap <silent> ˙ :wincmd h<CR>
 nmap <silent> ¬ :wincmd l<CR>
 
 " Wean off of using arrow keys
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+" noremap <Up> <nop>
+" noremap <Down> <nop>
+" noremap <Left> <nop>
+" noremap <Right> <nop>
 
 " Default leader is '\'
 let mapleader=','

@@ -8,5 +8,6 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	sts = status -uno
+	slog = log --oneline --topo-order --graph
 [push]
 	default = current
