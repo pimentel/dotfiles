@@ -12,6 +12,7 @@ Settings.extend "translations",
     "chip sequencing": "ChIP-Seq"
     "pack bio": "PacBio"
     "rna seek": "RNA-Seq"
+    "arnie seek": "RNA-Seq"
 
 Settings.extend "homonyms",
     gene: "jean"

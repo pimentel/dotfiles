@@ -52,6 +52,32 @@ Commands.create
     tags: ["shell", "user"]
     action: ->
       @string "xargs "
+  "virtual python three":
+    grammarType: "individual"
+    description: "enable a python 3 virtual environment"
+    tags: ["virtualenv", "shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    repeatable: false
+    action: ->
+      @string "workon py3"
+      @key "return"
+  "virtual python two":
+    grammarType: "individual"
+    description: "enable a python 2 virtual environment"
+    tags: ["virtualenv", "shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    misspellings: ["virtual python to"]
+    repeatable: false
+    action: ->
+      @string "workon py2"
+      @key "return"
+  "kill line":
+    grammarType: "individual"
+    description: "delete the entire line"
+    tags: ["shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "u", "control"
   # mostly symbols to help with different types of input
   'totchy':
     grammarType: 'individual'
@@ -76,7 +102,7 @@ Commands.create
       @string " -"
   'longdemin':
     grammarType: "individual"
-    description: "inserts a space then a ' -'. useful for arguments at the command line"
+    description: "inserts a space then a ' --'. useful for arguments at the command line"
     aliases: []
     tags: ['symbol']
     action: (input) ->
@@ -118,7 +144,18 @@ Commands.create
     tags: ['symbol']
     action: (input) ->
       @string "#' "
-
+  "shakemake":
+    grammarType: "individual"
+    description: "insert 'snakemake'"
+    tags: ["words"]
+    action: ->
+      @string "snakemake "
+  "shakefile":
+    grammarType: "individual"
+    description: "insert 'Snakefile'"
+    tags: ["words"]
+    action: ->
+      @string "Snakefile "
   # snippets
   ## markdown blocks
   "mark block":
