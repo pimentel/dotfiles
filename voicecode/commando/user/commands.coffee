@@ -3,7 +3,7 @@ Commands.create
   # cursor navigation and text modification
   "jab":
     grammarType: "individual"
-    description: "go back 1 word"
+    description: "insert a space"
     aliases: []
     findable: " "
     repeatable: true
@@ -220,10 +220,14 @@ Commands.addMisspellings "messy", ["messi"]
 # this is for dealing with the insertion of words that voicecode has trouble with
 singleWords = [
   "brew"
+  "flexy mike"
+  "flexymike"
   'head'
   "key"
   "meteor"
   "transcriptome"
+  "speech ware"
+  "speechware"
   "touch"
   "print"
 ]

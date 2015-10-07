@@ -26,9 +26,11 @@ Settings.extend "abbreviations",
     "python": "py"
     "simulation": "sim"
     "connection": "con"
+    "current": "cur"
     "national science foundation": "NSF"
     "national institute of health": "NIH"
     "sequence": "seq"
+    "square root": "sqrt"
     "directories": "dirs"
     # these help with R
     "aesthetic": "aes"
