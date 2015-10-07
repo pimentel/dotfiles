@@ -26,6 +26,20 @@ Commands.create
     tags: ["cursor"]
     action: (input) ->
       @do "shunkrish"
+  "limp":
+    grammarType: "individual"
+    description: "go left 1 character"
+    repeatable: true
+    tags: ["cursor", "user"]
+    action: ->
+      @key "left"
+  "rip":
+    grammarType: "individual"
+    description: "go right 1 character"
+    repeatable: true
+    tags: ["cursor", "user"]
+    action: ->
+      @key "right"
   'nudgle it':
     description: 'remove a space before the adjacent word on the left. and go to next word'
     tags: ['cursor', 'space', 'deleting', 'left', 'combo', 'recommended']
@@ -155,7 +169,24 @@ Commands.create
     description: "insert 'Snakefile'"
     tags: ["words"]
     action: ->
-      @string "Snakefile "
+      @string "Snakefile"
+  # sublime specific
+  "callup":
+    grammarType: "individual"
+    description: "column selection up in sublime (pronounced 'cal-up')"
+    repeatable: true
+    tags: ["sublime", "user"]
+    triggerScopes: ["Sublime Text"]
+    action: ->
+      @key "up", "control shift"
+  "calldown":
+    grammarType: "individual"
+    description: "column selection down in sublime (pronounced 'cal-down')"
+    repeatable: true
+    tags: ["sublime", "user"]
+    triggerScopes: ["Sublime Text"]
+    action: ->
+      @key "down", "control shift"
   # snippets
   ## markdown blocks
   "mark block":

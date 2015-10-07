@@ -62,9 +62,14 @@ Settings.extend "directories",
   "dev": "~/dev"
   "teach": "~/teach/fa15"
   "voice": "~/voicecode/commando"
-#   "code": "~/code"
-#   "voicecode videos": "~/projects/voicecode/videos"
 
 Settings.extend "websites",
-  "sleuth": "https://github.com/pachterlab/sleuth"
+  "amazon": "https://amazon.com"
+  "facebook": "https://facebook.com"
   "kallisto": "https://github.com/pachterlab/kallisto"
+  "sleuth": "https://github.com/pachterlab/sleuth"
+  "twitter": "https://twitter.com"
+  "voicecode": "http://localhost:5000/"
+  "voice commands": "http://localhost:5000/commands"
+  "voice vocab": "http://localhost:5000/vocab"
+  "yelp": "https://yelp.com"
