@@ -1,40 +1,38 @@
 # add any custom commands here
 Commands.create
+  # dragon specific
+  "snore":
+    description: "tell dragon to go to sleep"
+    tags: ["dragon", "user"]
+    action: ->
+      @do "sleepy time"
   # cursor navigation and text modification
   "jab":
-    grammarType: "individual"
     description: "insert a space"
-    aliases: []
     findable: " "
     repeatable: true
-    tags: ["cursor"]
+    tags: ["cursor", "user"]
     action: (input) ->
       @do "skoosh"
   "peg":
-    grammarType: "individual"
     description: "go back 1 word"
-    aliases: []
     repeatable: true
-    tags: ["cursor"]
+    tags: ["cursor", "user"]
     action: (input) ->
       @do "shunkrim"
   "fran":
-    grammarType: "individual"
     description: "go forward 1 word"
-    aliases: []
     repeatable: true
-    tags: ["cursor"]
+    tags: ["cursor", "user"]
     action: (input) ->
       @do "shunkrish"
   "limp":
-    grammarType: "individual"
     description: "go left 1 character"
     repeatable: true
     tags: ["cursor", "user"]
     action: ->
       @key "left"
-  "rip":
-    grammarType: "individual"
+  "rimp":
     description: "go right 1 character"
     repeatable: true
     tags: ["cursor", "user"]
@@ -42,7 +40,7 @@ Commands.create
       @key "right"
   'nudgle it':
     description: 'remove a space before the adjacent word on the left. and go to next word'
-    tags: ['cursor', 'space', 'deleting', 'left', 'combo', 'recommended']
+    tags: ['cursor', 'space', 'deleting', 'left', 'combo', 'user']
     repeatable: true
     action: ->
       @key 'left', 'option'
@@ -50,24 +48,19 @@ Commands.create
       @do 'shunkrish'
   # helpful commands for the shell
   "find here":
-    grammarType: "individual"
     description: "insert a shell command for finding files from this directory"
-    aliases: []
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm', 'Terminal', "user"]
     action: (input) ->
       @string "find . -name ''"
       @key "Left"
   "trexargs":
-    grammarType: "individual"
     description: "insert 'xargs'"
-    aliases: []
     repeatable: false
     tags: ["shell", "user"]
     action: ->
       @string "xargs "
   "virtual python three":
-    grammarType: "individual"
     description: "enable a python 3 virtual environment"
     tags: ["virtualenv", "shell", "user"]
     triggerScopes: ['iTerm', 'Terminal']
@@ -76,7 +69,6 @@ Commands.create
       @string "workon py3"
       @key "return"
   "virtual python two":
-    grammarType: "individual"
     description: "enable a python 2 virtual environment"
     tags: ["virtualenv", "shell", "user"]
     triggerScopes: ['iTerm', 'Terminal']
@@ -86,7 +78,6 @@ Commands.create
       @string "workon py2"
       @key "return"
   "kill line":
-    grammarType: "individual"
     description: "delete the entire line"
     tags: ["shell", "user"]
     triggerScopes: ['iTerm', 'Terminal']
@@ -96,83 +87,67 @@ Commands.create
   'totchy':
     grammarType: 'individual'
     description: 'close all windows in application'
-    aliases: []
-    tags: ['window', 'navigation']
+    tags: ['window', 'navigation', "user"]
     action: (input) ->
       @key 'W', 'command shift'
   'despike':
-    grammarType: "individual"
     description: "inserts a pipe with a space in front of it"
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string " | "
   'demin':
-    grammarType: "individual"
     description: "inserts a space then a ' -'. useful for arguments at the command line"
-    aliases: []
-    tags: ['symbol']
-    action: (input) ->
+    tags: ['symbol', "user"]
+    action: ->
       @string " -"
   'longdemin':
-    grammarType: "individual"
     description: "inserts a space then a ' --'. useful for arguments at the command line"
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string " --"
   # R specific
   "rambo":
-    grammarType: "individual"
     description: "assign operator in R"
-    aliases: []
-    tags: ["symbol"]
+    tags: ["symbol", "user"]
     action: (input) ->
       @string " <- "
   'our pipe':
     grammarType: 'individual'
     description: 'pipe operator in R (with new line)'
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string ' %>%'
       @key 'return'
   'our pipes':
     grammarType: 'individual'
     description: 'pipe operator in R (with spaces)'
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string ' %>% '
   'deep liar':
     grammarType: 'individual'
     description: 'insert "dplyr"'
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string 'dplyr'
   'roxie':
     grammarType: 'individual'
     description: 'insert roxygen comment in R'
-    aliases: []
-    tags: ['symbol']
+    tags: ['symbol', "user"]
     action: (input) ->
       @string "#' "
   "shakemake":
-    grammarType: "individual"
     description: "insert 'snakemake'"
-    tags: ["words"]
+    tags: ["words", "user"]
     action: ->
       @string "snakemake "
   "shakefile":
-    grammarType: "individual"
     description: "insert 'Snakefile'"
-    tags: ["words"]
+    tags: ["words", "user"]
     action: ->
       @string "Snakefile"
   # sublime specific
   "callup":
-    grammarType: "individual"
     description: "column selection up in sublime (pronounced 'cal-up')"
     repeatable: true
     tags: ["sublime", "user"]
@@ -180,7 +155,6 @@ Commands.create
     action: ->
       @key "up", "control shift"
   "calldown":
-    grammarType: "individual"
     description: "column selection down in sublime (pronounced 'cal-down')"
     repeatable: true
     tags: ["sublime", "user"]
@@ -190,11 +164,8 @@ Commands.create
   # snippets
   ## markdown blocks
   "mark block":
-    kind: "action"
-    grammarType: "individual"
     description: "insert a markdown block with language decorator"
-    aliases: []
-    tags: ["snippets"]
+    tags: ["snippets", "user"]
     action: (input) ->
       @string """```{}
 
@@ -204,19 +175,33 @@ Commands.create
       @key "Right"
   "mark plane":
     kind: "action"
-    grammarType: "individual"
     description: "insert a plain markdown block"
-    aliases: []
-    tags: ["snippets"]
+    tags: ["snippets", "user"]
     action: (input) ->
       @string """```
 
       ```"""
       @key "Up"
+  "jet commit voice":
+    description: "insert a git commit message with a voice code tag"
+    tags: ["git", "user", "domain-specific"]
+    action: ->
+      @do "jet commit"
+      @string " #vc"
+      @key "left"
+      @key "left"
+      @key "left"
+      @key "left"
+  "jet log":
+    description: "insert git lg"
+    tags: ["git", "user", "domain-specific"]
+    action: ->
+      @string "git lg"
+      @key "return"
 
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
 Commands.addMisspellings "messy", ["messi"]
-#Commands.addMisspellings "nudgleit", ["nudgle it"]
+
 # this is for dealing with the insertion of words that voicecode has trouble with
 singleWords = [
   "brew"
@@ -229,7 +214,10 @@ singleWords = [
   "speech ware"
   "speechware"
   "touch"
+  "prob"
+  "probs"
   "print"
+  "quantile"
 ]
 for word in singleWords
   Commands.create word,
@@ -248,6 +236,7 @@ myApplications =
   slacker: "Slack"
   roman: "R"
   messy: "Messages"
+  madam: "Atom"
 
 _.each myApplications, (value, key) ->
   Commands.create key,

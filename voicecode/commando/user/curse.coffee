@@ -1,15 +1,16 @@
 Settings["curseWords"] =
-    "ass": "asshole"
-    "frak": "fuck"
-    "fracking": "fucking"
-    "shot": "shit"
+  "ass": "asshole"
+  "frak": "fuck"
+  "fracking": "fucking"
+  "fracking shot": "fucking shit"
+  "shot": "shit"
+  "shotty": "shitty"
 
 Commands.create
   'curse':
     grammarType: 'textCapture'
     description: 'insert a curse word'
-    tags: ['text']
-    # misspellings: ['shall', 'chell']
+    tags: ['curse', 'text', 'user']
     continuous: true
     action: (input) ->
       if input?.length
