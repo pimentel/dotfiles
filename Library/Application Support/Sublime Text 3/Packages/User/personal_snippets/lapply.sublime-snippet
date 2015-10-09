@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+lapply(${1}, ${2:function(${3:x}) ${4:{$5\}}})
+]]></content>
+  <tabTrigger>lap</tabTrigger>
+  <description>insert an "lapply" statement in R</description>
+  <scope>source.r, text.html.markdown.knitr, text.tex.latex</scope>
+</snippet>

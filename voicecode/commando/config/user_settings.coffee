@@ -81,3 +81,8 @@ Settings.extend "websites",
 
 Settings.extend "repetitionWords",
   thrice: 3
+
+Settings.extend "codeSnippets",
+  fun: "fun"
+  lap: "lap"
+  sap: "sap"

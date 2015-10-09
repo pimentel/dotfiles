@@ -50,7 +50,7 @@ Commands.create
   "find here":
     description: "insert a shell command for finding files from this directory"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal', "user"]
+    triggerScopes: ['iTerm', 'Terminal']
     action: (input) ->
       @string "find . -name ''"
       @key "Left"
@@ -198,6 +198,81 @@ Commands.create
     action: ->
       @string "git lg"
       @key "return"
+  # tmux
+  "mux list":
+    description: "tmux list"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "tmux ls"
+      @key "return"
+  "mux new":
+    description: "create a new named tmux session"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "tmux new -s "
+  "mux attach":
+    description: "attach an existing tmux session"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "tmux attach -t "
+  "mux kill":
+    description: "kill an existing tmux session"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "tmux kill-session -t "
+  "mux vertical":
+    description: "create a vertical split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key "%"
+  "mux horizontal":
+    description: "create a horizontal split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key '"'
+  "mux left":
+    description: "go left on a window split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key 'left'
+  "mux right":
+    description: "go right on a window split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key 'right'
+  "mux up":
+    description: "go up on a window split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key 'up'
+  "mux down":
+    description: "go down on a window split"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key 'down'
+  "mux leave":
+    description: "leave a tmux session (leaving it open)"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key 'd'
 
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
 Commands.addMisspellings "messy", ["messi"]
@@ -213,10 +288,10 @@ singleWords = [
   "transcriptome"
   "speech ware"
   "speechware"
-  "touch"
   "prob"
   "probs"
   "print"
+  "tmux"
   "quantile"
 ]
 for word in singleWords
