@@ -204,7 +204,7 @@ Commands.create
     tags: ["tmux", "user", "domain-specific"]
     triggerScopes: ['iTerm', 'Terminal']
     action: ->
-      @string "tmux ls"
+      @string "etmux ls"
       @key "return"
   "mux new":
     description: "create a new named tmux session"
@@ -305,13 +305,13 @@ myApplications =
   subbit: "Sublime Text"
   skippy: "Skype"
   turmit: "iTerm"
-  maylap: "Mail"
+  # maylap: "Mail"
   faindor: "Finder"
   trinket: "Safari"
   slacker: "Slack"
   roman: "R"
   messy: "Messages"
-  madam: "Atom"
+  madame: "Atom"
 
 _.each myApplications, (value, key) ->
   Commands.create key,
