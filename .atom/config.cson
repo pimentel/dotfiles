@@ -1,0 +1,30 @@
+"*":
+  "exception-reporting":
+    userId: "f8ee241b-2a16-2363-521e-86a0af57466b"
+  welcome:
+    showOnStartup: false
+  editor:
+    invisibles: {}
+    fontSize: 13
+    showIndentGuide: true
+    scrollPastEnd: true
+    softWrap: true
+  core:
+    disabledPackages: [
+      "symbols-view"
+    ]
+    themes: [
+      "one-dark-ui"
+      "spacegray-dark-neue-syntax"
+    ]
+  "atom-beautify": {}
+  minimap: {}
+  linter:
+    showErrorTabLine: true
+  "atom-ctags": {}
+  "unity-dark-ui": {}
+  "markdown-preview": {}
+  "r-exec":
+    whichEngine: "R.app"
+    advancePosition: false
+    focusWindow: false

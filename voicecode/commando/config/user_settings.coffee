@@ -14,8 +14,10 @@ Settings.extend "translations",
   "rna seek": "RNA-Seq"
   "arnie seek": "RNA-Seq"
 
-Settings.extend "homonyms",
-    gene: "jean"
+Homonyms.values.push ["pool", "pull"]
+Homonyms.values.push ["one", "won"]
+Homonyms.values.push ["pears", "pairs"]
+Homonyms.initialize()
 
 Settings.extend "abbreviations",
   "professor": "Prof. "
@@ -23,13 +25,16 @@ Settings.extend "abbreviations",
   "Company": "Co."
   "kallisto": "kal"
   "index": "idx"
+  "dictionary": "dict"
   "python": "py"
   "simulation": "sim"
   "connection": "con"
   "current": "cur"
   "national science foundation": "NSF"
   "national institute of health": "NIH"
+  'numpy': 'np'
   "sequence": "seq"
+  user: "usr"
   "exponent": "exp"
   "square root": "sqrt"
   "directories": "dirs"

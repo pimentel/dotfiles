@@ -11,9 +11,17 @@ Commands.create
     description: "insert a space"
     findable: " "
     repeatable: true
+    misspellings: ["jeff"]
+    aliases: ["jabby"]
     tags: ["cursor", "user"]
     action: (input) ->
       @do "skoosh"
+  "sky return":
+    description: "press shift + return"
+    repeatable: true
+    tags: ["combo", "return"]
+    action: ->
+      @key 'return', 'shift'
   "peg":
     description: "go back 1 word"
     repeatable: true
@@ -204,7 +212,7 @@ Commands.create
     tags: ["tmux", "user", "domain-specific"]
     triggerScopes: ['iTerm', 'Terminal']
     action: ->
-      @string "etmux ls"
+      @string "tmux ls"
       @key "return"
   "mux new":
     description: "create a new named tmux session"
@@ -282,16 +290,20 @@ singleWords = [
   "brew"
   "flexy mike"
   "flexymike"
+  'gamma'
   'head'
   "key"
   "meteor"
   "transcriptome"
   "speech ware"
   "speechware"
+  'numpy'
   "prob"
   "probs"
   "print"
   "tmux"
+  'vectorization'
+  'vectorize'
   "quantile"
 ]
 for word in singleWords
@@ -307,7 +319,7 @@ myApplications =
   turmit: "iTerm"
   # maylap: "Mail"
   faindor: "Finder"
-  trinket: "Safari"
+  # trinket: "Safari"
   slacker: "Slack"
   roman: "R"
   messy: "Messages"

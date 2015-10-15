@@ -1,0 +1,27 @@
+kallisto:
+  'title': 'kallisto'
+  'paths': [
+    '~/dev/kallisto'
+  ]
+
+rexec:
+  'title': 'r-exec'
+  'devMode': true
+  'paths': [
+    '~/github/r-exec'
+  ]
+
+sleuth:
+  'title': 'sleuth'
+  'devMode': true
+  'paths': [
+    '~/dev/sleuth'
+    '~/analysis/bears_analyses'
+    '~/analysis/sleuth_paper'
+  ]
+
+voicecode:
+  'title': 'VoiceCode'
+  'paths': [
+    '~/voicecode/commando'
+  ]
