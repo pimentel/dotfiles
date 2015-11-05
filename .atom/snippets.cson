@@ -27,3 +27,10 @@
   'sapply':
     'prefix': 'sap'
     'body': 'sapply(${1}, ${2})'
+  'if':
+    'prefix': 'if'
+    'body': """
+    if ($1) {
+      $2
+    }
+    """

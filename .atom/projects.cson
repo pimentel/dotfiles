@@ -13,15 +13,29 @@ rexec:
 
 sleuth:
   'title': 'sleuth'
-  'devMode': true
   'paths': [
     '~/dev/sleuth'
     '~/analysis/bears_analyses'
     '~/analysis/sleuth_paper'
+    '~/dev/mamabear'
+  ]
+
+teach:
+  'title': 'teaching'
+  # 'devMode': true
+  'paths': [
+    '~/teach/fa15'
   ]
 
 voicecode:
   'title': 'VoiceCode'
   'paths': [
     '~/voicecode/commando'
+  ]
+
+web:
+  'title': 'Websites'
+  'paths': [
+    '~/web/sleuth_web'
+    '~/web/kallisto_web'
   ]

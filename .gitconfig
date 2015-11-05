@@ -11,3 +11,5 @@
 	slog = log --oneline --topo-order --graph
 [push]
 	default = current
+[core]
+	editor = atom --wait

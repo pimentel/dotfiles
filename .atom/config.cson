@@ -5,7 +5,6 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontSize: 13
     showIndentGuide: true
     scrollPastEnd: true
     softWrap: true
@@ -18,13 +17,20 @@
       "spacegray-dark-neue-syntax"
     ]
   "atom-beautify": {}
-  minimap: {}
+  minimap:
+    plugins:
+      "minimap-autohide": true
   linter:
     showErrorTabLine: true
   "atom-ctags": {}
   "unity-dark-ui": {}
   "markdown-preview": {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  "advanced-open-file":
+    helmDirSwitch: true
+  swackets: {}
   "r-exec":
-    whichEngine: "R.app"
-    advancePosition: false
-    focusWindow: false
+    whichEngine: "Google Chrome"
+  "tree-view":
+    hideVcsIgnoredFiles: true

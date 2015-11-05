@@ -1,12 +1,5 @@
 # add any custom commands here
 Commands.create
-  # dragon specific
-  "snore":
-    description: "tell dragon to go to sleep"
-    tags: ["dragon", "user"]
-    action: ->
-      @do "sleepy time"
-  # cursor navigation and text modification
   "jab":
     description: "insert a space"
     findable: " "
@@ -14,6 +7,7 @@ Commands.create
     misspellings: ["jeff"]
     aliases: ["jabby"]
     tags: ["cursor", "user"]
+    continuous: false
     action: (input) ->
       @do "skoosh"
   "sky return":
@@ -132,6 +126,10 @@ Commands.create
     tags: ['symbol', "user"]
     action: (input) ->
       @string ' %>% '
+  'our script':
+    tags: ["user"]
+    action: ->
+      @string 'Rscript '
   'deep liar':
     grammarType: 'individual'
     description: 'insert "dplyr"'
@@ -154,7 +152,22 @@ Commands.create
     tags: ["words", "user"]
     action: ->
       @string "Snakefile"
-  # sublime specific
+  # Atom specific
+  'pain left':
+    description: 'go to the left pane'
+    tags: ['atom', 'user']
+    triggerScopes: ['Atom']
+    action: ->
+      @key 'k', 'command'
+      @key 'left', 'command'
+  'pain right':
+      description: 'go to the right pane'
+      tags: ['atom', 'user']
+      triggerScopes: ['Atom']
+      action: ->
+        @key 'k', 'command'
+        @key 'right', 'command'
+# sublime specific
   "callup":
     description: "column selection up in sublime (pronounced 'cal-up')"
     repeatable: true
@@ -190,7 +203,7 @@ Commands.create
 
       ```"""
       @key "Up"
-  "jet commit voice":
+  "jet voice":
     description: "insert a git commit message with a voice code tag"
     tags: ["git", "user", "domain-specific"]
     action: ->
@@ -281,29 +294,33 @@ Commands.create
     action: ->
       @key "b", "control"
       @key 'd'
+  "perfect score":
+    description: "a perfect score on the homework"
+    action: ->
+      @string "3"
+      @key "right"
+      @string "3"
+      @key "right"
+      @string "3"
+      @key "right"
+
 
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
 Commands.addMisspellings "messy", ["messi"]
+Commands.addMisspellings "swipe", ["swype"]
+# Commands.addMisspellings "datson", ["dotson"]
+Commands.addMisspellings "page down", ["patient"]
 
 # this is for dealing with the insertion of words that voicecode has trouble with
 singleWords = [
   "brew"
-  "flexy mike"
-  "flexymike"
   'gamma'
   'head'
   "key"
   "meteor"
-  "transcriptome"
   "speech ware"
   "speechware"
-  'numpy'
-  "prob"
-  "probs"
   "print"
-  "tmux"
-  'vectorization'
-  'vectorize'
   "quantile"
 ]
 for word in singleWords

@@ -10,10 +10,4 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
-
-# atom.config.set('r-exec.whichEngine', 'Terminal')
-atom.config.set('r-exec.whichEngine', 'R.app')
-atom.config.set('r-exec.advancePosition', false)
-#atom.config.set('r-exec.advancePosition', true)
-atom.config.set('r-exec.focusWindow', false)
-# atom.config.set('r-exec.focusWindow', true)
+atom.commands.dispatch(atom.views.getView(atom.workspace), 'voicecode:connect')

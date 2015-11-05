@@ -21,7 +21,7 @@ if(interactive()){
 
   requiredPkgs <- c(
     #"AnnotationDbi", # load this first so it doesn't screw up dplyr select
-    "modules",
+    # "modules",
     "devtools",
     "ggplot2",
     "data.table",
@@ -152,4 +152,3 @@ utils::assignInNamespace(
   },
   "base"
   )
-
