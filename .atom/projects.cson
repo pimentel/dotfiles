@@ -30,6 +30,7 @@ teach:
 voicecode:
   'title': 'VoiceCode'
   'paths': [
+    '~/voicecode_user'
     '~/voicecode/commando'
   ]
 
@@ -38,4 +39,10 @@ web:
   'paths': [
     '~/web/sleuth_web'
     '~/web/kallisto_web'
+  ]
+
+test:
+  'test': 'test websites'
+  'paths': [
+    '~/web/hugo'
   ]

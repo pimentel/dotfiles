@@ -20,6 +20,7 @@
   minimap:
     plugins:
       "minimap-autohide": true
+    autoToggle: false
   linter:
     showErrorTabLine: true
   "atom-ctags": {}
@@ -30,7 +31,10 @@
   "advanced-open-file":
     helmDirSwitch: true
   swackets: {}
-  "r-exec":
-    whichEngine: "Google Chrome"
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
+  "one-dark-ui": {}
+  "git-plus": {}
+  "autoclose-html": {}
+  "highlight-selected": {}
+  "todo-show": {}
+  "remote-edit": {}
