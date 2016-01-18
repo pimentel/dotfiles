@@ -13,3 +13,4 @@
 	default = current
 [core]
 	editor = atom --wait
+	excludesfile = /Users/hjp/.gitignore_global

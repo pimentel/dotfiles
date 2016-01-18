@@ -124,3 +124,6 @@ export PYTHONPATH=.
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
+
+# added by Miniconda2 3.19.0 installer
+export PATH="/Users/hjp/miniconda2/bin:$PATH"

@@ -1,40 +1,68 @@
 "*":
-  "exception-reporting":
-    userId: "f8ee241b-2a16-2363-521e-86a0af57466b"
-  welcome:
-    showOnStartup: false
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    scrollPastEnd: true
-    softWrap: true
+  "advanced-open-file":
+    helmDirSwitch: true
+  "atom-beautify": {}
+  "atom-ctags": {}
+  "atom-material-ui":
+    fonts: {}
+  "atom-terminal": {}
+  "autoclose-html": {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  "autocomplete-python": {}
   core:
     disabledPackages: [
       "symbols-view"
+      "todo-show"
+      "jshint"
+      "markdown-writer"
+      "language-gfm"
     ]
     themes: [
       "one-dark-ui"
       "spacegray-dark-neue-syntax"
     ]
-  "atom-beautify": {}
+  editor:
+    autoIndentOnPaste: false
+    fontSize: 13
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "f8ee241b-2a16-2363-521e-86a0af57466b"
+  "git-plus": {}
+  "highlight-selected": {}
+  "js-hyperclick": {}
+  linter:
+    errorPanelHeight: 109
+    showErrorTabLine: true
+  "linter-jshint": {}
+  "linter-lintr":
+    linters: "with_defaults( camel_case_linter = NULL, commented_code_linter = NULL, closed_curly_linter = NULL, line_length_linter = line_length_linter(120), object_usage_linter = NULL, single_quotes_linter = NULL, trailing_blank_lines_linter = NULL )"
+  "linter-shellcheck": {}
+  "markdown-preview":
+    breakOnSingleNewline: true
+  "markdown-writer":
+    fileExtension: ".md"
+    siteEngine: "jekyll"
   minimap:
+    autoToggle: false
     plugins:
       "minimap-autohide": true
-    autoToggle: false
-  linter:
-    showErrorTabLine: true
-  "atom-ctags": {}
-  "unity-dark-ui": {}
-  "markdown-preview": {}
-  "autocomplete-plus":
-    confirmCompletion: "tab"
-  "advanced-open-file":
-    helmDirSwitch: true
-  swackets: {}
-  "tree-view": {}
+      pigments: true
   "one-dark-ui": {}
-  "git-plus": {}
-  "autoclose-html": {}
-  "highlight-selected": {}
-  "todo-show": {}
+  "r-exec":
+    advancePosition: true
   "remote-edit": {}
+  swackets: {}
+  "tidy-markdown":
+    ensureFirstHeaderIsH1: false
+  "todo-show": {}
+  "trailing-spaces":
+    enableForCursorLines: true
+    enableForIndentation: true
+  "tree-view": {}
+  "unity-dark-ui": {}
+  welcome:
+    showOnStartup: false

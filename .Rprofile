@@ -16,10 +16,8 @@ if(interactive()){
   library(vimcom)
 }
 
-.First <- function()
-{
-
-  requiredPkgs <- c(
+.First <- function() {
+    requiredPkgs <- c(
     #"AnnotationDbi", # load this first so it doesn't screw up dplyr select
     # "modules",
     "devtools",
@@ -38,27 +36,35 @@ if(interactive()){
 
   installed <- utils::installed.packages()[,1]
   reqInstalled <- requiredPkgs %in% installed
-  if (any(!reqInstalled))
-  {
+  if (any(!reqInstalled)) {
     reqNotInstalled <- requiredPkgs[!reqInstalled]
     warning("\n\tThe following required packages were unavailable:\n\t\t",
       paste(reqNotInstalled, collapse = " "))
     utils::install.packages(reqNotInstalled)
   }
 
-  options(defaultPackages = c(getOption("defaultPackages"), requiredPkgs))
+  for (pkg in requiredPkgs) {
+    # print(class(pkg))
+    suppressPackageStartupMessages(
+      suppressWarnings({
+          eval(parse(text = paste0("library('", pkg, "')")))
+        })
+    )
+  }
+
+  # options(defaultPackages = c(getOpztion("defaultPackages"), requiredPkgs))
 
   #adbi <- modules::import_package("AnnotationDbi")
 
   utils::rc.settings(ipck = TRUE)
 }
 
-
 # ask GC nicely to run
-cleanMem <- function(n=10) { for (i in 1:n) gc() }
+cleanMem <- function(n=10) {
+  for (i in 1:n) gc()
+}
 
-object.sizes <- function()
-{
+object.sizes <- function() {
   return(rev(sort(sapply(ls(envir=.GlobalEnv), function (object.name)
           object.size(get(object.name))))))
 }
@@ -77,15 +83,14 @@ object.sizes <- function()
 #' list and all entries in the list. If negative, prints all but the last
 #' n items in the list.
 #' @return a list of length n, with items in the list of length n
-head.list <- function(obj, n = 6L, ...)
-{
+head.list <- function(obj, n = 6L, ...) {
   stopifnot(length(n) == 1L)
   origN <- n
   n <- if (n < 0L)
     max(length(obj) + n, 0L)
   else min(n, length(obj))
-  lapply(obj[seq_len(n)], function(x)
-    {
+  lapply(obj[seq_len(n)],
+    function(x) {
       tryCatch({
         head(x, origN, ...)
       }, error = function(e) {
@@ -97,7 +102,7 @@ environment(head.list) <- asNamespace('utils')
 
 # http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
 # improved list of objects
-.ls.objects <- function (pos = 1, pattern, order.by,
+.ls.objects <- function (pos = 1, pattern, order.by, # nolint
   decreasing=FALSE, head=FALSE, n=5) {
   napply <- function(names, fn) sapply(names, function(x)
     fn(get(x, pos = pos)))
@@ -120,7 +125,7 @@ environment(head.list) <- asNamespace('utils')
 }
 # shorthand
 lsos <- function(..., n=10) {
-  .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
+  .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n) # nolint
 }
 
 # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette
@@ -146,8 +151,7 @@ if(interactive()){
 # http://stackoverflow.com/questions/4996090/how-to-disable-save-workspace-image-prompt-in-r
 utils::assignInNamespace(
   "q",
-  function(save = "no", status = 0, runLast = TRUE)
-  {
+  function(save = "no", status = 0, runLast = TRUE) {
     .Internal(quit(save, status, runLast))
   },
   "base"

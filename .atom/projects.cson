@@ -1,30 +1,45 @@
-kallisto:
-  'title': 'kallisto'
+sleuth:
+  'title': 'sleuth'
+  'devMode': true
   'paths': [
-    '~/dev/kallisto'
+    '~/dev/sleuth'
+    '~/analysis/bears_analyses'
+    '~/analysis/sleuth_paper'
+    '~/analysis/cuffdiff2_analysis'
+    '~/dev/mamabear'
   ]
 
-rexec:
+rExec:
   'title': 'r-exec'
   'devMode': true
   'paths': [
     '~/github/r-exec'
   ]
 
-sleuth:
-  'title': 'sleuth'
+pasteBuffer:
+  'title': 'paste-buffer'
+  'devMode': true
   'paths': [
-    '~/dev/sleuth'
-    '~/analysis/bears_analyses'
-    '~/analysis/sleuth_paper'
-    '~/dev/mamabear'
+    '~/github/paste-buffer'
   ]
 
-teach:
-  'title': 'teaching'
-  # 'devMode': true
+atomDevel:
+  'title': 'AtomDevel'
+  'devMode': true
   'paths': [
-    '~/teach/fa15'
+    '~/github'
+  ]
+
+sleuthDebug:
+  'title': 'debugging sleuth'
+  'paths': [
+    '~/debug'
+  ]
+
+kallisto:
+  'title': 'kallisto'
+  'paths': [
+    '~/dev/kallisto'
   ]
 
 voicecode:
@@ -37,12 +52,29 @@ voicecode:
 web:
   'title': 'Websites'
   'paths': [
-    '~/web/sleuth_web'
-    '~/web/kallisto_web'
+    '~/web'
   ]
 
-test:
-  'test': 'test websites'
+kallistoPaper:
+  'title': 'kallisto paper'
   'paths': [
-    '~/web/hugo'
+    '~/analysis/kallisto_paper_analysis'
+  ]
+
+benchCI:
+  'title': 'bench-ci'
+  'paths': [
+    '~/dev/bench-ci'
+  ]
+
+notes:
+  'title': 'notes'
+  'paths': [
+    '~/notes'
+  ]
+
+nerdSkincare:
+  'title': 'nerd skincare'
+  'paths': [
+    '~/dev/nerdSkincare'
   ]
