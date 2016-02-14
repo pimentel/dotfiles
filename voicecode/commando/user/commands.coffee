@@ -38,6 +38,13 @@ Commands.create
     action: ->
       @string "find . -name ''"
       @key "Left"
+  "h top":
+    description: "insert 'htop' in the shell"
+    tags: ["shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "htop"
+      @key "return"
   "open here":
     description: "open finder here"
     tags: ["shell", "user"]
@@ -45,24 +52,30 @@ Commands.create
     action: ->
       @string "open ."
       @key "Return"
-  "pseudo-":
-    autoSpacing: "normal normal"
-    multiPhraseAutoSpacing: "normal normal"
-    description: "Enter 'sudo ' if in a terminal or 'pseudo' otherwise."
-    tags: ["shell", "user"]
-    action: ->
-      switch @currentApplication()
-        when "iTerm" or "Terminal"
-          @string "sudo"
-        else
-          @string "pseudo"
+  # "pseudo-":
+  #   autoSpacing: "normal normal"
+  #   multiPhraseAutoSpacing: "normal normal"
+  #   description: "Enter 'sudo ' if in a terminal or 'pseudo' otherwise."
+  #   tags: ["shell", "user"]
+  #   action: ->
+  #     switch @currentApplication()
+  #       when "iTerm" or "Terminal"
+  #         @string "sudo"
+  #       else
+  #         @string "pseudo"
   "shell pseudo-":
     autoSpacing: "normal normal"
     multiPhraseAutoSpacing: "normal normal"
     description: "Enter 'sudo' unconditionally."
     tags: ["user"]
     action: ->
-      @string "sudo"
+      @string "sudo "
+  "secure copy":
+    description: "scp in the shell"
+    tags: ["shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "scp -r "
   "trexargs":
     autoSpacing: "normal normal"
     multiPhraseAutoSpacing: "normal normal"
@@ -98,6 +111,14 @@ Commands.create
     tags: ["symbols", "user"]
     action: ->
       @string " * "
+  "super banquall":
+    tags: ["symbols", "user"]
+    action: ->
+      @string " !== "
+  "super longqual":
+    tags: ["symbols", "user"]
+    action: ->
+      @string " === "
   "laip":
     description: "alias to 'prex'"
     repeatable: true
@@ -116,6 +137,8 @@ Commands.create
     action: ->
       @string " | "
   'demin':
+    autoSpacing: "auto never"
+    multiPhraseAutoSpacing: "auto never"
     description: "inserts a space then a ' -'. useful for arguments at the ' +
     'command line"
     tags: ['symbol', "user"]
@@ -127,6 +150,8 @@ Commands.create
     action: ->
       @string "- "
   'longdemin':
+    autoSpacing: "auto never"
+    multiPhraseAutoSpacing: "auto never"
     description: "inserts a space then a ' --'. useful for arguments at the" +
     " command line"
     tags: ['symbol', "user"]
@@ -242,7 +267,7 @@ Commands.create
   # Atom specific
   'pain left':
     description: 'go to the left pane'
-    tags: ['atom', 'user']
+    tags: ['atom', 'user', 'shell']
     triggerScopes: ['Atom', 'iTerm', 'Terminal']
     action: ->
       switch @currentApplication()
@@ -254,7 +279,7 @@ Commands.create
           @key 'left'
   'pain right':
     description: 'go to the right pane'
-    tags: ['atom', 'user']
+    tags: ['atom', 'user', 'shell']
     triggerScopes: ['Atom', 'iTerm', 'Terminal']
     action: ->
       switch @currentApplication()
@@ -264,6 +289,30 @@ Commands.create
         when "iTerm" or "Terminal"
           @key "b", "control"
           @key 'right'
+  'pain down':
+    description: 'go to the down pane'
+    tags: ['atom', 'user', 'shell']
+    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    action: ->
+      switch @currentApplication()
+        when "Atom"
+          @key 'k', 'command'
+          @key 'down', 'command'
+        when "iTerm" or "Terminal"
+          @key "b", "control"
+          @key 'down'
+  'pain up':
+    description: 'go to the up pane'
+    tags: ['atom', 'user', 'shell']
+    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    action: ->
+      switch @currentApplication()
+        when "Atom"
+          @key 'k', 'command'
+          @key 'up', 'command'
+        when "iTerm" or "Terminal"
+          @key "b", "control"
+          @key 'up'
 # sublime specific
   "callup":
     description: "column selection up in sublime (pronounced 'cal-up')"
@@ -368,34 +417,6 @@ Commands.create
     action: ->
       @key "b", "control"
       @key '"'
-  "mux left":
-    description: "go left on a window split"
-    tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
-    action: ->
-      @key "b", "control"
-      @key 'left'
-  "mux right":
-    description: "go right on a window split"
-    tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
-    action: ->
-      @key "b", "control"
-      @key 'right'
-  "mux up":
-    description: "go up on a window split"
-    tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
-    action: ->
-      @key "b", "control"
-      @key 'up'
-  "mux down":
-    description: "go down on a window split"
-    tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
-    action: ->
-      @key "b", "control"
-      @key 'down'
   "mux leave":
     description: "leave a tmux session (leaving it open)"
     tags: ["tmux", "user", "domain-specific"]
@@ -438,15 +459,13 @@ for word in singleWords
 # open applications
 myApplications =
   chromie: "Google Chrome"
-  subbit: "Sublime Text"
+  # subbit: "Sublime Text"
   skippy: "Skype"
   turmit: "iTerm"
-  # maylap: "Mail"
   faindor: "Finder"
   # trinket: "Safari"
   slacker: "Slack"
   roman: "R"
-  # messy: "Messages"
   masseuse: "Messages"
   madame: "Atom"
 _.each myApplications, (value, key) ->
@@ -457,7 +476,6 @@ _.each myApplications, (value, key) ->
       @openApplication value
 
 # commands that require an argument
-
 Settings["names"] =
   "wife": "puente"
   "far": "faraz"
@@ -466,8 +484,11 @@ Settings["names"] =
   "leroy": "lior"
   "lyle": "lior"
   "lori": "lorian"
+  "mel": "melsted"
   "paul": "pall"
   "patch": "pachter"
+  "poison": "poisson"
+  "val": "vasilis"
   "wang": "huang"
   # mappings
   "blood": "erythropoiesis"
@@ -480,10 +501,9 @@ Commands.create
     description: "enter a name"
     tags: ["user"]
     action: (input) ->
-      text = ""
       if input?.length
         text = @fuzzyMatch Settings.names, input.join(' ')
-      @string text
+        @string text
   "champ brand":
     grammarType: 'textCapture'
     autoSpacing: 'normal normal'
@@ -491,11 +511,10 @@ Commands.create
     description: "enter a name with the first character capitalized"
     tags: ["user"]
     action: (input) ->
-      text = ""
       if input?.length
         text = @fuzzyMatch Settings.names, input.join(' ')
         text = text.charAt(0).toUpperCase() + text.slice(1)
-      @string text
+        @string text
 
 Settings["mathSymbols"] =
   "eta": "eta"
@@ -519,10 +538,9 @@ Commands.create
     description: "enter math symbols"
     tags: ["user"]
     action: (input) ->
-      text = ""
       if input?.length
         text = @fuzzyMatch Settings.mathSymbols, input.join(' ')
-      @string text
+        @string text
 
 Commands.create
   "ordinal":
@@ -569,8 +587,12 @@ Commands.create
       @string "ssh " + text
 
 Settings["properPunctuation"] =
-  "coffee script": "Coffeescript"
+  "coffee script": "CoffeeScript"
+  "express": "eXpress"
+  "iterm": "iTerm"
   "javascript": "JavaScript"
+  "github": "GitHub"
+  "latex": "LaTeX"
 Commands.create
   "spellman":
     grammarType: 'textCapture'
@@ -579,11 +601,9 @@ Commands.create
     description: "enter a properly spelled (punctuation) word"
     tags: ["user"]
     action: (input) ->
-      text = ""
       if input?.length
         text = @fuzzyMatch Settings.properPunctuation, input.join(' ')
-      @string text
-
+        @string text
 
 # miscellaneous
 # overwrite the default behavior of 'jet'
@@ -592,3 +612,15 @@ Commands.edit 'git', (command) ->
 
 Settings.extend "translations",
   jet: "git"
+
+Commands.extend "freshly", ->
+  switch @currentApplication()
+    when 'Cyberduck'
+      @key 'r', 'command'
+
+Commands.after "shell", (input) ->
+  if not input?.length
+    @string "shell"
+Commands.after "trexargs", ->
+  if @currentApplication() is "iTerm" or @currentApplication() is "Terminal"
+    @string " "

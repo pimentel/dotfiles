@@ -16,6 +16,12 @@ rExec:
     '~/github/r-exec'
   ]
 
+kallisto:
+  'title': 'kallisto'
+  'paths': [
+    '~/dev/kallisto'
+  ]
+
 pasteBuffer:
   'title': 'paste-buffer'
   'devMode': true
@@ -23,23 +29,10 @@ pasteBuffer:
     '~/github/paste-buffer'
   ]
 
-atomDevel:
-  'title': 'AtomDevel'
-  'devMode': true
-  'paths': [
-    '~/github'
-  ]
-
 sleuthDebug:
   'title': 'debugging sleuth'
   'paths': [
     '~/debug'
-  ]
-
-kallisto:
-  'title': 'kallisto'
-  'paths': [
-    '~/dev/kallisto'
   ]
 
 voicecode:
@@ -73,8 +66,8 @@ notes:
     '~/notes'
   ]
 
-nerdSkincare:
-  'title': 'nerd skincare'
+peoplesJournal:
+  'title': 'peoples-journal'
   'paths': [
-    '~/dev/nerdSkincare'
+    '~/web/peoples-journal'
   ]

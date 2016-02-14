@@ -16,6 +16,8 @@
       "todo-show"
       "jshint"
       "markdown-writer"
+      "linter-jshint"
+      "emmet"
       "language-gfm"
     ]
     themes: [
@@ -24,7 +26,7 @@
     ]
   editor:
     autoIndentOnPaste: false
-    fontSize: 13
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -32,11 +34,15 @@
   "exception-reporting":
     userId: "f8ee241b-2a16-2363-521e-86a0af57466b"
   "git-plus": {}
+  "grammar-token-limit": {}
   "highlight-selected": {}
   "js-hyperclick": {}
+  "language-babel": {}
   linter:
     errorPanelHeight: 109
     showErrorTabLine: true
+  "linter-clang": {}
+  "linter-eslint": {}
   "linter-jshint": {}
   "linter-lintr":
     linters: "with_defaults( camel_case_linter = NULL, commented_code_linter = NULL, closed_curly_linter = NULL, line_length_linter = line_length_linter(120), object_usage_linter = NULL, single_quotes_linter = NULL, trailing_blank_lines_linter = NULL )"
@@ -54,6 +60,7 @@
   "one-dark-ui": {}
   "r-exec":
     advancePosition: true
+    whichApp: "Google Chrome"
   "remote-edit": {}
   swackets: {}
   "tidy-markdown":
@@ -66,3 +73,5 @@
   "unity-dark-ui": {}
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

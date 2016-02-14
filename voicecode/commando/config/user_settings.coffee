@@ -5,22 +5,27 @@ Settings.dragonApplicationName = "Dragon"
 
 Commands.addMisspellings 'datsun', ['dotson']
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
-Commands.addMisspellings "messy", ["messi"]
+Commands.addMisspellings 'h top', ['each top', 'etch top']
 Commands.addMisspellings "swipe", ["swype"]
 Commands.addMisspellings "page down", ["patient"]
 
+Commands.changeName "loco", "laddie"
 Commands.changeName "scrish", "scrump"
 Commands.changeName "seltill", "selty"
 Commands.changeName "questo", "questy"
 
 Settings.extend "translations",
+  "ten x": "10X"
   "anti-": "anti"
   "multi-": "multi"
   "non-": "non"
   "pre-": "pre"
+  "pseudo-": "pseudo"
   "re-": "re"
   "ass holes": "assholes"
   "ass hole": "asshole"
+  "bio mart": "biomaRt"
+  "bullion": "boolean"
   "by clustering": "biclustering"
   "by cluster": "bicluster"
   "calisto": "kallisto"
@@ -36,33 +41,40 @@ Settings.extend "translations",
   "fast q": "fastq"
   "fast cue": "fastq"
   "gopi": "gulp"
+  "guitar": "tar"
   "hark 5": "h5"
   "hark five": "h5"
   "hdf five": "hdf5"
   "hdl five": "hdf5"
   "hdr five": "hdf5"
   "hds five": "hdf5"
+  "intron's": "introns"
+  "intron 's": "introns"
   "i'd": "I'd"
   "i've": "I've"
-  "intron's": "introns"
   "jackal": "jekyll"
+  "jeans": "genes"
   "jean": "gene"
   "kaymer": "kmer"
   "meta-": "meta"
   "noel": "null"
+  "pam": "bam"
   "paced": "paste"
   "pool request": "pull request"
   "prichard": "pritchard"
   "pretend": "end"
   "pseudo- alignment": "pseudoalignment"
+  "rose": "rows"
   "rapper": "wrapper"
   "reeds": "reads"
   "repose": "repos"
   "roe": "row"
   "ro": "row"
-  "rose": "rows"
+  "sq light three": "sqlite3"
+  "sq light": "sqlite"
   "scripps": "scripts"
   "set up": "setup"
+  "seraphim": "serafim"
   "white space": "whitespace"
   "winters": "linters"
   "winter": "linter"
@@ -79,6 +91,7 @@ Settings.extend "translations",
   "edge our": "edgeR"
   "etch seek": "edgeR"
   "edger": "edgeR"
+  "q tl": "QTL"
 
 Homonyms.values.push ["first", "1st"]
 Homonyms.values.push ["second", "2nd"]
@@ -94,6 +107,7 @@ Homonyms.values.push ["ninth", "9th"]
 Homonyms.values.push ["atom", "adam"]
 Homonyms.values.push ["jupiter", "jupyter"]
 Homonyms.values.push ["pool", "pull"]
+Homonyms.values.push ["pseudo", "sudo"]
 Homonyms.values.push ["layer", "lair"]
 Homonyms.values.push ["one", "won"]
 Homonyms.values.push ["pears", "pairs"]
@@ -110,6 +124,10 @@ Settings.extend "abbreviations",
   "at all": "et. al."
   "auxiliary": "aux"
   "biology": "bio"
+  "bio archive": "bioRxiv"
+  "bowtie": "bwt"
+  "bullion": "bool"
+  "boolean": "bool"
   "crisper": "CRISPR"
   "cufflinks": "cuff"
   "dispersion": "disp"
@@ -139,6 +157,7 @@ Settings.extend "abbreviations",
   "python": "py"
   "regular expression": "regex"
   "repeat": "rep"
+  "return": "ret"
   "simulation": "sim"
   "connection": "con"
   "current": "cur"
@@ -149,6 +168,7 @@ Settings.extend "abbreviations",
   "penn": "pen"
   "sequence": "seq"
   "separator": "sep"
+  "server": "srv"
   "snip": "snp"
   "substitute": "sub"
   user: "usr"
@@ -167,6 +187,7 @@ Settings.extend "abbreviations",
   "some": "sum"
   "statistic": "stat"
   "limit": "lim"
+  "observed": "obs"
   "observation": "obs"
   "points": "pnts"
   "probability": "prob"
@@ -190,6 +211,8 @@ Settings.extend "shellCommands",
   "shuffle": "shuf "
   "symbolic link": "ln -s "
   "tale": "tail "
+  "tar": "tar -cvvf "
+  "untar": "tar -xf "
 
 Settings.extend "directories",
   "analysis": "~/analysis"
@@ -212,12 +235,13 @@ Settings.extend "websites",
   "bears": "https://github.com/pachterlab/bears_analyses"
   "calendar": "https://calendar.google.com"
   "facebook": "https://facebook.com"
+  "get": "https://github.com/"
   "kallisto": "https://github.com/pachterlab/kallisto"
   "pimentel": "https://pimentel.github.io/"
   "read it": "https://www.reddit.com/"
   "sleuth": "https://github.com/pachterlab/sleuth"
-  "solution": "https://github.com/berkeley-stat243/stat243-fall-2015-ps"
-  "teach": "https://github.com/berkeley-stat243/stat243-fall-2015"
+  # "solution": "https://github.com/berkeley-stat243/stat243-fall-2015-ps"
+  # "teach": "https://github.com/berkeley-stat243/stat243-fall-2015"
   "trello": "https://trello.com/"
   "twitter": "https://twitter.com"
   "whether": "http://www.weather.com/weather/hourbyhour/l/94709:4:US"
@@ -238,6 +262,7 @@ Settings.extend "codeSnippets",
 
 Settings.extend "vocabulary", [
   "bayes"
+  "convolutional"
   "debrown"
   "devel"
   "docker"
@@ -259,6 +284,7 @@ Settings.extend "vocabulary", [
   "limma"
   "linter"
   "linux"
+  "lodash"
   "mart"
   "mup init"
   "mup deploy"
@@ -268,6 +294,8 @@ Settings.extend "vocabulary", [
   "mup start"
   "mup stop"
   "mup restart"
+  "neural network"
+  "neural networks"
   "node"
   'numpy'
   'pachter'
@@ -279,8 +307,10 @@ Settings.extend "vocabulary", [
   "selty"
   "smartnav"
   'sim'
+  "tar"
   "tmux"
   "transcriptome"
+  "untar"
   'vectorization'
   'vectorize'
   "voom"
@@ -289,6 +319,11 @@ Settings.extend "vocabulary", [
   "emoji"
   # combinations
   "champ thanks"
+  "smash dev tools"
+  "smash debug once"
+  "snake sleuth live"
+  "snake sleuth prep"
+  "snake sleuth single cell"
 ]
 
 Settings.extend "vocabularyAlternate",
@@ -315,6 +350,7 @@ Settings.extend "applications",
   "script editor": "Script Editor"
   "latex": "LaTeXiT"
   "private": "Private Internet Access"
+  studio: "RStudio"
   transmission: "Transmission"
   video: "vlc"
   word: "Microsoft Word"
