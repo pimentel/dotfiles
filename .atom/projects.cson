@@ -1,73 +1,68 @@
 sleuth:
-  'title': 'sleuth'
-  'devMode': true
-  'paths': [
-    '~/dev/sleuth'
-    '~/analysis/bears_analyses'
-    '~/analysis/sleuth_paper'
-    '~/analysis/cuffdiff2_analysis'
-    '~/dev/mamabear'
+  title: "sleuth"
+  paths: [
+    "/Users/hjp/dev/sleuth"
+    "/Users/hjp/analysis/bears_analyses"
+    "/Users/hjp/analysis/sleuth_paper"
+    "/Users/hjp/analysis/cuffdiff2_analysis"
+    "/Users/hjp/dev/mamabear-private"
   ]
-
+  devMode: true
 rExec:
-  'title': 'r-exec'
-  'devMode': true
-  'paths': [
-    '~/github/r-exec'
+  title: "r-exec"
+  devMode: true
+  paths: [
+    "~/github/r-exec"
   ]
-
+thesis:
+  title: "thesis"
+  paths: [
+    "~/thesis"
+  ]
 kallisto:
-  'title': 'kallisto'
-  'paths': [
-    '~/dev/kallisto'
+  title: "kallisto"
+  paths: [
+    "~/dev/kallisto"
   ]
-
 pasteBuffer:
-  'title': 'paste-buffer'
-  'devMode': true
-  'paths': [
-    '~/github/paste-buffer'
+  title: "paste-buffer"
+  devMode: true
+  paths: [
+    "~/github/paste-buffer"
   ]
-
 sleuthDebug:
-  'title': 'debugging sleuth'
-  'paths': [
-    '~/debug'
+  title: "debugging sleuth"
+  paths: [
+    "~/debug"
   ]
-
 voicecode:
-  'title': 'VoiceCode'
-  'paths': [
-    '~/voicecode_user'
-    '~/voicecode/commando'
+  title: "VoiceCode"
+  paths: [
+    "~/voicecode_user"
+    "~/voicecode/commando"
   ]
-
 web:
-  'title': 'Websites'
-  'paths': [
-    '~/web'
+  title: "Websites"
+  paths: [
+    "~/web"
   ]
-
 kallistoPaper:
-  'title': 'kallisto paper'
-  'paths': [
-    '~/analysis/kallisto_paper_analysis'
+  title: "kallisto paper"
+  paths: [
+    "~/analysis/kallisto_paper_analysis"
   ]
-
 benchCI:
-  'title': 'bench-ci'
-  'paths': [
-    '~/dev/bench-ci'
+  title: "bench-ci"
+  paths: [
+    "~/dev/bench-ci"
   ]
-
 notes:
-  'title': 'notes'
-  'paths': [
-    '~/notes'
+  title: "notes"
+  paths: [
+    "~/notes"
   ]
-
 peoplesJournal:
-  'title': 'peoples-journal'
-  'paths': [
-    '~/web/peoples-journal'
+  title: "peoples-journal"
+  paths: [
+    "~/web/peoples-journal"
   ]

@@ -84,6 +84,13 @@ Commands.create
     tags: ["shell", "user"]
     action: ->
       @string "xargs"
+  "df":
+    description: "scp in the shell"
+    tags: ["shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "df -h"
+      @key "return"
   "vert pie three":
     description: "enable a python 3 virtual environment"
     tags: ["virtualenv", "shell", "user"]
@@ -198,13 +205,31 @@ Commands.create
       @key 'W', 'command shift'
 
   # words
+  "gunzip":
+    tags: ["words", "user"]
+    autoSpacing: "normal normal"
+    multiPhraseAutoSpacing: "normal normal"
+    description: "insert 'gunzip'"
+    action: ->
+      @string "gunzip"
+  "gz cat":
+    tags: ["words", "user"]
+    autoSpacing: "normal normal"
+    multiPhraseAutoSpacing: "normal normal"
+    description: "insert 'gzcat'"
+    action: ->
+      @string "gzcat"
   "shakemake":
     autoSpacing: "normal normal"
     multiPhraseAutoSpacing: "normal normal"
     description: "insert 'snakemake'"
     tags: ["words", "user"]
     action: ->
-      @string "snakemake"
+      switch @currentApplication()
+        when "iTerm" or "Terminal"
+          @string "snakemake -p"
+        else
+          @string "snakemake"
   "shakefile":
     autoSpacing: "normal normal"
     multiPhraseAutoSpacing: "normal normal"
@@ -212,11 +237,29 @@ Commands.create
     tags: ["words", "user"]
     action: ->
       @string "Snakefile"
+  "shake dry":
+    description: "`snakemake -p --dryrun`"
+    tags: ["user"]
+    triggerScopes: ["iTerm", "Terminal"]
+    action: ->
+      @string "snakemake -p --dryrun"
+      @key "return"
+
   "oshascript":
     description: "insert 'osascript'"
     tags: ["words", "user"]
     action: ->
       @string "osascript"
+  "pan dock":
+    description: "insert 'pandoc'"
+    tags: ["words", "user"]
+    action: ->
+      @string "pandoc"
+  "latex make":
+    description: "insert 'latexmk'"
+    tags: ["words", "user"]
+    action: ->
+      @string "latexmk"
 
   # R specific
   "rambo":
@@ -334,6 +377,17 @@ Commands.create
     action: ->
       @string "``"
       @key "left"
+  "comment block":
+    kind: "action"
+    continuous: false
+    tags: ["snippets", "user"]
+    triggerScopes: ["Atom"]
+    action: ->
+      @string """###
+      #
+      ###"""
+      @key "up"
+      @key "space"
   "mark block":
     kind: "action"
     description: "insert a markdown block with language decorator"
@@ -391,6 +445,20 @@ Commands.create
     triggerScopes: ['iTerm', 'Terminal']
     action: ->
       @string "tmux new -s "
+  "mux neck":
+    description: "go to the next tmux session"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key ")"
+  "mux preev":
+    description: "go to the previous tmux session"
+    tags: ["tmux", "user", "domain-specific"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @key "b", "control"
+      @key "("
   "mux attach":
     description: "attach an existing tmux session"
     tags: ["tmux", "user", "domain-specific"]
@@ -495,24 +563,24 @@ Settings["names"] =
   "geo": "geuvadis"
 Commands.create
   "brand":
-    grammarType: 'textCapture'
+    grammarType: 'oneArgument'
     autoSpacing: 'normal normal'
     multiPhraseAutoSpacing: 'normal normal'
     description: "enter a name"
     tags: ["user"]
     action: (input) ->
       if input?.length
-        text = @fuzzyMatch Settings.names, input.join(' ')
+        text = @fuzzyMatch Settings.names, input
         @string text
   "champ brand":
-    grammarType: 'textCapture'
+    grammarType: 'oneArgument'
     autoSpacing: 'normal normal'
     multiPhraseAutoSpacing: 'normal normal'
     description: "enter a name with the first character capitalized"
     tags: ["user"]
     action: (input) ->
       if input?.length
-        text = @fuzzyMatch Settings.names, input.join(' ')
+        text = @fuzzyMatch Settings.names, input
         text = text.charAt(0).toUpperCase() + text.slice(1)
         @string text
 
@@ -534,12 +602,12 @@ Settings["mathSymbols"] =
   "page": "newpage"
 Commands.create
   "mathsim":
-    grammarType: 'textCapture'
+    grammarType: 'oneArgument'
     description: "enter math symbols"
     tags: ["user"]
     action: (input) ->
       if input?.length
-        text = @fuzzyMatch Settings.mathSymbols, input.join(' ')
+        text = @fuzzyMatch Settings.mathSymbols, input
         @string text
 
 Commands.create
@@ -572,6 +640,7 @@ Commands.create
 Settings["remoteHosts"] =
   "lucille": "lucille"
   "lucille to": "lucille2"
+  "seal to": "lucille2"
   "math": "math"
   "mcb": "mcb"
 Commands.create

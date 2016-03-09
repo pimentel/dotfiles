@@ -4,8 +4,11 @@ Settings.defaultBrowser = "Google Chrome"
 Settings.dragonApplicationName = "Dragon"
 
 Commands.addMisspellings 'datsun', ['dotson']
+Commands.addMisspellings 'laddie', ['latty', 'lottie']
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
-Commands.addMisspellings 'h top', ['each top', 'etch top']
+Commands.addMisspellings 'h top', ['each top', 'etch top', 'eight top',
+  'eight stop']
+Commands.addMisspellings 'ricky', ['ricci']
 Commands.addMisspellings "swipe", ["swype"]
 Commands.addMisspellings "page down", ["patient"]
 
@@ -24,6 +27,7 @@ Settings.extend "translations",
   "re-": "re"
   "ass holes": "assholes"
   "ass hole": "asshole"
+  "bay rum": "beyrem"
   "bio mart": "biomaRt"
   "bullion": "boolean"
   "by clustering": "biclustering"
@@ -50,17 +54,24 @@ Settings.extend "translations",
   "hds five": "hdf5"
   "intron's": "introns"
   "intron 's": "introns"
+  "ice a form": "isoform"
   "i'd": "I'd"
   "i've": "I've"
   "jackal": "jekyll"
   "jeans": "genes"
   "jean": "gene"
+  "jetter": "gitter"
   "kaymer": "kmer"
+  "look see": "looksie"
+  "lewis": "loess"
+  "lois": "loess"
+  "louis": "loess"
   "meta-": "meta"
   "noel": "null"
   "pam": "bam"
   "paced": "paste"
   "pool request": "pull request"
+  "pointy": "point"
   "prichard": "pritchard"
   "pretend": "end"
   "pseudo- alignment": "pseudoalignment"
@@ -83,9 +94,9 @@ Settings.extend "translations",
   "pack bio": "PacBio"
   "rna seek": "RNA-Seq"
   "arnie seek": "RNA-Seq"
-  "de seek": "DESeq"
+  "de seek": "DESeq2"
   "dell seek to": "DESeq2"
-  "dell seek": "DESeq"
+  "dell seek": "DESeq2"
   "eb seek": "EBSeq"
   "bit seek": "BitSeq"
   "edge our": "edgeR"
@@ -105,7 +116,9 @@ Homonyms.values.push ["eighth", "8th"]
 Homonyms.values.push ["ninth", "9th"]
 
 Homonyms.values.push ["atom", "adam"]
+Homonyms.values.push ["phil", "fill"]
 Homonyms.values.push ["jupiter", "jupyter"]
+Homonyms.values.push ["loess", "lowess"]
 Homonyms.values.push ["pool", "pull"]
 Homonyms.values.push ["pseudo", "sudo"]
 Homonyms.values.push ["layer", "lair"]
@@ -130,10 +143,13 @@ Settings.extend "abbreviations",
   "boolean": "bool"
   "crisper": "CRISPR"
   "cufflinks": "cuff"
+  "dimension": "dim"
   "dispersion": "disp"
+  "effective": "eff"
   "emphasis": "emph"
   "ensemble": "ensembl"
   "express": "xprs"
+  "expression": "exprs"
   "professor": "Prof."
   "phd": "PhD"
   'doctor': 'Dr.'
@@ -149,18 +165,23 @@ Settings.extend "abbreviations",
   'example given': 'e.g.'
   "experiment": "exp"
   "fraction": "frac"
+  "infinite": "Inf"
   "linter": "lintr"
   "markdown": "md"
   'message': 'msg'
+  "miscellaneous": "misc"
   "package": "pkg"
   'password': 'passwd'
+  "plot": "plt"
   "python": "py"
   "regular expression": "regex"
   "repeat": "rep"
   "return": "ret"
+  "simulations": "sims"
   "simulation": "sim"
   "connection": "con"
   "current": "cur"
+  "latex": "tex"
   "matrix": "mat"
   "national science foundation": "NSF"
   "national institute of health": "NIH"
@@ -171,6 +192,7 @@ Settings.extend "abbreviations",
   "server": "srv"
   "snip": "snp"
   "substitute": "sub"
+  'transcript import': 'tximport'
   user: "usr"
   "exponent": "exp"
   "square root": "sqrt"
@@ -221,6 +243,7 @@ Settings.extend "directories",
   "home": "~/"
   "kallisto": "~/dev/kallisto"
   "sleuth": "~/dev/sleuth/R"
+  "sleuth paper": "~/analysis/sleuth_paper"
   "talks": "~/Dropbox/lmcb/kallisto"
   "teach": "~/teach/fa15"
   "voice": "~/voicecode/commando"
@@ -237,6 +260,7 @@ Settings.extend "websites",
   "facebook": "https://facebook.com"
   "get": "https://github.com/"
   "kallisto": "https://github.com/pachterlab/kallisto"
+  "patch": "https://github.com/pachterlab"
   "pimentel": "https://pimentel.github.io/"
   "read it": "https://www.reddit.com/"
   "sleuth": "https://github.com/pachterlab/sleuth"
@@ -285,6 +309,8 @@ Settings.extend "vocabulary", [
   "linter"
   "linux"
   "lodash"
+  "loess"
+  "lowess"
   "mart"
   "mup init"
   "mup deploy"
@@ -319,11 +345,12 @@ Settings.extend "vocabulary", [
   "emoji"
   # combinations
   "champ thanks"
+  "smash cuff diff"
+  "smash cuff quant"
   "smash dev tools"
   "smash debug once"
-  "snake sleuth live"
-  "snake sleuth prep"
-  "snake sleuth single cell"
+  "smash hi sat"
+  "single cell"
 ]
 
 Settings.extend "vocabularyAlternate",

@@ -15,7 +15,6 @@
       "symbols-view"
       "todo-show"
       "jshint"
-      "markdown-writer"
       "linter-jshint"
       "emmet"
       "language-gfm"
@@ -26,7 +25,6 @@
     ]
   editor:
     autoIndentOnPaste: false
-    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -56,13 +54,15 @@
     autoToggle: false
     plugins:
       "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
       pigments: true
+      pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
   "r-exec":
-    advancePosition: true
     whichApp: "Google Chrome"
   "remote-edit": {}
   swackets: {}
+  "symbols-tree-view": {}
   "tidy-markdown":
     ensureFirstHeaderIsH1: false
   "todo-show": {}
