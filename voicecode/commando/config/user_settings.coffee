@@ -35,6 +35,10 @@ Settings.extend "translations",
   "calisto": "kallisto"
   "callisto": "kallisto"
   "coastal": "kallisto"
+  "single and": "single-end"
+  "single end": "single-end"
+  "paired and": "paired-end"
+  "paired end": "paired-end"
   # "coffee script": "coffeescript"
   "condo": "conda"
   "cracken": "kraken"
@@ -343,8 +347,12 @@ Settings.extend "vocabulary", [
   'wald'
   "viglink"
   "emoji"
+  "zotero"
   # combinations
   "champ thanks"
+  "fold change"
+  "nerb row"
+  "row names"
   "smash cuff diff"
   "smash cuff quant"
   "smash dev tools"
@@ -370,6 +378,7 @@ Settings.extend "vocabularyAlternate",
 
 Settings.extend "applications",
   activity: "Activity Monitor"
+  acrobat: "Adobe Acrobat Reader DC"
   disc: "Disk Utility"
   duck: "Cyberduck"
   "spread": "Microsoft Excel"
@@ -381,3 +390,11 @@ Settings.extend "applications",
   transmission: "Transmission"
   video: "vlc"
   word: "Microsoft Word"
+  zotero: "Zotero"
+
+Settings.extend "commonSequences",
+  "fox": ["zotero"]
+  "tridal": ["hi", "hello", "hey"]
+  "champ": ["hi", "hello", "hey"]
+  "our pipes": ["head"]
+  "our pipe": ["head"]

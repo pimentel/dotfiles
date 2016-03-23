@@ -31,6 +31,13 @@ Commands.create
     action: ->
       @key "left"
   # shell
+  "atom here":
+    description: "open an atom editor at this directory"
+    tags: ["shell", "user"]
+    triggerScopes: ['iTerm', 'Terminal']
+    action: ->
+      @string "atom ."
+      @key "return"
   "find here":
     description: "insert a shell command for finding files from this directory"
     tags: ["shell", "user"]
@@ -255,6 +262,11 @@ Commands.create
     tags: ["words", "user"]
     action: ->
       @string "pandoc"
+  "seek tk":
+    misspellings: ["ctk"]
+    description: "insert 'seqtk'"
+    action: ->
+      @string "seqtk"
   "latex make":
     description: "insert 'latexmk'"
     tags: ["words", "user"]
@@ -393,11 +405,21 @@ Commands.create
     description: "insert a markdown block with language decorator"
     tags: ["snippets", "user"]
     action: ->
-      @string """```
+      switch @currentApplication()
+        when "Slack"
+          @key 'enter', 'option'
+          @string '```'
+          @key 'enter', 'option'
+          @key 'enter', 'option'
+          @string '```'
+          @up()
+          @up()
+        else
+          @string """```
 
-      ```"""
-      @key "Up"
-      @key "Up"
+          ```"""
+          @key "Up"
+          @key "Up"
   "mark our":
     description: "insert a markdown block with Rmarkdown decorator"
     tags: ["snippets", "user"]
@@ -411,10 +433,19 @@ Commands.create
     description: "insert a plain markdown block"
     tags: ["snippets", "user"]
     action: ->
-      @string """```
+      switch @currentApplication()
+        when "Slack"
+          @key 'enter', 'option'
+          @string '```'
+          @key 'enter', 'option'
+          @key 'enter', 'option'
+          @string '```'
+          @up()
+        else
+          @string """```
 
-      ```"""
-      @key "Up"
+          ```"""
+          @key "Up"
   "jet voice":
     description: "insert a git commit message with a voice code tag"
     tags: ["git", "user", "domain-specific"]
@@ -528,7 +559,7 @@ for word in singleWords
 myApplications =
   chromie: "Google Chrome"
   # subbit: "Sublime Text"
-  skippy: "Skype"
+  # skippy: "Skype"
   turmit: "iTerm"
   faindor: "Finder"
   # trinket: "Safari"
@@ -682,6 +713,15 @@ Commands.edit 'git', (command) ->
 Settings.extend "translations",
   jet: "git"
 
+# Cyberduck
+Commands.extend "baxley", ->
+  switch @currentApplication()
+    when 'Cyberduck'
+      @key 'left', 'command'
+Commands.extend "fourthly", ->
+  switch @currentApplication()
+    when 'Cyberduck'
+      @key 'right', 'command'
 Commands.extend "freshly", ->
   switch @currentApplication()
     when 'Cyberduck'
