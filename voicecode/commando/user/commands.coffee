@@ -34,28 +34,28 @@ Commands.create
   "atom here":
     description: "open an atom editor at this directory"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "atom ."
       @key "return"
   "find here":
     description: "insert a shell command for finding files from this directory"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "find . -name ''"
       @key "Left"
   "h top":
     description: "insert 'htop' in the shell"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "htop"
       @key "return"
   "open here":
     description: "open finder here"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "open ."
       @key "Return"
@@ -66,7 +66,7 @@ Commands.create
   #   tags: ["shell", "user"]
   #   action: ->
   #     switch @currentApplication()
-  #       when "iTerm" or "Terminal"
+  #       when "iTerm2" or "Terminal"
   #         @string "sudo"
   #       else
   #         @string "pseudo"
@@ -80,7 +80,7 @@ Commands.create
   "secure copy":
     description: "scp in the shell"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "scp -r "
   "trexargs":
@@ -94,14 +94,14 @@ Commands.create
   "df":
     description: "scp in the shell"
     tags: ["shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "df -h"
       @key "return"
   "vert pie three":
     description: "enable a python 3 virtual environment"
     tags: ["virtualenv", "shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     repeatable: false
     action: ->
       @string "workon py3"
@@ -109,7 +109,7 @@ Commands.create
   "vert pie two":
     description: "enable a python 2 virtual environment"
     tags: ["virtualenv", "shell", "user"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     misspellings: ["virtual python to"]
     repeatable: false
     action: ->
@@ -226,6 +226,13 @@ Commands.create
     description: "insert 'gzcat'"
     action: ->
       @string "gzcat"
+  "z cat":
+    tags: ["words", "user"]
+    autoSpacing: "normal normal"
+    multiPhraseAutoSpacing: "normal normal"
+    description: "insert 'zcat'"
+    action: ->
+      @string "zcat"
   "shakemake":
     autoSpacing: "normal normal"
     multiPhraseAutoSpacing: "normal normal"
@@ -233,7 +240,7 @@ Commands.create
     tags: ["words", "user"]
     action: ->
       switch @currentApplication()
-        when "iTerm" or "Terminal"
+        when "iTerm2" or "Terminal"
           @string "snakemake -p"
         else
           @string "snakemake"
@@ -247,7 +254,7 @@ Commands.create
   "shake dry":
     description: "`snakemake -p --dryrun`"
     tags: ["user"]
-    triggerScopes: ["iTerm", "Terminal"]
+    triggerScopes: ["iTerm2", "Terminal"]
     action: ->
       @string "snakemake -p --dryrun"
       @key "return"
@@ -264,6 +271,7 @@ Commands.create
       @string "pandoc"
   "seek tk":
     misspellings: ["ctk"]
+    tags: ["words", "user"]
     description: "insert 'seqtk'"
     action: ->
       @string "seqtk"
@@ -323,49 +331,49 @@ Commands.create
   'pain left':
     description: 'go to the left pane'
     tags: ['atom', 'user', 'shell']
-    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    triggerScopes: ['Atom', 'iTerm2', 'Terminal']
     action: ->
       switch @currentApplication()
         when "Atom"
           @key 'k', 'command'
           @key 'left', 'command'
-        when "iTerm" or "Terminal"
+        when "iTerm2" or "Terminal"
           @key "b", "control"
           @key 'left'
   'pain right':
     description: 'go to the right pane'
     tags: ['atom', 'user', 'shell']
-    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    triggerScopes: ['Atom', 'iTerm2', 'Terminal']
     action: ->
       switch @currentApplication()
         when "Atom"
           @key 'k', 'command'
           @key 'right', 'command'
-        when "iTerm" or "Terminal"
+        when "iTerm2" or "Terminal"
           @key "b", "control"
           @key 'right'
   'pain down':
     description: 'go to the down pane'
     tags: ['atom', 'user', 'shell']
-    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    triggerScopes: ['Atom', 'iTerm2', 'Terminal']
     action: ->
       switch @currentApplication()
         when "Atom"
           @key 'k', 'command'
           @key 'down', 'command'
-        when "iTerm" or "Terminal"
+        when "iTerm2" or "Terminal"
           @key "b", "control"
           @key 'down'
   'pain up':
     description: 'go to the up pane'
     tags: ['atom', 'user', 'shell']
-    triggerScopes: ['Atom', 'iTerm', 'Terminal']
+    triggerScopes: ['Atom', 'iTerm2', 'Terminal']
     action: ->
       switch @currentApplication()
         when "Atom"
           @key 'k', 'command'
           @key 'up', 'command'
-        when "iTerm" or "Terminal"
+        when "iTerm2" or "Terminal"
           @key "b", "control"
           @key 'up'
 # sublime specific
@@ -383,6 +391,13 @@ Commands.create
     triggerScopes: ["Atom", "Sublime Text"]
     action: ->
       @key "down", "control shift"
+  # Word specific
+  "add citation":
+    description: "add citation using Zotero"
+    tags: ["microsoft word", "user"]
+    triggerScopes: ["Microsoft Word"]
+    action: ->
+      @key "a", "control option"
   # snippets
   "teesh":
     tags: ["symbols", "user"]
@@ -466,70 +481,71 @@ Commands.create
   "mux list":
     description: "tmux list"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "tmux ls"
       @key "return"
   "mux new":
     description: "create a new named tmux session"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "tmux new -s "
   "mux neck":
     description: "go to the next tmux session"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @key "b", "control"
       @key ")"
   "mux preev":
     description: "go to the previous tmux session"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @key "b", "control"
       @key "("
   "mux attach":
     description: "attach an existing tmux session"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "tmux attach -t "
   "mux kill":
     description: "kill an existing tmux session"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @string "tmux kill-session -t "
   "mux vertical":
     description: "create a vertical split"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @key "b", "control"
       @key "%"
   "mux horizontal":
     description: "create a horizontal split"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @key "b", "control"
       @key '"'
   "mux leave":
     description: "leave a tmux session (leaving it open)"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: ->
       @key "b", "control"
       @key 'd'
   "mux scroll":
     description: "enter scroll mode in tmux"
     tags: ["tmux", "user", "domain-specific"]
-    triggerScopes: ["iTerm", "Terminal"]
+    triggerScopes: ["iTerm2", "Terminal"]
     action: ->
       @key "b", "control"
       @key "["
+  # smartnav
 
 # deal with the insertion of words that voicecode has trouble with
 singleWords = [
@@ -574,47 +590,6 @@ _.each myApplications, (value, key) ->
     action: ->
       @openApplication value
 
-# commands that require an argument
-Settings["names"] =
-  "wife": "puente"
-  "far": "faraz"
-  "hi": "haiyan"
-  "kyle": "lior"
-  "leroy": "lior"
-  "lyle": "lior"
-  "lori": "lorian"
-  "mel": "melsted"
-  "paul": "pall"
-  "patch": "pachter"
-  "poison": "poisson"
-  "val": "vasilis"
-  "wang": "huang"
-  # mappings
-  "blood": "erythropoiesis"
-  "geo": "geuvadis"
-Commands.create
-  "brand":
-    grammarType: 'oneArgument'
-    autoSpacing: 'normal normal'
-    multiPhraseAutoSpacing: 'normal normal'
-    description: "enter a name"
-    tags: ["user"]
-    action: (input) ->
-      if input?.length
-        text = @fuzzyMatch Settings.names, input
-        @string text
-  "champ brand":
-    grammarType: 'oneArgument'
-    autoSpacing: 'normal normal'
-    multiPhraseAutoSpacing: 'normal normal'
-    description: "enter a name with the first character capitalized"
-    tags: ["user"]
-    action: (input) ->
-      if input?.length
-        text = @fuzzyMatch Settings.names, input
-        text = text.charAt(0).toUpperCase() + text.slice(1)
-        @string text
-
 Settings["mathSymbols"] =
   "eta": "eta"
   "chai": "chi"
@@ -626,6 +601,7 @@ Settings["mathSymbols"] =
   "row": "rho"
   "sigh": "psi"
   "tao": "tau"
+  "towel": "tau"
   "theta": "theta"
   "up": "upsilon"
   "zeta": "zeta"
@@ -679,30 +655,87 @@ Commands.create
     grammarType: 'textCapture'
     description: "either connect to a machine or simply type 'ssh '"
     tags: ["ssh", "terminal", "domain-specific"]
-    triggerScopes: ['iTerm', 'Terminal']
+    triggerScopes: ['iTerm2', 'Terminal']
     action: (input) ->
       text = ""
       if input?.length
         text = @fuzzyMatch Settings.remoteHosts, input.join(' ')
       @string "ssh " + text
+# commands that require an argument
+Settings["names"] =
+  "wife": "puente"
+  "far": "faraz"
+  "hi": "haiyan"
+  "kyle": "lior"
+  "leroy": "lior"
+  "lyle": "lior"
+  "lori": "lorian"
+  "mel": "melsted"
+  "near": "nir"
+  "paul": "pall"
+  "patch": "pachter"
+  "poison": "poisson"
+  "val": "vasilis"
+  "wang": "huang"
+  "yang": "yang"
+  # mappings
+  berkeley: "uc berkeley"
+  "blood": "erythropoiesis"
+  "geo": "geuvadis"
+  "edge": "edger"
+  "bit": "bitseq"
+Commands.create
+  "brand":
+    grammarType: 'oneArgument'
+    autoSpacing: 'normal normal'
+    multiPhraseAutoSpacing: 'normal normal'
+    description: "enter a name"
+    tags: ["user"]
+    action: (input) ->
+      if input?.length
+        text = @fuzzyMatch Settings.names, input
+        @string text
+  # "champ brand":
+  #   grammarType: 'oneArgument'
+  #   autoSpacing: 'normal normal'
+  #   multiPhraseAutoSpacing: 'normal normal'
+  #   description: "enter a name with the first character capitalized"
+  #   tags: ["user"]
+  #   action: (input) ->
+  #     if input?.length
+  #       text = @fuzzyMatch Settings.names, input
+  #       text = text.charAt(0).toUpperCase() + text.slice(1)
+  #       @string text
 
 Settings["properPunctuation"] =
-  "coffee script": "CoffeeScript"
+  "coffee": "CoffeeScript"
+  "cuff": "Cuffdiff 2"
   "express": "eXpress"
   "iterm": "iTerm"
   "javascript": "JavaScript"
   "github": "GitHub"
   "latex": "LaTeX"
+
+  # names
+_.each Settings["names"], (value, key) ->
+  Settings["properPunctuation"][key] = value.charAt(0).toUpperCase() +
+    value.slice(1)
+
+# things that need to be overloaded from 'brand'
+Settings['properPunctuation']["bit"] = "BitSeq"
+Settings['properPunctuation']["edge"] = "edgeR"
+Settings['properPunctuation']["geo"] = "GEUVADIS"
+Settings['properPunctuation']['berkeley'] = 'UC Berkeley'
 Commands.create
   "spellman":
-    grammarType: 'textCapture'
+    grammarType: 'oneArgument'
     autoSpacing: 'normal normal'
     multiPhraseAutoSpacing: 'normal normal'
     description: "enter a properly spelled (punctuation) word"
     tags: ["user"]
     action: (input) ->
       if input?.length
-        text = @fuzzyMatch Settings.properPunctuation, input.join(' ')
+        text = @fuzzyMatch Settings.properPunctuation, input
         @string text
 
 # miscellaneous
@@ -727,9 +760,28 @@ Commands.extend "freshly", ->
     when 'Cyberduck'
       @key 'r', 'command'
 
+# Preview
+Commands.edit 'spring', (command) ->
+  command.triggerScopes.push 'Preview'
+  command.triggerScopes.push 'Microsoft Word'
+# Commands.mapping.spring.triggerScopes.push 'Preview'
+Commands.extend "spring", (input) ->
+  switch @currentApplication()
+    when 'Preview' or 'Microsoft Word'
+      @key 'g', 'command option'
+      if input?
+        @delay 200
+        @string input
+        @delay 100
+        @key 'return'
+
 Commands.after "shell", (input) ->
   if not input?.length
     @string "shell"
 Commands.after "trexargs", ->
-  if @currentApplication() is "iTerm" or @currentApplication() is "Terminal"
+  if @currentApplication() is "iTerm2" or @currentApplication() is "Terminal"
     @string " "
+
+for name, command of Commands.mapping
+  if 'iTerm' in (command.triggerScopes or [])
+    command.triggerScopes.push 'iTerm2'

@@ -10,14 +10,15 @@
   "autocomplete-plus":
     confirmCompletion: "tab"
   "autocomplete-python": {}
+  autosave:
+    enabled: true
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "symbols-view"
       "todo-show"
-      "jshint"
-      "linter-jshint"
-      "emmet"
       "language-gfm"
+      "language-babel"
     ]
     themes: [
       "one-dark-ui"
@@ -58,9 +59,18 @@
       pigments: true
       pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
-  "r-exec":
-    whichApp: "Google Chrome"
+  "r-exec": {}
   "remote-edit": {}
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.tex.latex"
+      "source.md"
+    ]
   swackets: {}
   "symbols-tree-view": {}
   "tidy-markdown":
@@ -69,7 +79,8 @@
   "trailing-spaces":
     enableForCursorLines: true
     enableForIndentation: true
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "unity-dark-ui": {}
   welcome:
     showOnStartup: false

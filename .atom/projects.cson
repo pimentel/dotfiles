@@ -17,7 +17,7 @@ rExec:
 thesis:
   title: "thesis"
   paths: [
-    "~/thesis"
+    "/Users/hjp/thesis"
   ]
 kallisto:
   title: "kallisto"
@@ -38,8 +38,8 @@ sleuthDebug:
 voicecode:
   title: "VoiceCode"
   paths: [
-    "~/voicecode_user"
-    "~/voicecode/commando"
+    "/Users/hjp/voicecode_user"
+    "/Users/hjp/voicecode/commando"
   ]
 web:
   title: "Websites"

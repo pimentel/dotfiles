@@ -3,6 +3,7 @@ Settings.dragonVersion = 5
 Settings.defaultBrowser = "Google Chrome"
 Settings.dragonApplicationName = "Dragon"
 
+Commands.addMisspellings 'chromie', ['crummy']
 Commands.addMisspellings 'datsun', ['dotson']
 Commands.addMisspellings 'laddie', ['latty', 'lottie']
 Commands.addMisspellings 'selrang', ['cell rang', 'cellaring']
@@ -18,7 +19,13 @@ Commands.changeName "seltill", "selty"
 Commands.changeName "questo", "questy"
 
 Settings.extend "translations",
+  "a session": "accession"
+  "air b&b": "airbnb"
+  "argus": "args"
+  "breland": "Brielin"
+  "bottomley": "bottomly"
   "ten x": "10X"
+  # "arnie": "rna"
   "anti-": "anti"
   "multi-": "multi"
   "non-": "non"
@@ -52,6 +59,7 @@ Settings.extend "translations",
   "guitar": "tar"
   "hark 5": "h5"
   "hark five": "h5"
+  "herald": "harold"
   "hdf five": "hdf5"
   "hdl five": "hdf5"
   "hdr five": "hdf5"
@@ -66,6 +74,8 @@ Settings.extend "translations",
   "jean": "gene"
   "jetter": "gitter"
   "kaymer": "kmer"
+  "les": "less"
+  "lottie": "laddie"
   "look see": "looksie"
   "lewis": "loess"
   "lois": "loess"
@@ -85,6 +95,7 @@ Settings.extend "translations",
   "repose": "repos"
   "roe": "row"
   "ro": "row"
+  "shells": "\\"
   "sq light three": "sqlite3"
   "sq light": "sqlite"
   "scripps": "scripts"
@@ -93,11 +104,14 @@ Settings.extend "translations",
   "white space": "whitespace"
   "winters": "linters"
   "winter": "linter"
+  "whistle": "width"
+  "zug": "souk"
   # biology specific
   "chip sequencing": "ChIP-Seq"
   "pack bio": "PacBio"
   "rna seek": "RNA-Seq"
   "arnie seek": "RNA-Seq"
+  "boom": "voom"
   "de seek": "DESeq2"
   "dell seek to": "DESeq2"
   "dell seek": "DESeq2"
@@ -106,23 +120,17 @@ Settings.extend "translations",
   "edge our": "edgeR"
   "etch seek": "edgeR"
   "edger": "edgeR"
+  "transcriptome's": "transcriptomes"
+  "g text": "GTEx"
   "q tl": "QTL"
 
-Homonyms.values.push ["first", "1st"]
-Homonyms.values.push ["second", "2nd"]
-Homonyms.values.push ["third", "3rd"]
-Homonyms.values.push ["fourth", "4th"]
-Homonyms.values.push ["fifth", "5th"]
-Homonyms.values.push ["six", "6th"]
-Homonyms.values.push ["sixth", "6th"]
-Homonyms.values.push ["seventh", "7th"]
-Homonyms.values.push ["eighth", "8th"]
-Homonyms.values.push ["ninth", "9th"]
-
+Homonyms.values.push ["accession", "a session"]
 Homonyms.values.push ["atom", "adam"]
 Homonyms.values.push ["phil", "fill"]
 Homonyms.values.push ["jupiter", "jupyter"]
 Homonyms.values.push ["loess", "lowess"]
+Homonyms.values.push ["mikey", "miqe"]
+Homonyms.values.push ["poison", "Poisson"]
 Homonyms.values.push ["pool", "pull"]
 Homonyms.values.push ["pseudo", "sudo"]
 Homonyms.values.push ["layer", "lair"]
@@ -134,6 +142,7 @@ Homonyms.values.push ["kate", "cate"]
 Homonyms.values.push ["rows", "rose"]
 Homonyms.values.push ["scab", "sccab"]
 Homonyms.values.push ["linter", "winter"]
+Homonyms.values.push ["with", "width"]
 Homonyms.initialize()
 
 Settings.extend "abbreviations",
@@ -168,12 +177,14 @@ Settings.extend "abbreviations",
   "estimate": "est"
   'example given': 'e.g.'
   "experiment": "exp"
+  "figure": "fig"
   "fraction": "frac"
   "infinite": "Inf"
   "linter": "lintr"
   "markdown": "md"
   'message': 'msg'
   "miscellaneous": "misc"
+  "option": "opt"
   "package": "pkg"
   'password': 'passwd'
   "plot": "plt"
@@ -191,12 +202,14 @@ Settings.extend "abbreviations",
   "national institute of health": "NIH"
   'numpy': 'np'
   "penn": "pen"
+  "section": "sec"
   "sequence": "seq"
   "separator": "sep"
   "server": "srv"
   "snip": "snp"
   "substitute": "sub"
   'transcript import': 'tximport'
+  "trademark": "(tm)"
   user: "usr"
   "exponent": "exp"
   "square root": "sqrt"
@@ -239,6 +252,7 @@ Settings.extend "shellCommands",
   "tale": "tail "
   "tar": "tar -cvvf "
   "untar": "tar -xf "
+  "usage": "du -sh "
 
 Settings.extend "directories",
   "analysis": "~/analysis"
@@ -267,6 +281,7 @@ Settings.extend "websites",
   "patch": "https://github.com/pachterlab"
   "pimentel": "https://pimentel.github.io/"
   "read it": "https://www.reddit.com/"
+  "scholar": "https://scholar.google.com/"
   "sleuth": "https://github.com/pachterlab/sleuth"
   # "solution": "https://github.com/berkeley-stat243/stat243-fall-2015-ps"
   # "teach": "https://github.com/berkeley-stat243/stat243-fall-2015"
@@ -358,6 +373,7 @@ Settings.extend "vocabulary", [
   "smash dev tools"
   "smash debug once"
   "smash hi sat"
+  "smash gg plot"
   "single cell"
 ]
 
@@ -386,6 +402,7 @@ Settings.extend "applications",
   "script editor": "Script Editor"
   "latex": "LaTeXiT"
   "private": "Private Internet Access"
+  skim: "Skim"
   studio: "RStudio"
   transmission: "Transmission"
   video: "vlc"
@@ -398,3 +415,8 @@ Settings.extend "commonSequences",
   "champ": ["hi", "hello", "hey"]
   "our pipes": ["head"]
   "our pipe": ["head"]
+  "trough": ["head"]
+  "pooch": ["val"]
+  "pooch ling": ["val"]
+  "quash": ["val"]
+  "quash ling": ["val"]
