@@ -30,3 +30,6 @@
 # 'atom-workspace':
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-enter': 'r-exec:send-command'
+
+'atom-text-editor':
+  'cmd-c': 'editor:copy-selection'

@@ -9,29 +9,29 @@ options(width = 100)
 options(prompt = "R> ")
 
 # From Vim-R-Plugin
-if(interactive()){
-  # library(colorout)
-  # library(setwidth)
-  options(vimcom.verbose = 1) # optional
-  library(vimcom)
-}
+# if(interactive()){
+#   # library(colorout)
+#   # library(setwidth)
+#   options(vimcom.verbose = 1) # optional
+#   library(vimcom)
+# }
 
 .First <- function() {
     requiredPkgs <- c(
     #"AnnotationDbi", # load this first so it doesn't screw up dplyr select
     # "modules",
-    "devtools",
-    "ggplot2",
-    "data.table",
-    "plyr",
-    "dplyr",
-    "pryr",
-    "Rcpp",
-    "reshape2",
-    "roxygen2",
-    "readr",
-    "haRold",
-    "vimcom"
+    # "devtools",
+    # "ggplot2",
+    # "data.table",
+    # # "plyr",
+    # "dplyr",
+    # # "pryr",
+    # "Rcpp",
+    # # "reshape2",
+    # "roxygen2",
+    # "readr"
+    # "haRold",
+    # "vimcom"
     )
 
   installed <- utils::installed.packages()[,1]
@@ -132,20 +132,20 @@ lsos <- function(..., n=10) {
 cbbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
   "#D55E00", "#CC79A7", "#000000")
 
-# Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
-if(interactive()){
-  if(nchar(Sys.getenv("DISPLAY")) > 1)
-    options(editor = 'gvim -f -c "set ft=r"')
-  else
-    options(editor = 'vim -c "set ft=r"')
-  # See ?setOutputColors256 to know how to customize R output colors
-  # library(colorout)
-  # library(setwidth)
-  library(vimcom)
-  # See R documentation on Vim buffer even if asking for help in R Console:
-  if(Sys.getenv("VIM_PANE") != "")
-    options(pager = vim.pager)
-}
+# # Lines added by the Vim-R-plugin command :RpluginConfig (2014-Nov-01 13:56):
+# if(interactive()){
+#   if(nchar(Sys.getenv("DISPLAY")) > 1)
+#     options(editor = 'gvim -f -c "set ft=r"')
+#   else
+#     options(editor = 'vim -c "set ft=r"')
+#   # See ?setOutputColors256 to know how to customize R output colors
+#   # library(colorout)
+#   # library(setwidth)
+#   library(vimcom)
+#   # See R documentation on Vim buffer even if asking for help in R Console:
+#   if(Sys.getenv("VIM_PANE") != "")
+#     options(pager = vim.pager)
+# }
 
 # don't ask to save upon quit:
 # http://stackoverflow.com/questions/4996090/how-to-disable-save-workspace-image-prompt-in-r

@@ -1,7 +1,11 @@
 "*":
   "advanced-open-file":
     helmDirSwitch: true
-  "atom-beautify": {}
+  "arduino-upload":
+    arduinoExecutablePath: "/Applications/Arduino.app"
+  "atom-beautify":
+    general:
+      _analyticsUserId: "50ceded3-dfec-47f1-b76d-8ef99a650bfa"
   "atom-ctags": {}
   "atom-material-ui":
     fonts: {}
@@ -9,7 +13,8 @@
   "autoclose-html": {}
   "autocomplete-plus":
     confirmCompletion: "tab"
-  "autocomplete-python": {}
+  "autocomplete-python":
+    useKite: false
   autosave:
     enabled: true
   core:
@@ -19,6 +24,13 @@
       "todo-show"
       "language-gfm"
       "language-babel"
+      "platformio-ide"
+      "mcduino"
+      "linter"
+      "language-latex"
+      "atom-terminal"
+      "term3"
+      "paste-buffer"
     ]
     themes: [
       "one-dark-ui"
@@ -26,6 +38,7 @@
     ]
   editor:
     autoIndentOnPaste: false
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -39,6 +52,8 @@
   "language-babel": {}
   linter:
     errorPanelHeight: 109
+    lintOnFly: false
+    showErrorInline: false
     showErrorTabLine: true
   "linter-clang": {}
   "linter-eslint": {}
@@ -51,6 +66,8 @@
   "markdown-writer":
     fileExtension: ".md"
     siteEngine: "jekyll"
+  mcduino:
+    arduinoPath: "/Applications/Arduino.app"
   minimap:
     autoToggle: false
     plugins:
@@ -59,7 +76,15 @@
       pigments: true
       pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
-  "r-exec": {}
+  "platformio-ide":
+    showHomeScreen: false
+  "platformio-ide-terminal":
+    core:
+      autoRunCommand: "export PATH=/Users/hjp/.atom/packages/platformio-ide/penv/bin:/Users/hjp/bin:/usr/local/opt/ccache/libexec:/Users/hjp/.virtualenvs/py2/bin:/Users/hjp/.rvm/gems/ruby-2.3.0/bin:/Users/hjp/.rvm/gems/ruby-2.3.0@global/bin:/Users/hjp/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/hjp/.rvm/bin:/Users/hjp/.rvm/bin"
+  "r-exec":
+    whichApp: "Safari"
+  "r-studio":
+    whichApp: "RStudio"
   "remote-edit": {}
   "spell-check":
     grammars: [
@@ -73,9 +98,13 @@
     ]
   swackets: {}
   "symbols-tree-view": {}
+  "terminal-plus":
+    core: {}
   "tidy-markdown":
     ensureFirstHeaderIsH1: false
   "todo-show": {}
+  "tool-bar":
+    position: "Left"
   "trailing-spaces":
     enableForCursorLines: true
     enableForIndentation: true

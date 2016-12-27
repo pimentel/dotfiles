@@ -1,5 +1,91 @@
 <?xml version="1.0"?>
 <root>
+  <deviceproductdef>
+    <productname>FOOTPEDAL</productname>
+    <productid>0x030c</productid>
+  </deviceproductdef>
+  <devicevendordef>
+      <vendorname>KINESIS</vendorname>
+      <vendorid>0x05f3</vendorid>
+  </devicevendordef>
+
+  <devicevendordef>
+      <vendorname>POINTER_VENDOR</vendorname>
+      <vendorid>0x1d57</vendorid>
+  </devicevendordef>
+  <deviceproductdef>
+    <productname>POINTER_PRODUCT</productname>
+    <productid>0xad03</productid>
+  </deviceproductdef>
+
+
+
+  <!-- <item>
+    <name>Pointer left click</name>
+    <identifier>private.pointer_to_left_click</identifier>
+    <device_only>DeviceVendor::POINTER_VENDOR, DeviceProduct::POINTER_PRODUCT</device_only>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::NUMPAD, PointingButton::LEFT</autogen>
+  </item> -->
+
+  <!-- <item>
+    <name></name>
+    <identifier>private.pointer_to_right_click</identifier>
+    <device_only>DeviceVendor::POINTER_VENDOR, DeviceProduct::ANY</device_only>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::ESCAPE,
+      KeyCode::A
+    </autogen>
+  </item> -->
+
+  <item>
+    <name>Pointer bottom button to smartnav</name>
+    <identifier>private.pointer_to_smartnav</identifier>
+    <device_only>DeviceVendor::POINTER_VENDOR, DeviceProduct::ANY</device_only>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::ESCAPE,
+      KeyCode::S, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
+    </autogen>
+      <!-- KeyCode::F5, ModifierFlag::SHIFT_L | ModifierFlag::FN, -->
+
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::F5, ModifierFlag::FN,
+      KeyCode::S, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
+    </autogen>
+  </item>
+
+
+  <item>
+    <name>Pointer top button to left click</name>
+    <identifier>private.pointer_to_left_click</identifier>
+    <device_only>DeviceVendor::POINTER_VENDOR, DeviceProduct::ANY</device_only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::B,
+      PointingButton::LEFT
+    </autogen>
+  </item>
+
+  <item>
+    <name>Pointer left button to left click</name>
+    <identifier>private.pointer_to_left_click_left</identifier>
+    <device_only>DeviceVendor::POINTER_VENDOR, DeviceProduct::ANY</device_only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::PAGEUP,
+      PointingButton::LEFT
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::PAGEDOWN,
+      PointingButton::RIGHT
+    </autogen>
+
+  </item>
+
+
     <item>
         <name>My Command_R to Option_R (effective only in Emacs)</name>
         <appendix>retain Command_R+Tab</appendix>

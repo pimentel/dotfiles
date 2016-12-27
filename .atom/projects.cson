@@ -1,68 +1,78 @@
-sleuth:
-  title: "sleuth"
-  paths: [
-    "/Users/hjp/dev/sleuth"
-    "/Users/hjp/analysis/bears_analyses"
-    "/Users/hjp/analysis/sleuth_paper"
-    "/Users/hjp/analysis/cuffdiff2_analysis"
-    "/Users/hjp/dev/mamabear-private"
-  ]
-  devMode: true
-rExec:
-  title: "r-exec"
-  devMode: true
-  paths: [
-    "~/github/r-exec"
-  ]
-thesis:
-  title: "thesis"
-  paths: [
-    "/Users/hjp/thesis"
-  ]
-kallisto:
-  title: "kallisto"
-  paths: [
-    "~/dev/kallisto"
-  ]
-pasteBuffer:
-  title: "paste-buffer"
-  devMode: true
-  paths: [
-    "~/github/paste-buffer"
-  ]
-sleuthDebug:
-  title: "debugging sleuth"
-  paths: [
-    "~/debug"
-  ]
-voicecode:
-  title: "VoiceCode"
-  paths: [
-    "/Users/hjp/voicecode_user"
-    "/Users/hjp/voicecode/commando"
-  ]
-web:
-  title: "Websites"
-  paths: [
-    "~/web"
-  ]
-kallistoPaper:
-  title: "kallisto paper"
-  paths: [
-    "~/analysis/kallisto_paper_analysis"
-  ]
-benchCI:
-  title: "bench-ci"
-  paths: [
-    "~/dev/bench-ci"
-  ]
-notes:
-  title: "notes"
-  paths: [
-    "~/notes"
-  ]
-peoplesJournal:
-  title: "peoples-journal"
-  paths: [
-    "~/web/peoples-journal"
-  ]
+[
+  {
+    title: "sleuth"
+    paths: [
+      "/Users/hjp/dev/sleuth"
+    ]
+    devMode: true
+  }
+  {
+    title: "r-exec"
+    paths: [
+      "~/github/r-exec"
+    ]
+    devMode: true
+  }
+  {
+    title: "thesis"
+    paths: [
+      "/Users/hjp/thesis"
+    ]
+  }
+  {
+    title: "kallisto"
+    paths: [
+      "~/dev/kallisto"
+    ]
+  }
+  {
+    title: "paste-buffer"
+    paths: [
+      "~/github/paste-buffer"
+    ]
+    devMode: true
+  }
+  {
+    title: "debugging sleuth"
+    paths: [
+      "~/debug"
+    ]
+  }
+  {
+    title: "VoiceCode"
+    paths: [
+      "/Users/hjp/voicecode"
+      "/Users/hjp"
+    ]
+  }
+  {
+    title: "Websites"
+    paths: [
+      "~/web"
+    ]
+  }
+  {
+    title: "kallisto paper"
+    paths: [
+      "~/analysis/kallisto_paper_analysis"
+    ]
+  }
+  {
+    title: "bench-ci"
+    paths: [
+      "~/dev/bench-ci"
+    ]
+  }
+  {
+    title: "notes"
+    paths: [
+      "~/notes"
+    ]
+  }
+  {
+    title: "peoples-journal"
+    paths: [
+      "~/web/peoples-journal"
+    ]
+  }
+]
